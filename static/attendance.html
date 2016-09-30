@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8"/>
+
+    <title>Сервіс Обліку Студентів</title>
+
+    <meta name="description" value="Система Обліку Студентів Навчального Закладу">
+
+    <!-- Include Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="./css/main.css">
+
+  </head>
+  <body>
+    <!-- Start Container -->
+    <div class="container">
+
+      <!-- Start Header -->
+      <div class="row" id="header">
+
+        <!-- Logo -->
+        <div class="col-xs-8">
+          <h1>Сервіс Обліку Студентів</h1>
+        </div>
+
+        <!-- Groups Selector -->
+        <div class="col-xs-4" id="group-selector">
+          <strong>Група:</strong>
+          <select>
+            <option value="">Усі Студенти</option>
+            <option value="">МтМ - 21, Подоба Віталій (№ 254)</option>
+            <option value="">МтМ - 22, Корост Андрій (№ 2123)</option>
+          </select>
+        </div>
+      </div>
+      <!-- End Header -->
+
+      <!-- Start SubHeader -->
+      <div class="row" id="sub-header">
+        <div class="col-xs-12">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation"><a href="index.html">Студенти</a></li>
+            <li role="presentation" class="active"><a href="attendance.html">Відвідування</a></li>
+            <li role="presentation"><a href="listgroup.html">Групи</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- End SubHeader -->
+
+      <!-- Start Main Page Content -->
+      <div class="row" id="content-columns">
+
+        <div class="col-xs-12" id="content-column">
+
+          <h2>Облік Відвідування</h2>
+
+          <div>
+            <div id="month">
+              <ul class="month-page">
+                <li><a href="#">&larr;</a> </li>
+                <li class="current-month">Жовтень 2016 </li>
+                <li><a href="#">&rarr;</a> </li>
+              </ul>
+            </div>
+            <!-- Start Students Listing -->
+            <table class="table table-hover table-striped table-attendance">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Студент</th>
+                  <th>Сб 1</th>
+                  <th>Нд 2</th>
+                  <th>Пн 3</th>
+                  <th>Вт 4</th>
+                  <th>Ср 5</th>
+                  <th>Чт 6</th>
+                  <th>Пт 7</th>
+                  <th>Сб 8</th>
+                  <th>Нд 9</th>
+                  <th>Пн 10</th>
+                  <th>Вт 11</th>
+                  <th>Ср 12</th>
+                  <th>Чт 13</th>
+                  <th>Пт 14</th>
+                  <th>Сб 15</th>
+                  <th>Нд 16</th>
+                  <th>Пн 17</th>
+                  <th>Вт 18</th>
+                  <th>Ср 19</th>
+                  <th>Чт 20</th>
+                  <th>Пт 21</th>
+                  <th>Сб 22</th>
+                  <th>Нд 23</th>
+                  <th>Пн 24</th>
+                  <th>Вт 25</th>
+                  <th>Ср 26</th>
+                  <th>Чт 27</th>
+                  <th>Пт 28</th>
+                  <th>Сб 29</th>
+                  <th>Нд 30</th>
+                  <th>Пн 31</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td><a title="Редагувати" href="#">Подоба Віталій</a></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value="" checked></td>
+                  <td><input type="checkbox" name="a" value="" checked></td>
+                  <td><input type="checkbox" name="a" value="" checked></td>
+                  <td><input type="checkbox" name="a" value="" checked></td>
+                  <td><input type="checkbox" name="a" value="" checked></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value="" checked></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td><a title="Редагувати" href="#">Корост Андрій</a></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value="" checked></td>
+                  <td><input type="checkbox" name="a" value="" checked></td>
+                  <td><input type="checkbox" name="a" value="" checked></td>
+                  <td><input type="checkbox" name="a" value="" checked></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value="" checked></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td><a title="Редагувати" href="#">Притула Тарас</a></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value="" checked></td>
+                  <td><input type="checkbox" name="a" value="" checked></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value="" checked></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                  <td><input type="checkbox" name="a" value=""></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+      <!-- End Main Page Content -->
+
+      <!-- Start Footer -->
+      <div class="row" id="footer">
+        <div class="col-xs-12">
+          &copy;2016 Сервіс Обліку Студентів
+        </div>
+      </div>
+      <!-- End Footer -->
+
+    </div>
+    <!-- End Container -->
+
+
+    <!-- Javascripts Section -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
