@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8"/>
+
+    <title>Сервіс Обліку Студентів</title>
+
+    <meta name="description" value="Система Обліку Студентів Навчального Закладу">
+
+    <!-- Include Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="./css/main.css">
+
+  </head>
+  <body>
+    <h2>Форма редагування Студента</h2>
+
+    <form  action="https://127.0.0.1" method="post" enctype="multipart/form-data">
+      <table>
+        <tr>
+          <td>
+            <label for="name-field">
+              Ім’я*
+            </label>
+          </td>
+          <td>
+              <input type="text" name="name" id="name-field" value="Віталій">
+          </td>
+        </tr>
+        <tr>
+            <td>
+              <label for="patronymic-field">
+                По-батькові
+              </label>
+            </td>
+            <td><input type="text" name="patronymic" id="patronymic-field" value="Іванович"></td>
+        </tr>
+        <tr>
+            <td><label for="surname-field">Прізвище*</label></td>
+            <td><input type="text" name="surname" id="surname-field" value="Подоба"></td>
+        </tr>
+        <tr>
+            <td><label for="studentid-field">№ Білету*</label></td>
+            <td><input type="text" name="studentID" id="studentid-field" value="254"></td>
+        </tr>
+        <tr>
+            <td><label for="dob-field">Дата народження</label></td>
+            <td><input type="text" name="dob" id="dob-field" value="1984-06-17"></td>
+        </tr>
+        <tr>
+            <td><label for="file-field">Фото</label></td>
+            <td>
+              Наразі: <a href="#">student_photos/None_podoba3_1.jpg</a>
+              <input type="checkbox" name="a" value=""><br>
+              <a href="#">Очистити</a>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Змінити: <input class="file" type="file" name="photo" id="file-field" ></td>
+        </tr>
+        <tr>
+            <td><label for="group-field">Група*</label></td>
+            <td>
+              <select name="groups" id="group-field">
+                <option value="mtm-21">МтМ - 21</option>
+                <option value="mtm-22">МтМ - 22</option>
+              </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="notes-field">Додаткові нотатки</label></td>
+            <td><textarea name="notes" id="notes-field">тест d</textarea></td>
+        </tr>
+      </table>
+
+      <input type="submit" value="Зберегти">
+      <input type="reset" value="Скасувати">
+    </form>
+
+    <!-- Javascripts Section -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
