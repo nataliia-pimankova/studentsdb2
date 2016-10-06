@@ -6,16 +6,18 @@ from django.http import HttpResponse
 
 def students_list(request):
     students = (
-        {'id': 1,
-         'first_name': u'Віталій',
-         'last_name': u'Подоба',
-         'ticket': 235,
-         'image': 'img/me.jpeg'},
-        {'id': 2,
-         'first_name': u'Корост',
-         'last_name': u'Андрій',
-         'ticket': 2123,
-         'image': 'img/piv.png'},
+        {
+            'id': 1,
+            'first_name': u'Віталій',
+            'last_name': u'Подоба',
+            'ticket': 235,
+            'image': 'img/me.jpeg'},
+        {
+            'id': 2,
+            'first_name': u'Корост',
+            'last_name': u'Андрій',
+            'ticket': 2123,
+            'image': 'img/piv.png'},
         {
             'id': 3,
             'first_name': u'Тарас',
@@ -41,7 +43,22 @@ def students_delete(request, sid):
 # Views for Groups
 
 def groups_list(request):
-    return HttpResponse('<h1>Groups Listing</h1>')
+    groups = (
+        {'id': 1,
+         'name': u'МтМ-21',
+         'captain': u'Ячменев Олег',
+         },
+        {'id': 2,
+         'name': u'МтМ-22',
+         'captain': u'Подоба Віталій',
+         },
+        {'id': 3,
+         'name': u'МтМ-23',
+         'captain': u'Іванов Андрій',
+         },
+    )
+    return render(request, 'students/groups_list.html', {'groups': groups})
+
 
 def groups_add(request):
     return HttpResponse('<h1>Group Add Form</h1>')
