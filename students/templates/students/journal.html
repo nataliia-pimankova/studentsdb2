@@ -1,0 +1,52 @@
+{% extends "students/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block meta_title %}Облік Відвідування{% endblock meta_title %}
+
+{% block title %}Облік Відвідування{% endblock title %}
+
+{% block content %}
+
+<div id="month">
+  <ul class="month-page">
+    <li><a href="?month={{ context.prev_month }}" title="Попередній Місяць">&larr;</a></li>
+    <li><strong>{{ context.month_verbose }} {{ context.year }}</strong></li>
+    <li><a href="?month={{ context.next_month }}" title='Наступний Місяць'>&rarr;</a></li>
+  </ul>
+</div>
+
+<!-- Start Students Listing -->
+<table class="table table-hover table-striped table-attendance">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Студент</th>
+      {% for day in context.month_header %}
+      <th>
+        {{ day.verbose }}<br> {{ day.day }}
+      </th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for student in students %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>
+        <a title="Редагувати" href="{% url 'students_edit'  student.id  %}">
+          {{ student.fullname }}
+        </a>
+      </td>
+
+      {% for day in student.days %}
+      <td>
+        <input type="checkbox" name="a" value="1" {% if day.present %} checked='checked' {% endif %}>
+      </td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}
