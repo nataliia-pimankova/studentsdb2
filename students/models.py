@@ -52,3 +52,6 @@ class Student(models.Model):
         blank=True,
         verbose_name=u"Додаткові нотатки"
     )
+
+    def __unicode__(self):
+        return u"%s %s" % (self.first_name, self.last_name)
