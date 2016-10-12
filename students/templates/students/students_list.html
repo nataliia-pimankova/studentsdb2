@@ -90,6 +90,22 @@
 </table>
 <!-- End Students Listing -->
 
-{% include "includes/nav.html" with active=4 %}
+<!--{% include "includes/nav.html" with active=4 %} -->
+{% if students.has_other_pages %}
+<nav>
+    <ul class="pagination">
+        <li><a href="{% url 'home' %}?page=1">&laquo;</a> </li>
+        {% for p in students.paginator.page_range %}
+        <li {% if students.number == p %}class="active"{% endif %}>
+            <a href="{% url 'home' %}?page={{ p }}">{{ p }}</a>
+        </li>
+        {% endfor %}
+        <li>
+            <a href="{% url 'home' %}?page={{ students.paginator.num_pages }}">
+                &raquo;</a>
+        </li>
+    </ul>
+</nav>
+{% endif %}
 
 {% endblock content %}
