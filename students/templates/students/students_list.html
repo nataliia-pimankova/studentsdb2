@@ -24,10 +24,13 @@
       </th>
       <th>Фото</th>
       <th>
-        <a href="{% url 'home' %}?order_by=last_name{% if order_by == 'last_name' and reverse != '1' %}&amp;reverse=1{% endif %}">
+        <a href="{% url 'home' %}?order_by=last_name{% if order_by == 'last_name' and reverse != '1' %}&amp;reverse=1
+                {% elif not order_by and reverse != '1' %}&amp;reverse=1
+                {% endif %}">
         Прізвище
         {% if order_by == 'last_name' and reverse != '1' %}&uarr;
         {% elif order_by == 'last_name' and reverse == '1' %}&darr;
+        {% elif not order_by  %}&uarr;
         {% endif %}
         </a>
       </th>
