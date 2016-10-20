@@ -2,7 +2,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from ..models import Student
+from ..models.Student import Student
 
 # Views for Students.
 
