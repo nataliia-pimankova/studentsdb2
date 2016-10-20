@@ -114,19 +114,15 @@
 {% endwith %}
 {% endif %}
 -->
-<a id="loadMore" class="btn btn-primary " href="#">Load More</a>
+<!-- <a id="loadMore" class="btn btn-primary " href="#">Load More</a> -->
 <script type="text/javascript" src="/static/scripts/jquery-3.1.1.js"></script>
 <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script> -->
 <script >
     $(function () {
-        var per_page = 3
+        var per_page = 3;
         $("tr.hd").slice(0, per_page).show();
-        $("#loadMore").on('click', function (e) {
-            e.preventDefault();
+        $(window).scroll(function(){
             $("tr:hidden").slice(0, per_page).slideDown();
-            if ($("tr:hidden").length == 0) {
-                $("#loadMore").fadeOut('slow');
-            }
         });
     });
 
