@@ -27,6 +27,14 @@
         </a>
       </th>
       <th>
+        <a href="{% url 'tests' %}?order_by=date{% if order_by == 'group' and reverse != '1' %}&amp;reverse=1{% endif %}">
+        Дата і час
+        {% if order_by == 'date' and reverse != '1' %}&uarr;
+        {% elif order_by == 'date' and reverse == '1' %}&darr;
+        {% endif %}
+        </a>
+      </th>
+      <th>
         <a href="{% url 'tests' %}?order_by=teacher{% if order_by == 'teacher' and reverse != '1' %}&amp;reverse=1{% endif %}">
         Викладач
         {% if order_by == 'teacher' and reverse != '1' %}&uarr;
@@ -51,6 +59,7 @@
     <tr class="hd">
       <td>{{ forloop.counter }}</td>
       <td><a title="Редагувати" href="{% url 'tests_edit' test.id %}">{{ test.title }}</a></td>
+      <td>{{ test.date }}</td>
       <td>{{ test.teacher }}</td>
       <td><a title="Список груп" href="{% url 'groups_edit' test.group.id%}">{{ test.group }}</a></td>
       <td>

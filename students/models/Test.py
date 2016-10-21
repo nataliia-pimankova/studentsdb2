@@ -17,7 +17,7 @@ class Test(models.Model):
         verbose_name=u"Назва предмету"
     )
 
-    date = models.DateField(
+    date = models.DateTimeField(
         blank=False,
         verbose_name=u"Дата і час проведення",
         null=True

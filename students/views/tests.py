@@ -11,7 +11,7 @@ def tests_list (request):
 
     # try to order tests_list
     order_by = request.GET.get('order_by')
-    if order_by in ('title','teacher', 'group'):
+    if order_by in ('title','teacher', 'group', 'date'):
         tests = tests.order_by(order_by)
         if request.GET.get('reverse', '') == '1':
             tests = tests.reverse()
