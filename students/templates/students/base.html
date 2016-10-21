@@ -45,6 +45,7 @@
       {% url 'home' as home %}
       {% url 'journal' as journal %}
       {% url 'groups' as group %}
+      {% url 'tests' as test %}
 
       <!-- Start SubHeader -->
       <div class="row" id="sub-header">
@@ -53,7 +54,7 @@
             <li role="presentation" {% if request.path == home %}class="active"{% endif %}><a href="{% url 'home' %}">Студенти</a></li>
             <li role="presentation" {% if request.path == journal %}class="active"{% endif %}><a href="{% url 'journal' %}">Відвідування</a></li>
             <li role="presentation" {% if request.path == group %}class="active"{% endif %}><a href="{% url 'groups' %}">Групи</a></li>
-            <li role="presentation" {% if request.path == tests %}class="active"{% endif %}><a href="{% url 'tests' %}">Іспити</a></li>
+            <li role="presentation" {% if request.path == test %}class="active"{% endif %}><a href="{% url 'tests' %}">Іспити</a></li>
           </ul>
         </div>
       </div>
