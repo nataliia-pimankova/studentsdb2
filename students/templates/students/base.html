@@ -53,6 +53,7 @@
             <li role="presentation" {% if request.path == home %}class="active"{% endif %}><a href="{% url 'home' %}">Студенти</a></li>
             <li role="presentation" {% if request.path == journal %}class="active"{% endif %}><a href="{% url 'journal' %}">Відвідування</a></li>
             <li role="presentation" {% if request.path == group %}class="active"{% endif %}><a href="{% url 'groups' %}">Групи</a></li>
+            <li role="presentation" {% if request.path == tests %}class="active"{% endif %}><a href="{% url 'tests' %}">Іспити</a></li>
           </ul>
         </div>
       </div>

@@ -1,0 +1,92 @@
+{% extends "students/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block meta_title %}Іспити{% endblock meta_title %}
+
+{% block title %}База Іспитів{% endblock title %}
+
+{% block content %}
+<a class="btn btn-primary" href="{% url 'tests_add' %}">Додати Іспит</a>
+
+<!-- Start Tests Listing -->
+<table class="table table-hover table-striped">
+  {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
+  <thead>
+    <tr>
+      <th><a href="">№</a></th>
+      <th>
+        <a href="{% url 'tests' %}?order_by=title{% if order_by == 'title' and reverse != '1' %}&amp;reverse=1
+                {% elif not order_by and reverse != '1' %}&amp;reverse=1
+                {% endif %}">
+        Назва
+        {% if order_by == 'title' and reverse != '1' %}&uarr;
+        {% elif order_by == 'title' and reverse == '1' %}&darr;
+        {% elif not order_by  %}&uarr;
+        {% endif %}
+        </a>
+      </th>
+      <th>
+        <a href="{% url 'tests' %}?order_by=teacher{% if order_by == 'teacher' and reverse != '1' %}&amp;reverse=1{% endif %}">
+        Викладач
+        {% if order_by == 'teacher' and reverse != '1' %}&uarr;
+        {% elif order_by == 'teacher' and reverse == '1' %}&darr;
+        {% endif %}
+        </a>
+      </th>
+      <th>
+        <a href="{% url 'tests' %}?order_by=group{% if order_by == 'group' and reverse != '1' %}&amp;reverse=1{% endif %}">
+        Група
+        {% if order_by == 'group' and reverse != '1' %}&uarr;
+        {% elif order_by == 'group' and reverse == '1' %}&darr;
+        {% endif %}
+        </a>
+      </th>
+      <th>Дії</th>
+    </tr>
+  </thead>
+  {% endwith %}
+  <tbody>
+    {% for test in tests %}
+    <tr class="hd">
+      <td>{{ forloop.counter }}</td>
+      <td><a title="Редагувати" href="{% url 'tests_edit' test.id %}">{{ test.title }}</a></td>
+      <td>{{ test.teacher }}</td>
+      <td><a title="Список груп" href="{% url 'groups_edit' test.group.id%}">{{ test.group }}</a></td>
+      <td>
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+            Дія
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li role="presentation">
+              <a role="menuitem" tabindex="-1" href="#">Результати</a>
+            </li>
+            <li role="presentation">
+              <a role="menuitem" tabindex="-1" href="{% url 'tests_edit' test.id %}">Редагувати</a>
+            </li>
+            <li role="presentation">
+              <a role="menuitem" tabindex="-1" href="{% url 'tests_delete' test.id %}">Видалити</a>
+            </li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<!-- End Students Listing -->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script >
+    $(function () {
+        var per_page = 3;
+        $("tr.hd").slice(0, per_page).show();
+        $(window).scroll(function(){
+            $("tr:hidden").slice(0, per_page).slideDown();
+        });
+    });
+</script>
+
+{% endblock content %}
