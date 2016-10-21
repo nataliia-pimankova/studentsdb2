@@ -56,7 +56,7 @@
   {% endwith %}
   <tbody>
     {% for student in students %}
-    <tr class="hd">
+    <tr >
       <td>{{ student.id }}</td>
       <td>
         {% if student.photo %}
@@ -94,7 +94,7 @@
 <!-- End Students Listing -->
 
 <!--{% include "includes/nav.html" with active=4 %} -->
-<!--
+
 {% if students.has_other_pages %}
 {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
 <nav>
@@ -113,19 +113,5 @@
 </nav>
 {% endwith %}
 {% endif %}
--->
-<!-- <a id="loadMore" class="btn btn-primary " href="#">Load More</a> -->
-<script type="text/javascript" src="/static/scripts/jquery-3.1.1.js"></script>
-<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script> -->
-<script >
-    $(function () {
-        var per_page = 3;
-        $("tr.hd").slice(0, per_page).show();
-        $(window).scroll(function(){
-            $("tr:hidden").slice(0, per_page).slideDown();
-        });
-    });
-
-</script>
 
 {% endblock content %}
