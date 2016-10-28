@@ -79,6 +79,9 @@
               <a role="menuitem" tabindex="-1" href="/journal/{{ student.id }}">Відвідування</a>
             </li>
             <li role="presentation">
+              <a role="menuitem" tabindex="-1" href="{% url 'results' %}?sid={{ student.id }}">Результати іспитів</a>
+            </li>
+            <li role="presentation">
               <a role="menuitem" tabindex="-1" href="{% url 'students_edit' student.id %}">Редагувати</a>
             </li>
             <li role="presentation">

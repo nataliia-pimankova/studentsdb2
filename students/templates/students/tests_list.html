@@ -57,7 +57,7 @@
   <tbody>
     {% for test in tests %}
     <tr class="hd">
-      <td>{{ forloop.counter }}</td>
+      <td>{{ test.id }}</td>
       <td><a title="Редагувати" href="{% url 'tests_edit' test.id %}">{{ test.title }}</a></td>
       <td>{{ test.date }}</td>
       <td>{{ test.teacher }}</td>
@@ -70,7 +70,7 @@
           </button>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
-              <a role="menuitem" tabindex="-1" href="#">Результати</a>
+              <a role="menuitem" tabindex="-1" href="{% url 'results' %}?tid={{ test.id }}">Результати</a>
             </li>
             <li role="presentation">
               <a role="menuitem" tabindex="-1" href="{% url 'tests_edit' test.id %}">Редагувати</a>

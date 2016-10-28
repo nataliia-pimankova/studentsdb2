@@ -1,0 +1,87 @@
+{% extends "students/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block meta_title %}Результати іспитів{% endblock meta_title %}
+
+{% block title %}База Результатів Іспитів{% endblock title %}
+
+{% block content %}
+<a class="btn btn-primary" href="{% url 'results_add' %}">Додати Результат</a>
+
+<!-- Start  Listing -->
+<table class="table table-hover table-striped">
+  {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
+  <thead>
+    <tr>
+      <th>
+        №
+      </th>
+      <th>
+        <a href="#">
+        Предмет
+        </a>
+      </th>
+      <th>
+        <a href="#">
+        Група
+        </a>
+      </th>
+      <th>
+        <a href="#">
+        Студент
+        </a>
+      </th>
+      <th>
+        <a href="#">
+        Оцінка
+        </a>
+      </th>
+      <th>
+        <a href="#">
+        Викладач
+        </a>
+      </th>
+      <th>
+        <a href="#">
+        Дата і час
+        </a>
+      </th>
+      <th>Дії</th>
+    </tr>
+  </thead>
+  {% endwith %}
+  <tbody>
+    {% for result in results %}
+    <tr >
+      <td>{{ result.id }}</td>
+      <td><a title="Редагувати" href="#">{{ result.test.title }}</a></td>
+      <td><a title="Редагувати" href="#">{{ result.test.group.title }}</a></td>
+      <td><a title="Редагувати" href="#">{{ result.student.last_name  }} {{ result.student.first_name  }}</a></td>
+      <td><a title="Редагувати" href="{% url 'results_edit' result.id %}">{{ result.grade }}</a></td>
+      <td><a title="Редагувати" href="#">{{ result.test.teacher }}</a></td>
+      <td>{{ result.test.date }}</td>
+      <td>
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+            Дія
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li role="presentation">
+              <a role="menuitem" tabindex="-1" href="{% url 'results_edit' result.id %}">Редагувати</a>
+            </li>
+            <li role="presentation">
+              <a role="menuitem" tabindex="-1" href="{% url 'results_delete' result.id %}">Видалити</a>
+            </li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<!-- End Results Listing -->
+
+
+{% endblock content %}

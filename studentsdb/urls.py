@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from students.views import students, groups, journal, tests
+from students.views import students, groups, journal, tests, results
 from .settings import MEDIA_ROOT, DEBUG
 from django.views import static
 
@@ -40,6 +40,12 @@ urlpatterns = [
     url(r'^tests/add/$', tests.tests_add, name='tests_add'),
     url(r'^tests/(?P<tid>\d+)/edit/$', tests.tests_edit, name='tests_edit'),
     url(r'^tests/(?P<tid>\d+)/delete/$', tests.tests_delete, name='tests_delete'),
+
+    # Results Urls
+    url(r'^results/$', results.results_list, name='results'),
+    url(r'^results/add/$', results.results_add, name='results_add'),
+    url(r'^results/(?P<rid>\d+)/edit/$', results.results_edit, name='results_edit'),
+    url(r'^results/(?P<rid>\d+)/delete/$', results.results_delete, name='results_delete'),
 
     url(r'^admin/', include(admin.site.urls)),
 ]
