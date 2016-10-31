@@ -11,16 +11,18 @@
 <form action="{% url 'students_add' %}" method="post" enctype="multipart/form-data">
 {% csrf_token %}
     <div>
-        <label for="first_name">Ім'я</label>
+        <label for="first_name">Ім'я*</label>
         <input type="text" value=""
                name="first_name" id="first_name"
                placeholder="Введіть ваше ім'я" />
+        <span class="help-block">{{ errors.first_name }}</span>
     </div>
     <div>
-        <label for="last_name">Прізвище</label>
+        <label for="last_name">Прізвище*</label>
         <input type="text" value=""
                name="last_name" id="last_name"
                placeholder="Введіть ваше прізвище"/>
+        <span class="help-block">{{ errors.last_name }}</span>
     </div>
     <div>
         <label for="middle_name">По-батькові</label>
@@ -29,29 +31,33 @@
                placeholder="Введіть ваше по-батькові" />
     </div>
     <div>
-        <label for="birthday">Дата народження</label>
+        <label for="birthday">Дата народження*</label>
         <input type="text" value=""
                name="birthday" id="birthday"
                placeholder="Напр. 1984-12-30"/>
+        <span class="help-block">{{ errors.birthday }}</span>
     </div>
     <div>
         <label for="photo">Фото</label>
         <input type="file" value="" name="photo" id="photo"
                placeholder="Додайте ваше фото" />
+        <span class="help-block">{{ errors.photo }}</span>
     </div>
     <div>
-        <label for="ticket">Білет</label>
+        <label for="ticket">Білет*</label>
         <input type="text" value="" name="ticket" id="ticket"
                placeholder="Введіть номер білета" />
+        <span class="help-block">{{ errors.ticket }}</span>
     </div>
     <div>
-        <label for="student_group">Група</label>
+        <label for="student_group">Група*</label>
         <select name="student_group" id="student_group" >
             <option value="">Виберіть групу</option>
             {% for group in groups %}
             <option value="{{ group.id }}">{{group.title}}</option>
             {% endfor %}
         </select>
+        <span class="help-block">{{ errors.student_group }}</span>
     </div>
     <div>
         <label for="notes">Додаткові нотатки</label>
