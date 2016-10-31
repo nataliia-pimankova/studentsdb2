@@ -50,6 +50,11 @@
         {% endif %}
         </a>
       </th>
+      <th>
+        <a href="#">
+        Група
+        </a>
+      </th>
       <th>Дії</th>
     </tr>
   </thead>
@@ -68,6 +73,7 @@
       <td><a title="Редагувати" href="{% url 'students_edit' student.id %}">{{ student.last_name }}</a></td>
       <td><a title="Редагувати" href="{% url 'students_edit' student.id %}">{{ student.first_name }}</a></td>
       <td>{{ student.ticket }}</td>
+      <td>{{ student.student_group.title }}</td>
       <td>
         <div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
