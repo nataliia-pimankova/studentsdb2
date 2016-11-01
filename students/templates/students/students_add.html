@@ -50,8 +50,8 @@
         <span class="help-block">{{ errors.ticket }}</span>
     </div>
     <div>
-        <label for="student_group">Група*</label>
-        <select name="student_group" id="student_group" >
+        <label for="select_group">Група*</label>
+        <select name="student_group" id="select_group" >
             <option value="">Виберіть групу</option>
             {% for group in groups %}
             <option value="{{ group.id }}">{{group.title}}</option>
