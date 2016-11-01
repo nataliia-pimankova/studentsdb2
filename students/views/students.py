@@ -30,7 +30,7 @@ def students_list (request):
         # if 'home'
         page = 1
 
-    per_page = 10
+    per_page = 7
     num_pages, remainder = divmod(Student.objects.count() , per_page)
     if remainder :
         num_pages +=1
@@ -118,7 +118,7 @@ def students_add (request):
                 student.save()
 
                 # Повертаємо користувача до списку студентів
-                return HttpResponseRedirect(reverse('home'))
+                return HttpResponseRedirect(u'%s?status_message=Студент %s %s %s успішно доданий!' %(reverse('home') ,data['last_name'],data['first_name'],data['middle_name']))
 
             # Якщо дані були введені некоректно:
             else:
@@ -130,7 +130,7 @@ def students_add (request):
         # Якщо кнопка Скасувати була натиснута:
         elif request.POST.get('cancel_button') is not None:
             # Повертаємо користувача до списку студентів
-            return HttpResponseRedirect(reverse('home'))
+            return HttpResponseRedirect(u"%s?status_message=Додавання студента скасовано!" % reverse('home'))
 
     # Якщо форма не була запощена:
     else:

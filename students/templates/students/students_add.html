@@ -6,6 +6,14 @@
 
 {% block title %}Додати студента{% endblock title %}
 
+{% block status_message %}
+    {% if errors %}
+    <div class="alert alert-warning" role="alert">
+        Будь-ласка, виправте наступні помилки
+    </div>
+    {% endif %}
+{% endblock status_message %}
+
 {% block content %}
 
 <form action="{% url 'students_add' %}" method="post" enctype="multipart/form-data">
