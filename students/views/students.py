@@ -30,7 +30,7 @@ def students_list (request):
         # if 'home'
         page = 1
 
-    per_page = 3
+    per_page = 10
     num_pages, remainder = divmod(Student.objects.count() , per_page)
     if remainder :
         num_pages +=1
