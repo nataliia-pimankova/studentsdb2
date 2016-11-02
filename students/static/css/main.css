@@ -92,3 +92,10 @@ form td:nth-child(2) .file {
 tr.hd {
     display:none;
 }
+
+/* Form Styles */
+textarea,
+select,
+input {
+    max-width: 300px;
+}
