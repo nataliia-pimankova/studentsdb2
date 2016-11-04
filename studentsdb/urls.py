@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from students.views import students, groups, journal, tests, results
+from students.views import students, groups, journal, tests, results, contact_admin
 from .settings import MEDIA_ROOT, DEBUG
 from django.views import static
 
@@ -46,6 +46,9 @@ urlpatterns = [
     url(r'^results/add/$', results.results_add, name='results_add'),
     url(r'^results/(?P<rid>\d+)/edit/$', results.results_edit, name='results_edit'),
     url(r'^results/(?P<rid>\d+)/delete/$', results.results_delete, name='results_delete'),
+
+    # Contact Admin Form
+    url(r'^contact_admin/$', contact_admin.contact_admin, name='contact_admin'),
 
     url(r'^admin/', include(admin.site.urls)),
 ]
