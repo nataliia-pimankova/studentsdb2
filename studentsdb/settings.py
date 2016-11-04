@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'students',
 ]
 
@@ -130,3 +131,5 @@ EMAIL_HOST_USER = 'natalya2487@gmail.com'
 EMAIL_HOST_PASSWORD = '********'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
