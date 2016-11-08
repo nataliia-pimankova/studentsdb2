@@ -1,10 +1,13 @@
 # coding=utf8
+from datetime import datetime
+
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+from django.forms import ModelForm
 from django.views.generic import UpdateView
-from datetime import datetime
 
 from ..models.Student import Student
 from ..models.Group import Group
@@ -141,20 +144,31 @@ def students_add (request):
         return render(request,'students/students_add.html',
                   {'groups':Group.objects.all().order_by('title')})
 
+
+class StudentUpdateForm(ModelForm):
+    class Meta:
+        model = Student
+        fields = "__all__"
+
+    def __init__(self, *args, **kwargs):
+        super(StudentUpdateForm, self).__init__(*args, **kwargs)
+
 class StudentUpdateView(UpdateView):
     model = Student
-    fields = ['last_name', 'first_name', 'middle_name', 'birthday','ticket', 'student_group', 'photo', 'notes']
     template_name = 'students/students_edit.html'
+    form_class = StudentUpdateForm
 
     def get_success_url(self):
-        return u"%s?status_message=Студента успішно збережено!" % reverse('home')
+        return u'%s?status_message=Студента успішно збережено!' \
+            % reverse('home')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            return HttpResponseRedirect(u"%s?status_message=Редагування студента відмінено!" % reverse('home'))
+            return HttpResponseRedirect(
+                u'%s?status_message=Редагування студента відмінено!' %
+                reverse('home'))
         else:
-            return super(StudentUpdateView, self).post(request,*args,**kwargs)
-
+            return super(StudentUpdateView, self).post(request, *args, **kwargs)
 
 
 def students_edit (request, sid):
