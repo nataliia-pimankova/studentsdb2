@@ -1,0 +1,31 @@
+{% extends "students/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block meta_title %}Редагувати студента{% endblock meta_title %}
+
+{% block title %}Редагувати студента{% endblock title %}
+
+{% block status_message %}
+    {% if form.errors %}
+    <div class="alert alert-warning" role="alert">
+        Будь-ласка, виправте наступні помилки
+    </div>
+    {% endif %}
+{% endblock status_message %}
+
+{% block content %}
+
+<form action="{% url 'students_edit' object.id %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <input type="submit" value="Зберегти"
+           name="add_button" class="btn btn-primary" />
+    <button type="submit" name="cancel_button" value="Скасувати"
+            class="btn btn-link">Скасувати</button>
+
+</form>
+
+{% endblock content %}

@@ -18,12 +18,13 @@ from django.contrib import admin
 from students.views import students, groups, journal, tests, results, contact_admin
 from .settings import MEDIA_ROOT, DEBUG
 from django.views import static
+from students.views.students import StudentUpdateView
 
 urlpatterns = [
     # Students urls
     url(r'^$', students.students_list, name='home'),
     url(r'^students/add/$', students.students_add, name='students_add'),
-    url(r'^students/(?P<sid>\d+)/edit/$', students.students_edit, name='students_edit'),
+    url(r'^students/(?P<pk>\d+)/edit/$', StudentUpdateView.as_view(), name='students_edit'),
     url(r'^students/(?P<sid>\d+)/delete/$', students.students_delete, name='students_delete'),
 
     # Groups urls
