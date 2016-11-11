@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from django.forms import ModelForm
-from django.views.generic import UpdateView
+from django.views.generic import UpdateView, CreateView
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
@@ -64,104 +64,30 @@ def students_list (request):
     return render(request, 'students/students_list.html',
                   {'students': students })
 
-def students_add (request):
-    # Якщо форма була запощена: was form posted?
-    if request.method == "POST":
-        # Якщо кнопка Додати була натиснута: was form add button clicked?
-        if request.POST.get('add_button') is not None:
-            # errors collection
-            errors ={}
-            # data for student object
-            data = {'middle_name': request.POST.get('middle_name'),
-                    'notes': request.POST.get('notes')}
-
-            #validate user input
-            first_name = request.POST.get('first_name', '').strip()
-            if not first_name:
-                errors['first_name'] = u"Ім'я є обов'язковим"
-            else:
-                data['first_name'] = first_name
-
-            last_name = request.POST.get('last_name', '').strip()
-            if not last_name:
-                errors['last_name'] = u"Прізвище є обов'язковим"
-            else:
-                data['last_name'] = last_name
-
-            birthday = request.POST.get('birthday', '').strip()
-            if not birthday:
-                errors['birthday'] = u"Дата народження є обов'язковою"
-            else:
-                try:
-                    datetime.strptime(birthday,'%Y-%m-%d')
-                except Exception:
-                    errors['birthday'] = u"Введіть корректний формат дати (напр. 1984-12-30)"
-                else:
-                    data['birthday'] = birthday
-
-            ticket = request.POST.get('ticket', '').strip()
-            if not ticket:
-                errors['ticket'] = u"Номер білета є обов'язковим"
-            else:
-                data['ticket'] = ticket
-
-            student_group = request.POST.get('student_group', '').strip()
-            if not student_group:
-                errors['student_group'] = u"Оберіть групу для студента"
-            else:
-                groups = Group.objects.filter(pk=student_group)
-                if len(groups) != 1:
-                    errors['student_group'] = u"Оберіть коректну групу"
-                else:
-                    data['student_group'] = groups[0]
-
-            photo = request.FILES.get('photo')
-            if photo:
-                data['photo'] = photo
-
-            # Якщо дані були введені коректно:
-            if not errors:
-                # Створюємо та зберігаємо студента в базу
-                student = Student(**data)
-                # save it to database
-                student.save()
-
-                # Повертаємо користувача до списку студентів
-                return HttpResponseRedirect(u'%s?status_message=Студент %s %s %s успішно доданий!' %(reverse('home') ,data['last_name'],data['first_name'],data['middle_name']))
-
-            # Якщо дані були введені некоректно:
-            else:
-                # Віддаємо шаблон форми разом із знайденими помилками
-                return render(request, 'students/students_add.html',
-                              {'groups': Group.objects.all().order_by('title'),
-                               'errors': errors})
-
-        # Якщо кнопка Скасувати була натиснута:
-        elif request.POST.get('cancel_button') is not None:
-            # Повертаємо користувача до списку студентів
-            return HttpResponseRedirect(u"%s?status_message=Додавання студента скасовано!" % reverse('home'))
-
-    # Якщо форма не була запощена:
-    else:
-        # Повертаємо код початкового стану форми
-        return render(request,'students/students_add.html',
-                  {'groups':Group.objects.all().order_by('title')})
-
-
-class StudentUpdateForm(ModelForm):
+class StudentForm(ModelForm):
     class Meta:
         model = Student
         fields = "__all__"
 
     def __init__(self, *args, **kwargs):
         # call original initializator
-        super(StudentUpdateForm, self).__init__(*args, **kwargs)
+        super(StudentForm, self).__init__(*args, **kwargs)
 
         self.helper = FormHelper(self)
+        input_value = ''
 
+        if hasattr(kwargs['instance'], 'id'):
+            self.helper.form_action = reverse('students_edit',
+                                              kwargs={'pk': kwargs['instance'].id})
+            input_value = 'update_button'
+            self.title = u'Редагувати студента'
+        else:
         # set form tag attributes
-        self.helper.form_action = reverse('students_edit',
-                    kwargs={'pk': kwargs['instance'].id})
+            self.helper.form_action = reverse('students_add',
+                         kwargs={})
+            input_value = 'add_button'
+            self.title = u'Додати студента'
+
         self.helper.form_method = 'POST'
         self.helper.form_class = 'form-horizontal'
 
@@ -172,14 +98,30 @@ class StudentUpdateForm(ModelForm):
         self.helper.field_class = 'col-sm-10'
 
         #form buttons
-        self.helper.add_input(Submit('add_button', u'Зберегти', css_class='btn btn-primary'))
+        self.helper.add_input(Submit(input_value, u'Зберегти', css_class='btn btn-primary'))
         self.helper.add_input(Submit('cancel_button', u'Скасувати', css_class='btn btn-link'))
+
+class StudentCreateView(CreateView):
+    model = Student
+    form_class = StudentForm
+    template_name = 'students/students_edit.html'
+    form_class.title = u'Додати студента'
+
+    def get_success_url(self):
+        return u'%s?status_message=Студент успішно доданий!' % reverse('home')
+
+    def post(self, request, *args, **kwargs):
+        if request.POST.get('cancel_button'):
+            return HttpResponseRedirect(u"%s?status_message=Додавання студента скасовано!" % reverse('home'))
+        else:
+            return super(StudentCreateView, self).post(request,*args,**kwargs)
 
 
 class StudentUpdateView(UpdateView):
     model = Student
-    form_class = StudentUpdateForm
+    form_class = StudentForm
     template_name = 'students/students_edit.html'
+    form_class.title = u'Редагувати студента'
 
     def get_success_url(self):
         return u"%s?status_message=Студента успішно збережено!" % reverse('home')
