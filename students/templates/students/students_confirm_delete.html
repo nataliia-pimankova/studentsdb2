@@ -1,0 +1,19 @@
+{% extends "students/base.html" %}
+
+{% load static from staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block meta_title %}Видалити Студента{% endblock meta_title %}
+
+{% block title %}Видалити Студента{% endblock title %}
+
+{% block content %}
+
+<form action="{% url 'students_delete' object.id %}" method="post">
+    {% csrf_token %}
+    <p>Ви дійсно хочете видалити студента "{{ object }}"?</p>
+    <input type="submit" value="Так" name="delete_button"
+        class="btn btn-danger"/> <br /> <br />
+</form>
+
+{% endblock content %}
