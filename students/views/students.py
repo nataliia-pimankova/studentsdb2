@@ -74,18 +74,15 @@ class StudentForm(ModelForm):
         super(StudentForm, self).__init__(*args, **kwargs)
 
         self.helper = FormHelper(self)
-        input_value = ''
 
         if hasattr(kwargs['instance'], 'id'):
             self.helper.form_action = reverse('students_edit',
                                               kwargs={'pk': kwargs['instance'].id})
-            input_value = 'update_button'
             self.title = u'Редагувати студента'
         else:
         # set form tag attributes
             self.helper.form_action = reverse('students_add',
                          kwargs={})
-            input_value = 'add_button'
             self.title = u'Додати студента'
 
         self.helper.form_method = 'POST'
@@ -98,7 +95,7 @@ class StudentForm(ModelForm):
         self.helper.field_class = 'col-sm-10'
 
         #form buttons
-        self.helper.add_input(Submit(input_value, u'Зберегти', css_class='btn btn-primary'))
+        self.helper.add_input(Submit('save_button', u'Зберегти', css_class='btn btn-primary'))
         self.helper.add_input(Submit('cancel_button', u'Скасувати', css_class='btn btn-link'))
 
 class StudentCreateView(CreateView):
