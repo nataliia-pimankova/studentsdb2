@@ -20,6 +20,7 @@ from .settings import MEDIA_ROOT, DEBUG
 from django.views import static
 from students.views.students import StudentCreateView, StudentUpdateView, StudentDeleteView
 from students.views.groups import GroupCreateView, GroupUpdateView, GroupDeleteView
+from students.views.tests import TestCreateView, TestUpdateView, TestDeleteView
 
 urlpatterns = [
     # Students urls
@@ -39,9 +40,9 @@ urlpatterns = [
 
     # Tests Urls
     url(r'^tests/$', tests.tests_list, name='tests'),
-    url(r'^tests/add/$', tests.tests_add, name='tests_add'),
-    url(r'^tests/(?P<tid>\d+)/edit/$', tests.tests_edit, name='tests_edit'),
-    url(r'^tests/(?P<tid>\d+)/delete/$', tests.tests_delete, name='tests_delete'),
+    url(r'^tests/add/$', TestCreateView.as_view(), name='tests_add'),
+    url(r'^tests/(?P<pk>\d+)/edit/$', TestUpdateView.as_view(), name='tests_edit'),
+    url(r'^tests/(?P<pk>\d+)/delete/$', TestDeleteView.as_view(), name='tests_delete'),
 
     # Results Urls
     url(r'^results/$', results.results_list, name='results'),

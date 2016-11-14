@@ -30,7 +30,7 @@ class Test(models.Model):
     )
 
     group = models.ForeignKey('Group',
-        verbose_name=u"",
+        verbose_name=u"Група",
         blank=False,
         null=True,
         on_delete=models.PROTECT
