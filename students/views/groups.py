@@ -52,12 +52,12 @@ class GroupForm(ModelForm):
         if hasattr(kwargs['instance'], 'id'):
             self.helper.form_action = reverse('groups_edit',
                                               kwargs={'pk': kwargs['instance'].id})
-            self.title = u'Редагувати групу'
+            self.headline = u'Редагувати групу'
         else:
         # set form tag attributes
             self.helper.form_action = reverse('groups_add',
                          kwargs={})
-            self.title = u'Додати групу'
+            self.headline = u'Додати групу'
 
         self.helper.form_method = 'POST'
         self.helper.form_class = 'form-horizontal'
@@ -75,7 +75,7 @@ class GroupForm(ModelForm):
 class GroupCreateView(CreateView):
     model = Group
     form_class = GroupForm
-    template_name = 'students/students_edit.html'
+    template_name = 'students/groups_edit.html'
 
     def get_success_url(self):
         return u'%s?status_message=Група успішно додана!' % reverse('home')
@@ -90,7 +90,7 @@ class GroupCreateView(CreateView):
 class GroupUpdateView(UpdateView):
     model = Group
     form_class = GroupForm
-    template_name = 'students/students_edit.html'
+    template_name = 'students/groups_edit.html'
 
     def get_success_url(self):
         return u"%s?status_message=Групу успішно збережено!" % reverse('home')

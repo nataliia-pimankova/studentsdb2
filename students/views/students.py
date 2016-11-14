@@ -78,12 +78,12 @@ class StudentForm(ModelForm):
         if hasattr(kwargs['instance'], 'id'):
             self.helper.form_action = reverse('students_edit',
                                               kwargs={'pk': kwargs['instance'].id})
-            self.title = u'Редагувати студента'
+            self.headline = u'Редагувати студента'
         else:
         # set form tag attributes
             self.helper.form_action = reverse('students_add',
                          kwargs={})
-            self.title = u'Додати студента'
+            self.headline = u'Додати студента'
 
         self.helper.form_method = 'POST'
         self.helper.form_class = 'form-horizontal'
