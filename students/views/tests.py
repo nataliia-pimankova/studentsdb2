@@ -98,5 +98,5 @@ class TestDeleteView(DeleteView):
     template_name = 'students/tests_confirm_delete.html'
 
     def get_success_url(self):
-        return u'%s?status_message=Іспит успішно видалено!'  % reverse('home')
+        return u'%s?status_message=Іспит успішно видалено!'  % reverse('tests')
 

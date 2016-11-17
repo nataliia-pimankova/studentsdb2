@@ -78,7 +78,7 @@ class GroupCreateView(CreateView):
     template_name = 'students/groups_edit.html'
 
     def get_success_url(self):
-        return u'%s?status_message=Група успішно додана!' % reverse('home')
+        return u'%s?status_message=Група успішно додана!' % reverse('groups')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
@@ -93,7 +93,7 @@ class GroupUpdateView(UpdateView):
     template_name = 'students/groups_edit.html'
 
     def get_success_url(self):
-        return u"%s?status_message=Групу успішно збережено!" % reverse('home')
+        return u"%s?status_message=Групу успішно збережено!" % reverse('groups')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
@@ -107,5 +107,5 @@ class GroupDeleteView(DeleteView):
     template_name = 'students/groups_confirm_delete.html'
 
     def get_success_url(self):
-        return u'%s?status_message=Групу успішно видалено!'  % reverse('home')
+        return u'%s?status_message=Групу успішно видалено!'  % reverse('groups')
 
