@@ -4,6 +4,9 @@ from django import forms
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.views.generic.edit import FormView
+
+from django.contrib import messages
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
@@ -63,17 +66,44 @@ def contact_admin(request):
             try:
                 send_mail(subject, message, from_email, [ADMIN_EMAIL])
             except Exception:
-                message = u'Під час відправки листа виникла непередбачувана ' \
-                    u'помилка. Спробуйте скористатись даною формою пізніше.'
+                messages.warning(request,u'Під час відправки листа виникла непередбачувана ' \
+                    u'помилка. Спробуйте скористатись даною формою пізніше.')
             else:
-                message = u'Повідомлення успішно надіслане!'
+                messages.success(request, u'Повідомлення успішно надіслане!')
 
             # redirect to same contact page with success message
-            return HttpResponseRedirect(
-                u'%s?status_message=%s' % (reverse('contact_admin'), message))
+            return HttpResponseRedirect(reverse('contact_admin'))
 
     # if there was not POST render blank form
     else:
         form = ContactForm()
 
     return render(request, 'contact_admin/form.html', {'form': form})
+
+class ContactView(FormView):
+    template_name = 'contact_admin/form.html'
+    form_class = ContactForm
+    # success_url = '/email-sent/'
+    success_url = '/contact_admin/'
+
+    def get_success_url(self):
+        list(messages.get_messages(self.request))
+        messages.success(self.request, 'Повідомлення успішно надіслане!')
+        return reverse('contact_admin')
+
+    def form_valid(self, form):
+        """This method is called for valid data"""
+        subject = form.cleaned_data['subject']
+        message = form.cleaned_data['message']
+        from_email = form.cleaned_data['from_email']
+
+        try:
+            send_mail(subject, message, from_email, [ADMIN_EMAIL])
+        except Exception:
+            messages.warning(self.request, u'Під час відправки листа виникла непередбачувана ' \
+                                      u'помилка. Спробуйте скористатись даною формою пізніше.')
+        else:
+            messages.success(self.request, u'Повідомлення успішно надіслане!')
+
+
+        return super(ContactView, self).form_valid(form)

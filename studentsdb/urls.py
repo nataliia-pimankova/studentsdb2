@@ -21,6 +21,7 @@ from django.views import static
 from students.views.students import StudentCreateView, StudentUpdateView, StudentDeleteView
 from students.views.groups import GroupCreateView, GroupUpdateView, GroupDeleteView
 from students.views.tests import TestCreateView, TestUpdateView, TestDeleteView
+from students.views.contact_admin import ContactView
 
 urlpatterns = [
     # Students urls
@@ -51,7 +52,7 @@ urlpatterns = [
     url(r'^results/(?P<rid>\d+)/delete/$', results.results_delete, name='results_delete'),
 
     # Contact Admin Form
-    url(r'^contact_admin/$', contact_admin.contact_admin, name='contact_admin'),
+    url(r'^contact_admin/$', ContactView.as_view(), name='contact_admin'),
 
     url(r'^admin/', include(admin.site.urls)),
 ]
