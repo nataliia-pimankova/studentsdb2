@@ -69,7 +69,7 @@ class TestCreateView(CreateView):
     template_name = 'students/groups_edit.html'
 
     def get_success_url(self):
-        return u'%s?status_message=Іспит успішно доданий!' % reverse('home')
+        return u'%s?status_message=Іспит успішно доданий!' % reverse('tests')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
@@ -84,7 +84,7 @@ class TestUpdateView(UpdateView):
     template_name = 'students/groups_edit.html'
 
     def get_success_url(self):
-        return u"%s?status_message=Іспит успішно збережено!" % reverse('home')
+        return u"%s?status_message=Іспит успішно збережено!" % reverse('tests')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):

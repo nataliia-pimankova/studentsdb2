@@ -82,7 +82,7 @@ class GroupCreateView(CreateView):
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            return HttpResponseRedirect(u"%s?status_message=Додавання групи скасовано!" % reverse('home'))
+            return HttpResponseRedirect(u"%s?status_message=Додавання групи скасовано!" % reverse('groups'))
         else:
             return super(GroupCreateView, self).post(request,*args,**kwargs)
 
@@ -97,7 +97,7 @@ class GroupUpdateView(UpdateView):
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            return HttpResponseRedirect(u"%s?status_message=Редагування студента відмінено!" % reverse('home'))
+            return HttpResponseRedirect(u"%s?status_message=Редагування студента відмінено!" % reverse('groups'))
         else:
             return super(GroupUpdateView, self).post(request,*args,**kwargs)
 
