@@ -10,6 +10,8 @@ from django.views.generic import UpdateView, CreateView, DeleteView
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
+from django.contrib import messages
+
 from ..models.Group import Group
 
 # Views for Groups
@@ -78,11 +80,13 @@ class GroupCreateView(CreateView):
     template_name = 'students/groups_edit.html'
 
     def get_success_url(self):
-        return u'%s?status_message=Група успішно додана!' % reverse('groups')
+        messages.success(self.request, u'Група успішно додана!')
+        return reverse('groups')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            return HttpResponseRedirect(u"%s?status_message=Додавання групи скасовано!" % reverse('groups'))
+            messages.info(request, u'Додавання групи скасовано!')
+            return HttpResponseRedirect(reverse('groups'))
         else:
             return super(GroupCreateView, self).post(request,*args,**kwargs)
 
@@ -93,11 +97,13 @@ class GroupUpdateView(UpdateView):
     template_name = 'students/groups_edit.html'
 
     def get_success_url(self):
-        return u"%s?status_message=Групу успішно збережено!" % reverse('groups')
+        messages.success(self.request, u'Групу успішно збережено!')
+        return reverse('groups')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            return HttpResponseRedirect(u"%s?status_message=Редагування студента відмінено!" % reverse('groups'))
+            messages.info(request, u'Редагування групи відмінено!')
+            return HttpResponseRedirect(reverse('groups'))
         else:
             return super(GroupUpdateView, self).post(request,*args,**kwargs)
 
@@ -107,5 +113,6 @@ class GroupDeleteView(DeleteView):
     template_name = 'students/groups_confirm_delete.html'
 
     def get_success_url(self):
-        return u'%s?status_message=Групу успішно видалено!'  % reverse('groups')
+        messages.success(self.request, u'Групу успішно видалено!')
+        return reverse('groups')
 

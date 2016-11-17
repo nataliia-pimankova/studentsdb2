@@ -12,6 +12,8 @@ from django.views.generic import UpdateView, CreateView, DeleteView
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
+from django.contrib import messages
+
 from ..models.Student import Student
 from ..models.Group import Group
 
@@ -105,11 +107,13 @@ class StudentCreateView(CreateView):
     # form_class.title = u'Додати студента'
 
     def get_success_url(self):
-        return u'%s?status_message=Студент успішно доданий!' % reverse('home')
+        messages.success(self.request, u'Студент успішно доданий!')
+        return reverse('home')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            return HttpResponseRedirect(u"%s?status_message=Додавання студента скасовано!" % reverse('home'))
+            messages.info(request,u'Додавання студента скасовано!')
+            return HttpResponseRedirect(reverse('home'))
         else:
             return super(StudentCreateView, self).post(request,*args,**kwargs)
 
@@ -121,11 +125,13 @@ class StudentUpdateView(UpdateView):
     # form_class.title = u'Редагувати студента'
 
     def get_success_url(self):
-        return u"%s?status_message=Студента успішно збережено!" % reverse('home')
+        messages.success(self.request, u'Студента успішно збережено!')
+        return reverse('home')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            return HttpResponseRedirect(u"%s?status_message=Редагування студента відмінено!" % reverse('home'))
+            messages.info(request,u'Редагування студента відмінено!')
+            return HttpResponseRedirect(reverse('home'))
         else:
             return super(StudentUpdateView, self).post(request,*args,**kwargs)
 
@@ -136,4 +142,5 @@ class StudentDeleteView(DeleteView):
     template_name = 'students/students_confirm_delete.html'
 
     def get_success_url(self):
-        return u'%s?status_message=Студента успішно видалено!'  % reverse('home')
+        messages.success(self.request,u'Студента успішно видалено!')
+        return reverse('home')

@@ -7,6 +7,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.forms import ModelForm
 from django.views.generic import UpdateView, CreateView, DeleteView
 
+from django.contrib import messages
+
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
@@ -69,11 +71,13 @@ class TestCreateView(CreateView):
     template_name = 'students/groups_edit.html'
 
     def get_success_url(self):
-        return u'%s?status_message=Іспит успішно доданий!' % reverse('tests')
+        messages.success(self.request, u'Іспит успішно доданий!')
+        return reverse('tests')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            return HttpResponseRedirect(u"%s?status_message=Додавання іспиту скасовано!" % reverse('home'))
+            messages.info(request, u'Додавання іспиту скасовано!')
+            return HttpResponseRedirect(reverse('tests'))
         else:
             return super(TestCreateView, self).post(request,*args,**kwargs)
 
@@ -84,11 +88,13 @@ class TestUpdateView(UpdateView):
     template_name = 'students/groups_edit.html'
 
     def get_success_url(self):
-        return u"%s?status_message=Іспит успішно збережено!" % reverse('tests')
+        messages.success(self.request, u'Іспит успішно збережено!')
+        return  reverse('tests')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            return HttpResponseRedirect(u"%s?status_message=Редагування іспиту відмінено!" % reverse('home'))
+            messages.info(request, u'Редагування іспиту відмінено!')
+            return HttpResponseRedirect(reverse('tests'))
         else:
             return super(TestUpdateView, self).post(request,*args,**kwargs)
 
@@ -98,5 +104,6 @@ class TestDeleteView(DeleteView):
     template_name = 'students/tests_confirm_delete.html'
 
     def get_success_url(self):
-        return u'%s?status_message=Іспит успішно видалено!'  % reverse('tests')
+        messages.success(self.request, u'Іспит успішно видалено!')
+        return reverse('tests')
 
