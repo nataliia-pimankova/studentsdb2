@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'crispy_forms',
     'students',
-    'contact',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +134,8 @@ EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+# for django_contact_form
+SITE_ID = 1
+DEFAULT_FROM_EMAIL = 'xai1983kbu@gmail.com'
+MANAGERS = [('my','xai_kbu@ukr.net'), ('my2','xai_kbu@i.ua')]
