@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 import db
+import email
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'crispy_forms',
+    'contact_form',
     'students',
 ]
 
@@ -123,19 +125,20 @@ PORTAL_URL = 'http://localhost:8000'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
 # email settings
 # please, set here you smtp server details and your admin email
 ADMIN_EMAIL = 'natalya2487@studentsdb.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '465'
 EMAIL_HOST_USER = 'natalya2487@gmail.com'
-EMAIL_HOST_PASSWORD = '********'
+EMAIL_HOST_PASSWORD = email.EMAIL_HOST_PASSWORD
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # for django_contact_form
 SITE_ID = 1
-DEFAULT_FROM_EMAIL = 'xai1983kbu@gmail.com'
-MANAGERS = [('my','xai_kbu@ukr.net'), ('my2','xai_kbu@i.ua')]
+DEFAULT_FROM_EMAIL = 'natalya2487@gmail.com'
+MANAGERS = [('Admin','natalya2487@gmail.com'), ('manager','natalya2487@yandex.ua'), ('my2','natali2487@ukr.net')]

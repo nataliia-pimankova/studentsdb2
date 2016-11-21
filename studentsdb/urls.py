@@ -23,6 +23,10 @@ from students.views.groups import GroupCreateView, GroupUpdateView, GroupDeleteV
 from students.views.tests import TestCreateView, TestUpdateView, TestDeleteView
 from students.views.contact_admin import ContactView
 
+from django.views.generic import TemplateView
+from students.forms import MyContactForm
+from students.views.contact import MyContactFormView
+
 urlpatterns = [
     # Students urls
     url(r'^$', students.students_list, name='home'),
@@ -53,6 +57,8 @@ urlpatterns = [
 
     # Contact Admin Form
     url(r'^contact_admin/$', ContactView.as_view(), name='contact_admin'),
+    url(r'^contact/$', MyContactFormView.as_view(form_class=MyContactForm),name='contact_form'),
+    url(r'^contact/sent/$', TemplateView.as_view(template_name='contact_form/contact_form_sent.html'), name='contact_form_sent'),
 
     url(r'^admin/', include(admin.site.urls)),
 ]

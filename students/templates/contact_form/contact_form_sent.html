@@ -1,0 +1,24 @@
+{% extends "students/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block meta_title %}Зв'язок із адміністратором{% endblock meta_title %}
+
+{% block statusmessages %}
+{% endblock %}
+
+{% block title %}Зв'язок із адміністратором{% endblock title %}
+
+{% block content %}
+
+{% if messages %}
+<br/>
+<ul>
+  {% for message in messages %}
+ <p style="font-size: 1.5em; font-family: sherif" >{{ message }}</p>
+  {% endfor %}
+</ul>
+{% endif %}
+<br/>
+
+{% endblock content %}

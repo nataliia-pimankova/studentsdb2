@@ -52,6 +52,7 @@
             <li role="presentation" {% if '/tests' in request.path %}class="active"{% endif %}><a href="{% url 'tests' %}">Іспити</a></li>
             <li role="presentation" {% if '/results' in request.path %}class="active"{% endif %}><a href="{% url 'results' %}">Результати</a></li>
             <li role="presentation" {% if '/contact_admin' in request.path %}class="active"{% endif %}><a href="{% url 'contact_admin' %}">Контакт</a></li>
+            <li role="presentation" {% if '/contact/' in request.path %}class="active"{% endif %}><a href="{% url 'contact_form' %}">Django Контакт</a></li>
           </ul>
         </div>
       </div>
@@ -61,6 +62,7 @@
       <div class="row" id="content-columns">
 
         <div class="col-xs-12" id="content-column">
+          {% block statusmessages %}
           <!-- Status Message -->
           {% if messages %}
            <ul class="messages">
@@ -69,6 +71,7 @@
               {% endfor %}
            </ul>
           {% endif %}
+          {% endblock %}
 
           <h2>{% block title %}{% endblock title %}</h2>
           {% block content %}{% endblock content %}

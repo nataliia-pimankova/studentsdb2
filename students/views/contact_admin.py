@@ -87,8 +87,6 @@ class ContactView(FormView):
     success_url = '/contact_admin/'
 
     def get_success_url(self):
-        list(messages.get_messages(self.request))
-        messages.success(self.request, 'Повідомлення успішно надіслане!')
         return reverse('contact_admin')
 
     def form_valid(self, form):
