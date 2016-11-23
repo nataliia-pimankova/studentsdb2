@@ -3,6 +3,7 @@ from django.core.urlresolvers import reverse
 from django.core.mail import send_mail
 from django.contrib import messages
 from django import forms
+from django.template import loader
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
@@ -46,14 +47,22 @@ class MyContactForm(ContactForm):
         # form buttons
         self.helper.add_input(Submit('send_button', u'Надіслати'))
 
+    # для відправки листа з html шаблоном
+    def message(self):
+        # html шаблон для відправки листів
+        template_name = 'contact_form/html/contact_form.html'
+        return loader.render_to_string(template_name,
+                             self.get_context())
+
     def save(self, fail_silently=False):
         """
         Build and send the email message.
 
         """
+        message_dict = self.get_message_dict()
 
         try:
-           send_mail( **self.get_message_dict())
+            send_mail(fail_silently=fail_silently, html_message=message_dict['message'], **self.get_message_dict())
         except Exception, e:
             list(messages.get_messages(self.request))
             messages.warning(self.request, u"Під час відправки листа виникла непередбачувана " \
