@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'crispy_forms',
-    'contact_form', # необязательно
+    'contact_form', # it is not required
     'students',
 ]
 
