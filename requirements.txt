@@ -2,3 +2,4 @@ Django==1.10
 Pillow
 MySQL-python
 django-crispy-forms==1.5.2
+django-contact-form==1.3
