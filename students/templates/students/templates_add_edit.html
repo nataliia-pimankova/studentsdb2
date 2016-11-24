@@ -9,6 +9,10 @@
 
 {% block content %}
 
-{% crispy form %}
+<form action="{{ form_action }}" method="{{ form_method }}" novalidate>
+
+    {% crispy form %}
+
+</form>
 
 {% endblock content %}
