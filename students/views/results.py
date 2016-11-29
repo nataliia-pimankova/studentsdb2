@@ -1,6 +1,16 @@
 # coding=utf8
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.core.urlresolvers import reverse
+from django.http import HttpResponse, HttpResponseRedirect
+
+from django.forms import ModelForm
+from django.views.generic import UpdateView, CreateView, DeleteView
+
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
+
+from django.contrib import messages
+
 
 from ..models.Result import Result
 
@@ -19,12 +29,83 @@ def results_list (request):
                   {'results': results })
 
 
-def results_add (request):
-    return HttpResponse('<h1>Result Add Form</h1>')
+class ResultCreateForm(ModelForm):
+    class Meta:
+        model = Result
+        fields = ('test', 'student','grade')
 
-def results_edit (request, rid):
-    return HttpResponse('<h1>Edit Result %s</h1>' % rid)
+    def __init__(self, *args, **kwargs):
+        # call original initializator
+        super(ResultCreateForm, self).__init__(*args, **kwargs)
 
-def results_delete (request, rid):
-    return HttpResponse('<h1>Delete Result %s</h1>' % rid)
+        self.helper = FormHelper(self)
+
+        # set form tag attributes
+        self.form_action = reverse('results_add',
+                     kwargs={})
+        self.headline = u'Додати result'
+
+        # self.helper.form_tag = True
+        self.form_method = 'POST'
+        self.helper.form_class = 'form-horizontal'
+        self.helper.labels_uppercase = True
+
+        # set form field properties
+        self.helper.help_text_inline = True
+        self.helper.html5_required = True
+        self.helper.label_class = 'col-sm-2 control-label'
+        self.helper.field_class = 'col-sm-10'
+
+        #form buttons
+        self.helper.add_input(Submit('save_button', u'Зберегти', css_class='btn btn-primary'))
+        self.helper.add_input(Submit('cancel_button', u'Скасувати', css_class='btn btn-link'))
+
+class ResultUpdateForm(ResultCreateForm):
+    def __init__(self, *args, **kwargs):
+        super(ResultUpdateForm, self).__init__(*args, **kwargs)
+        self.form_action = reverse('results_edit',
+                                   kwargs={'pk': kwargs['instance'].id})
+        self.headline = u'Редагувати result'
+
+class ResultCreateView(CreateView):
+    model = Result
+    form_class = ResultCreateForm
+    template_name = 'students/templates_add_edit.html'
+
+    def get_success_url(self):
+        messages.success(self.request, u'Result успішно додана!')
+        return reverse('results')
+
+    def post(self, request, *args, **kwargs):
+        if request.POST.get('cancel_button'):
+            messages.info(request, u'Додавання result скасовано!')
+            return HttpResponseRedirect(reverse('results'))
+        else:
+            return super(ResultCreateView, self).post(request,*args,**kwargs)
+
+
+class ResultUpdateView(UpdateView):
+    model = Result
+    form_class = ResultUpdateForm
+    template_name = 'students/templates_add_edit.html'
+
+    def get_success_url(self):
+        messages.success(self.request, u'Result успішно збережено!')
+        return reverse('results')
+
+    def post(self, request, *args, **kwargs):
+        if request.POST.get('cancel_button'):
+            messages.info(request, u'Редагування групи відмінено!')
+            return HttpResponseRedirect(reverse('results'))
+        else:
+            return super(ResultUpdateView, self).post(request,*args,**kwargs)
+
+
+class ResultDeleteView(DeleteView):
+    model = Result
+    template_name = 'students/results_confirm_delete.html'
+
+    def get_success_url(self):
+        messages.success(self.request, u'result успішно видалено!')
+        return reverse('results')
 

@@ -21,6 +21,7 @@ from django.views import static
 from students.views.students import StudentCreateView, StudentUpdateView, StudentDeleteView
 from students.views.groups import GroupCreateView, GroupUpdateView, GroupDeleteView
 from students.views.tests import TestCreateView, TestUpdateView, TestDeleteView
+from students.views.results import ResultCreateView, ResultUpdateView, ResultDeleteView
 from students.views.contact_admin import ContactView
 
 from django.views.generic import TemplateView
@@ -51,9 +52,9 @@ urlpatterns = [
 
     # Results Urls
     url(r'^results/$', results.results_list, name='results'),
-    url(r'^results/add/$', results.results_add, name='results_add'),
-    url(r'^results/(?P<rid>\d+)/edit/$', results.results_edit, name='results_edit'),
-    url(r'^results/(?P<rid>\d+)/delete/$', results.results_delete, name='results_delete'),
+    url(r'^results/add/$', ResultCreateView.as_view(), name='results_add'),
+    url(r'^results/(?P<pk>\d+)/edit/$', ResultUpdateView.as_view(), name='results_edit'),
+    url(r'^results/(?P<pk>\d+)/delete/$', ResultDeleteView.as_view(), name='results_delete'),
 
     # Contact Admin Form
     url(r'^contact_admin/$', ContactView.as_view(), name='contact_admin'),
