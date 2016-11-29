@@ -40,29 +40,26 @@ def groups_list (request):
 
     return render(request, 'students/groups_list.html', {'groups': groups})
 
-class GroupForm(ModelForm):
+class GroupCreateForm(ModelForm):
     class Meta:
         model = Group
-        fields = "__all__"
+        fields = ('title', 'leader','notes')
 
     def __init__(self, *args, **kwargs):
         # call original initializator
-        super(GroupForm, self).__init__(*args, **kwargs)
+        super(GroupCreateForm, self).__init__(*args, **kwargs)
 
         self.helper = FormHelper(self)
 
-        if hasattr(kwargs['instance'], 'id'):
-            self.helper.form_action = reverse('groups_edit',
-                                              kwargs={'pk': kwargs['instance'].id})
-            self.headline = u'Редагувати групу'
-        else:
         # set form tag attributes
-            self.helper.form_action = reverse('groups_add',
-                         kwargs={})
-            self.headline = u'Додати групу'
+        self.form_action = reverse('groups_add',
+                     kwargs={})
+        self.headline = u'Додати групу'
 
-        self.helper.form_method = 'POST'
+        # self.helper.form_tag = True
+        self.form_method = 'POST'
         self.helper.form_class = 'form-horizontal'
+        self.helper.labels_uppercase = True
 
         # set form field properties
         self.helper.help_text_inline = True
@@ -74,10 +71,17 @@ class GroupForm(ModelForm):
         self.helper.add_input(Submit('save_button', u'Зберегти', css_class='btn btn-primary'))
         self.helper.add_input(Submit('cancel_button', u'Скасувати', css_class='btn btn-link'))
 
+class GroupUpdateForm(GroupCreateForm):
+    def __init__(self, *args, **kwargs):
+        super(GroupUpdateForm, self).__init__(*args, **kwargs)
+        self.form_action = reverse('groups_edit',
+                                   kwargs={'pk': kwargs['instance'].id})
+        self.headline = u'Редагувати групу'
+
 class GroupCreateView(CreateView):
     model = Group
-    form_class = GroupForm
-    template_name = 'students/groups_edit.html'
+    form_class = GroupCreateForm
+    template_name = 'students/templates_add_edit.html'
 
     def get_success_url(self):
         messages.success(self.request, u'Група успішно додана!')
@@ -93,8 +97,8 @@ class GroupCreateView(CreateView):
 
 class GroupUpdateView(UpdateView):
     model = Group
-    form_class = GroupForm
-    template_name = 'students/groups_edit.html'
+    form_class = GroupUpdateForm
+    template_name = 'students/templates_add_edit.html'
 
     def get_success_url(self):
         messages.success(self.request, u'Групу успішно збережено!')

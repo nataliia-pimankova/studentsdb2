@@ -69,7 +69,8 @@ def students_list (request):
 class StudentCreateForm(ModelForm):
     class Meta:
         model = Student
-        fields = "__all__"
+        fields = ('last_name','first_name', 'middle_name', 'birthday',
+                  'ticket', 'student_group', 'notes','photo')
 
     def __init__(self, *args, **kwargs):
         # call original initializator
