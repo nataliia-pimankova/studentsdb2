@@ -7,19 +7,41 @@ from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from django.forms import ModelForm
-from django.views.generic import UpdateView, CreateView, DeleteView
+from django.views.generic import UpdateView, CreateView, \
+    DeleteView, ListView
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Reset
 
 from django.contrib import messages
 
-from ..models.Student import Student
-from ..models.Group import Group
-
-
+from ..models.students import Student
 
 # Views for Students.
+
+class StudentList(ListView):
+    model = Student
+    context_object_name = 'students'
+    template = 'students/student_list.html'
+
+    def get_context_data(self, **kwargs):
+        """This method adds extra variables to template"""
+        # get original context data from parent class
+        context = super(StudentList, self).get_context_data(**kwargs)
+
+        # tell template not to show logo on a page
+        context['show_logo'] = False
+
+        # return context mapping
+        return context
+
+    def get_queryset(self):
+        """Order students by last_name."""
+        # get original query set
+        qs = super(StudentList, self).get_queryset()
+
+        # order by last_name
+        return qs.order_by('last_name')
 
 def students_list (request):
     students = Student.objects.all()

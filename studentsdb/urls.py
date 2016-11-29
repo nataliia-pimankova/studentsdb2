@@ -18,7 +18,7 @@ from django.contrib import admin
 from students.views import students, groups, journal, tests, results, contact_admin
 from .settings import MEDIA_ROOT, DEBUG
 from django.views import static
-from students.views.students import StudentCreateView, StudentUpdateView, StudentDeleteView
+from students.views.students import StudentList, StudentCreateView, StudentUpdateView, StudentDeleteView
 from students.views.groups import GroupCreateView, GroupUpdateView, GroupDeleteView
 from students.views.tests import TestCreateView, TestUpdateView, TestDeleteView
 from students.views.results import ResultCreateView, ResultUpdateView, ResultDeleteView
@@ -31,6 +31,7 @@ from students.views.contact import MyContactFormView
 urlpatterns = [
     # Students urls
     url(r'^$', students.students_list, name='home'),
+    url(r'^student_list/$', StudentList.as_view(), name='student_list'),
     url(r'^students/add/$', StudentCreateView.as_view(), name='students_add'),
     url(r'^students/(?P<pk>\d+)/edit/$', StudentUpdateView.as_view(), name='students_edit'),
     url(r'^students/(?P<pk>\d+)/delete/$', StudentDeleteView.as_view(), name='students_delete'),

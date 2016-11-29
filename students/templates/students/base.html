@@ -47,6 +47,7 @@
         <div class="col-xs-12">
           <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" {% if request.path == '/' %}class="active"{% elif '/students' in request.path %}class="active"{% endif %}><a href="{% url 'home' %}">Студенти</a></li>
+            <li role="presentation" {% if '/student_list/' in request.path %}class="active"{% endif %}><a href="{% url 'student_list' %}">Студенти SL</a></li>
             <li role="presentation" {% if '/journal' in request.path %}class="active"{% endif %}><a href="{% url 'journal' %}">Відвідування</a></li>
             <li role="presentation" {% if '/groups' in request.path %}class="active"{% endif %}><a href="{% url 'groups' %}">Групи</a></li>
             <li role="presentation" {% if '/tests' in request.path %}class="active"{% endif %}><a href="{% url 'tests' %}">Іспити</a></li>
