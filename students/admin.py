@@ -4,10 +4,11 @@ from django.contrib import admin
 from django.core.urlresolvers import reverse
 from django.forms import ModelForm, ValidationError
 
-from .models.Student import Student
-from .models.Group import Group
-from .models.Test import Test
-from .models.Result import Result
+from .models import Student, Group, Test, Result, MonthJournal
+# from .models.Group import Group
+# from .models.Test import Test
+# from .models.Result import Result
+
 
 class StudentFormAdmin(ModelForm):
 
@@ -35,6 +36,20 @@ class StudentAdmin(admin.ModelAdmin):
     def view_on_site(self,obj):
         return reverse('students_edit', kwargs={'pk':obj.id})
 
+
+class GroupFormAdmin(ModelForm):
+
+    def clean_leader(self):
+        """Check if student is in any group
+
+        If Yes, then ensure it's the same as selected group."""
+        # get group where current student is a leader
+        students = Student.objects.filter(student_group=self.instance)
+        if len(students) > 0 and self.cleaned_data['leader'] != students[0]:
+            raise ValidationError(u'Студент належить до іншої групи.', code='invalid')
+
+        return self.cleaned_data['leader']
+
 class GroupAdmin(admin.ModelAdmin):
     list_display = ['title', 'leader']
     list_display_links = ['title']
@@ -43,6 +58,7 @@ class GroupAdmin(admin.ModelAdmin):
     list_filter = ['leader']
     list_per_page = 10
     search_fields = ['title', 'leader', 'notes']
+    form = GroupFormAdmin
 
     def view_on_site(self, obj):
         return reverse('groups_edit', kwargs={'pk': obj.id})
@@ -53,3 +69,4 @@ admin.site.register(Student, StudentAdmin)
 admin.site.register(Group, GroupAdmin)
 admin.site.register(Test)
 admin.site.register(Result)
+admin.site.register(MonthJournal)

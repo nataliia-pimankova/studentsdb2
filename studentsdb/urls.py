@@ -23,6 +23,7 @@ from students.views.groups import GroupCreateView, GroupUpdateView, GroupDeleteV
 from students.views.tests import TestCreateView, TestUpdateView, TestDeleteView
 from students.views.results import ResultCreateView, ResultUpdateView, ResultDeleteView
 from students.views.contact_admin import ContactView
+from students.views.journal import JournalView
 
 from django.views.generic import TemplateView
 from students.forms import MyContactForm
@@ -43,7 +44,8 @@ urlpatterns = [
     url(r'^groups/(?P<pk>\d+)/delete/$', GroupDeleteView.as_view(), name='groups_delete'),
 
     # Journal Urls
-    url(r'^journal/$', journal.journal, name='journal'),
+    # url(r'^journal/$', journal.journal, name='journal'),
+    url(r'^journal/$', JournalView.as_view(), name='journal'),
 
     # Tests Urls
     url(r'^tests/$', tests.tests_list, name='tests'),
