@@ -78,6 +78,7 @@ from calendar import monthrange, weekday, day_abbr
 
 from django.core.urlresolvers import reverse
 from django.views.generic.base import TemplateView
+from django.http import JsonResponse
 
 from ..models import MonthJournal, Student
 from ..util import paginate
@@ -156,3 +157,6 @@ class JournalView(TemplateView):
         # finally return updated context
         # with paginated students
         return context
+
+    def post(self, request, *args, **kwargs):
+        return JsonResponse({'key': 'value'})
