@@ -45,7 +45,7 @@ urlpatterns = [
 
     # Journal Urls
     # url(r'^journal/$', journal.journal, name='journal'),
-    url(r'^journal/$', JournalView.as_view(), name='journal'),
+    url(r'^journal/(?P<pk>\d+)?/?$', JournalView.as_view(), name='journal'),
 
     # Tests Urls
     url(r'^tests/$', tests.tests_list, name='tests'),

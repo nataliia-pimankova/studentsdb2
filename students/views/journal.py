@@ -118,9 +118,14 @@ class JournalView(TemplateView):
             'day': d,
             'verbose': day_abbr[weekday(myear, mmonth, d)][:2]}
             for d in range(1, number_of_days + 1)]
-            
-        # витягуємо усіх студентів посортованих по
-        queryset = Student.objects.order_by('last_name')
+
+        # get all students from database, or just one if we need to
+        # display journal for one student
+        if kwargs.get('pk'):
+            queryset = [Student.objects.get(pk=kwargs['pk'])]
+        else:
+            queryset = Student.objects.all().order_by('last_name')
+        
         # url to update student presence, for form post
         update_url = reverse('journal')
         # go over all students and collect data about presence

@@ -82,7 +82,7 @@
           </button>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
-              <a role="menuitem" tabindex="-1" href="/journal/{{ student.id }}">Відвідування</a>
+              <a role="menuitem" tabindex="-1" href="{% url 'journal' student.id %}">Відвідування</a>
             </li>
             <li role="presentation">
               <a role="menuitem" tabindex="-1" href="{% url 'results' %}?sid={{ student.id }}">Результати іспитів</a>

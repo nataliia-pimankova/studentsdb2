@@ -26,7 +26,7 @@ h1,h2,h3,h4,h5,h6{
     margin:0;
     width:85%;
     background-color: #ffffff;
-    order:1px solid #cccccc;
+    /*order: 1px solid #cccccc;*/
     height:30px;
     line-height:30px;
     color:#555555;
@@ -106,4 +106,8 @@ th.day-header {
     padding: 4px !important;
     vertical-align: middle !important;
     text-align: center;
+}
+
+#ajax-progress-indicator {
+    display: none;
 }
