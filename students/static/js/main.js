@@ -15,7 +15,7 @@ function initJournal() {
                 alert(error);
             },
             'success': function (data, status, xhr) {
-                alert(data['key']);
+                alert(data['status']);
             }
         });
     });
