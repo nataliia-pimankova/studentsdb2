@@ -34,8 +34,11 @@
           <strong>Група:</strong>
           <select>
             <option value="">Усі Студенти</option>
-            <option value="">МтМ - 21, Подоба Віталій (№ 254)</option>
-            <option value="">МтМ - 22, Корост Андрій (№ 2123)</option>
+            {% for group in GROUPS %}
+            <option value="{{ group.id }}"{%  if group.selected %}selected="1"{% endif %}>
+              {{ group.title }}{% if group.leader %}, {{ group.leader }}{% endif %}
+            </option>
+            {% endfor %}
           </select>
           {% endblock groups_selector %}
         </div>
@@ -97,6 +100,7 @@
 
     <!-- Javascripts Section -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+    <script src="{% static 'js/jquery.cookie.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="{% static 'js/main.js' %}"></script>
     {% block extra_js %}{% endblock extra_js %}
