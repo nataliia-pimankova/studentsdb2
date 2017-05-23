@@ -9,6 +9,12 @@
 {% block content %}
 <a class="btn btn-primary" href="{% url 'students_add' %}">Додати Студента</a>
 
+{% if not students %}
+  <div class="alert alert-warning">
+  Поки немає жодного студента в базі. Будь-ласка,
+    <a href="{% url "students_add" %}">додайте</a> першого.
+  </div>
+{% else %}
 <!-- Start Students Listing -->
 <table class="table table-hover table-striped">
   {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
@@ -101,26 +107,10 @@
   </tbody>
 </table>
 <!-- End Students Listing -->
-
-<!--{% include "includes/nav.html" with active=4 %} -->
-
-{% if students.has_other_pages %}
-{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
-<nav>
-    <ul class="pagination">
-        <li><a href="{% url 'home' %}?page=1&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&laquo;</a> </li>
-        {% for p in students.page_range %}
-        <li {% if students.page == p %}class="active"{% endif %}>
-            <a href="{% url 'home' %}?page={{ p }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">{{ p }}</a>
-        </li>
-        {% endfor %}
-        <li>
-            <a href="{% url 'home' %}?page={{ students.page }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">
-                &raquo;</a>
-        </li>
-    </ul>
-</nav>
-{% endwith %}
 {% endif %}
+
+  {% with object_list=students %}
+    {% include "students/pagination.html" %}
+  {% endwith %}
 
 {% endblock content %}

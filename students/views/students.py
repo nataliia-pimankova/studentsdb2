@@ -16,8 +16,10 @@ from crispy_forms.layout import Submit, Reset
 from django.contrib import messages
 
 from ..models.students import Student
+from ..util import paginate, get_current_group
 
 # Views for Students.
+
 
 class StudentList(ListView):
     model = Student
@@ -32,6 +34,26 @@ class StudentList(ListView):
         # tell template not to show logo on a page
         context['show_logo'] = False
 
+        # check if we need to show only one group of students
+        current_group = get_current_group(self.request)
+        if current_group:
+            students = Student.objects.filter(student_group=current_group)
+        else:
+            # otherwise show all students
+            students = Student.objects.all()
+
+        # try to order students_list
+        order_by = self.request.GET.get('order_by')
+        if order_by in ('id', 'last_name', 'first_name', 'ticket'):
+            students = students.order_by(order_by)
+            if self.request.GET.get('reverse', '') == '1':
+                students = students.reverse()
+        else:
+            students = students.order_by('last_name')
+
+        # apply pagination, 10 students per page
+        context['var_name'] =students
+
         # return context mapping
         return context
 
@@ -43,8 +65,15 @@ class StudentList(ListView):
         # order by last_name
         return qs.order_by('last_name')
 
+
 def students_list (request):
-    students = Student.objects.all()
+    # check if we need to show only one group of students
+    current_group = get_current_group(request)
+    if current_group:
+        students = Student.objects.filter(student_group=current_group)
+    else:
+        # otherwise show all students
+        students = Student.objects.all()
 
     # try to order students_list
     order_by = request.GET.get('order_by')
@@ -52,41 +81,14 @@ def students_list (request):
         students = students.order_by(order_by)
         if request.GET.get('reverse', '') == '1':
             students = students.reverse()
-    else :
+    else:
         students = students.order_by('last_name')
 
-    page = request.GET.get('page')
+    # apply pagination, 7 students per page
+    context = paginate(students, 7, request, {}, var_name='students')
 
-    try:
-        page = int(page)
-    except(ValueError, TypeError):
-        # if 'home'
-        page = 1
+    return render(request, 'students/students_list.html', context)
 
-    per_page = 7
-    num_pages, remainder = divmod(Student.objects.count() , per_page)
-    if remainder :
-        num_pages +=1
-
-    if  page < 1:
-        page = 1
-    elif page > num_pages:
-        page = num_pages
-
-    start = (int(page)-1)*per_page
-    limit = start + per_page
-    students = students[start: limit]
-
-    if num_pages > 1:
-        students.has_other_pages = True
-    else:
-        students.has_other_pages = False
-
-    students.page_range = range(1, num_pages+1)
-    students.page = page
-
-    return render(request, 'students/students_list.html',
-                  {'students': students })
 
 class StudentCreateForm(ModelForm):
     class Meta:
