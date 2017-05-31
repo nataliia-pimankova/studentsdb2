@@ -111,3 +111,8 @@ th.day-header {
 #ajax-progress-indicator {
     display: none;
 }
+
+/* Modal Styles */
+.modal-body form{
+    overflow:auto;
+}
