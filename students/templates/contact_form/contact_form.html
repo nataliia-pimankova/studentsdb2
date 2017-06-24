@@ -20,6 +20,11 @@
 
 {% block content %}
 
+  <form action="{{ form.form_action }}" method="{{ form.form_method }}"
+      class="form-horizontal" >
+
 {% crispy form %}
+
+  </form>
 
 {% endblock content %}

@@ -23,9 +23,10 @@ class ContactForm(forms.Form):
         self.helper = FormHelper()
 
         # form tag attributes
-        self.helper.form_class = 'form-horizontal'
-        self.helper.form_method = 'post'
-        self.helper.form_action = reverse('contact_admin')
+        # self.helper.form_class = 'form-horizontal'
+        self.form_method = 'post'
+        self.helper.form_tag = False
+        self.form_action = reverse('contact_admin')
 
         # twitter bootstrap styles
         self.helper.help_text_inline = True
@@ -33,7 +34,7 @@ class ContactForm(forms.Form):
         self.helper.label_class = 'col-sm-2 control-label'
         self.helper.field_class = 'col-sm-10'
 
-        #form buttons
+        # form buttons
         self.helper.add_input(Submit('send_button', u'Надіслати'))
 
     from_email = forms.EmailField(

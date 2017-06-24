@@ -11,16 +11,15 @@ from django.views.generic import UpdateView, CreateView, \
     DeleteView, ListView
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Reset
+from crispy_forms.layout import Submit, Reset, Layout, Field, Div, Fieldset
 
 from django.contrib import messages
 
 from ..models.students import Student
 from ..util import paginate, get_current_group
 
+
 # Views for Students.
-
-
 class StudentList(ListView):
     model = Student
     context_object_name = 'students'
@@ -93,8 +92,8 @@ def students_list (request):
 class StudentCreateForm(ModelForm):
     class Meta:
         model = Student
-        fields = ('last_name','first_name', 'middle_name', 'birthday',
-                  'ticket', 'student_group', 'notes','photo')
+        fields = ('last_name', 'first_name', 'middle_name', 'birthday',
+                  'ticket', 'student_group', 'notes', 'photo')
 
     def __init__(self, *args, **kwargs):
         # call original initializator
@@ -106,16 +105,38 @@ class StudentCreateForm(ModelForm):
         self.headline = u'Додати студента'
 
         self.form_method = 'POST'
-        self.form_class = 'form-horizontal'
-        self.novalidate = True
+        # self.form_class = 'form-horizontal'
+        # self.novalidate = True
 
         self.helper = FormHelper(self)
 
         # set form field properties
+        self.helper.form_tag = False
+        # self.helper.form_class = 'form-horizontal'
         self.helper.help_text_inline = True
         self.helper.html5_required = True
-        self.helper.label_class = 'col-sm-2 control-label'
-        self.helper.field_class = 'col-sm-10'
+        # self.helper.label_class = 'col-sm-2 control-label'
+        self.helper.label_class = 'col-lg-3'  # for example 'col-lg-2'
+        self.helper.field_class = 'col-lg-9'  # for example 'col-lg-10'
+        # self.helper.field_class = 'col-sm-9'
+        layout = Layout(
+            Field('last_name', css_class='form-control-static'),
+            # Div('', css_class='col-sm-12 '),
+            Field('first_name', css_class='form-control-static'),
+            # Div('', css_class='col-sm-12 '),
+            Field('middle_name', css_class='form-control-static'),
+            # Div('', css_class='col-sm-12 '),
+            Field('birthday', css_class='form-control-static'),
+            # Div('', css_class='col-sm-12 '),
+            Field('ticket', css_class='form-control-static'),
+            # Div('', css_class='col-sm-12 '),
+            Field('student_group', css_class='form-control-static'),
+            # Div('', css_class='col-sm-12 '),
+            Field('photo', css_class='form-control-static'),
+            # Div('', css_class='col-sm-12 '),
+            Field('notes', css_class='form-control-static')
+        )
+        self.helper.add_layout(layout)
 
         #form buttons
         self.helper.add_input(Submit('save_button', u'Зберегти', css_class='btn btn-primary'))
@@ -124,7 +145,7 @@ class StudentCreateForm(ModelForm):
 
 
 class StudentUpdateForm(StudentCreateForm):
-    
+
     def __init__(self, *args, **kwargs):
         super(StudentUpdateForm, self).__init__(*args, **kwargs)
         self.form_action = reverse('students_edit',

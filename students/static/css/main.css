@@ -114,5 +114,6 @@ th.day-header {
 
 /* Modal Styles */
 .modal-body form{
+    box-sizing: content-box;
     overflow:auto;
 }

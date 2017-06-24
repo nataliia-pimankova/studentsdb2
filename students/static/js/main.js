@@ -76,9 +76,11 @@ function initEditStudentPage() {
                 // update modal window with arrived content from the server
                 var modal = $('#myModal'),
                     html = $(data),
-                    form = html.find('#content-column form');
+                    form = html.find('#content-column form'),
+                    buttons = html.find('.btn');
                 modal.find('.modal-title').html(html.find('#content-column h2').text());
                 modal.find('.modal-body').html(form);
+                // modal.find('.modal-footer').html(buttons);
 
                 // init our edit form
                 initEditStudentForm(form, modal);
@@ -123,6 +125,7 @@ function initEditStudentForm(form, modal) {
 
             // copy alert to modal window
             modal.find('.modal-body').html(html.find('.alert'));
+            modal.find('.modal-footer').html('Hello!');
 
             // copy form to modal if we found it in server response
             if (newform.length > 0) {
