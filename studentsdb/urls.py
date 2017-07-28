@@ -18,10 +18,6 @@ from django.contrib import admin
 from students.views import students, groups, tests, results, contact_admin
 from .settings import MEDIA_ROOT, DEBUG
 from django.views import static
-from students.views.students import StudentList, StudentCreateView, StudentUpdateView, StudentDeleteView
-from students.views.groups import GroupCreateView, GroupUpdateView, GroupDeleteView
-from students.views.tests import TestCreateView, TestUpdateView, TestDeleteView
-from students.views.results import ResultCreateView, ResultUpdateView, ResultDeleteView
 from students.views.contact_admin import ContactView
 from students.views.journal import JournalView
 
@@ -32,32 +28,32 @@ from students.views.contact import MyContactFormView
 urlpatterns = [
     # Students urls
     url(r'^$', students.students_list, name='home'),
-    url(r'^student_list/$', StudentList.as_view(), name='student_list'),
-    url(r'^students/add/$', StudentCreateView.as_view(), name='students_add'),
-    url(r'^students/(?P<pk>\d+)/edit/$', StudentUpdateView.as_view(), name='students_edit'),
-    url(r'^students/(?P<pk>\d+)/delete/$', StudentDeleteView.as_view(), name='students_delete'),
+    url(r'^student_list/$', students.StudentList.as_view(), name='student_list'),
+    url(r'^students/add/$', students.StudentCreateView.as_view(), name='students_add'),
+    url(r'^students/(?P<pk>\d+)/edit/$', students.StudentUpdateView.as_view(), name='students_edit'),
+    url(r'^students/(?P<pk>\d+)/delete/$', students.StudentDeleteView.as_view(), name='students_delete'),
 
     # Groups urls
-    url(r'^groups/$', groups.groups_list, name='groups'),
-    url(r'^groups/add/$', GroupCreateView.as_view(), name='groups_add'),
-    url(r'^groups/(?P<pk>\d+)/edit/$', GroupUpdateView.as_view(), name='groups_edit'),
-    url(r'^groups/(?P<pk>\d+)/delete/$', GroupDeleteView.as_view(), name='groups_delete'),
+    url(r'^groups/$', groups.GroupList.as_view(), name='groups'),
+    url(r'^groups/add/$', groups.GroupCreateView.as_view(), name='groups_add'),
+    url(r'^groups/(?P<pk>\d+)/edit/$', groups.GroupUpdateView.as_view(), name='groups_edit'),
+    url(r'^groups/(?P<pk>\d+)/delete/$', groups.GroupDeleteView.as_view(), name='groups_delete'),
 
     # Journal Urls
     # url(r'^journal/$', journal.journal, name='journal'),
     url(r'^journal/(?P<pk>\d+)?/?$', JournalView.as_view(), name='journal'),
 
     # Tests Urls
-    url(r'^tests/$', tests.tests_list, name='tests'),
-    url(r'^tests/add/$', TestCreateView.as_view(), name='tests_add'),
-    url(r'^tests/(?P<pk>\d+)/edit/$', TestUpdateView.as_view(), name='tests_edit'),
-    url(r'^tests/(?P<pk>\d+)/delete/$', TestDeleteView.as_view(), name='tests_delete'),
+    url(r'^tests/$', tests.TestList.as_view(), name='tests'),
+    url(r'^tests/add/$', tests.TestCreateView.as_view(), name='tests_add'),
+    url(r'^tests/(?P<pk>\d+)/edit/$', tests.TestUpdateView.as_view(), name='tests_edit'),
+    url(r'^tests/(?P<pk>\d+)/delete/$', tests.TestDeleteView.as_view(), name='tests_delete'),
 
     # Results Urls
     url(r'^results/$', results.results_list, name='results'),
-    url(r'^results/add/$', ResultCreateView.as_view(), name='results_add'),
-    url(r'^results/(?P<pk>\d+)/edit/$', ResultUpdateView.as_view(), name='results_edit'),
-    url(r'^results/(?P<pk>\d+)/delete/$', ResultDeleteView.as_view(), name='results_delete'),
+    url(r'^results/add/$', results.ResultCreateView.as_view(), name='results_add'),
+    url(r'^results/(?P<pk>\d+)/edit/$', results.ResultUpdateView.as_view(), name='results_edit'),
+    url(r'^results/(?P<pk>\d+)/delete/$', results.ResultDeleteView.as_view(), name='results_delete'),
 
     # Contact Admin Form
     url(r'^contact_admin/$', ContactView.as_view(), name='contact_admin'),

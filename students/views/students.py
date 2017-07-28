@@ -1,10 +1,7 @@
 # coding=utf8
-from datetime import datetime
-
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from django.forms import ModelForm
 from django.views.generic import UpdateView, CreateView, \
@@ -52,6 +49,9 @@ class StudentList(ListView):
 
         # apply pagination, 10 students per page
         context['var_name'] =students
+
+        # apply pagination, 7 students per page
+        # context = paginate(students, 7, self.request, {}, var_name='students')
 
         # return context mapping
         return context

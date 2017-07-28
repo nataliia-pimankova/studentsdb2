@@ -2,7 +2,6 @@
 from django.shortcuts import render
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
-
 from django.forms import ModelForm
 from django.views.generic import UpdateView, CreateView, DeleteView
 
@@ -11,22 +10,31 @@ from crispy_forms.layout import Submit
 
 from django.contrib import messages
 
+from ..models import Student, Result
+from ..util import paginate, get_current_group
 
-from ..models.Result import Result
 
 # Views for Results.
 def results_list (request):
+    # check if we need to show only one group of students
+    current_group = get_current_group(request)
+
     tid = request.GET.get('tid')
     sid = request.GET.get('sid')
     if tid:
         results = Result.objects.filter(test=tid)
     elif sid:
         results = Result.objects.filter(student=sid)
+    elif current_group:
+        print current_group.id
+        results = Result.objects.filter(student__student_group=current_group)
     else:
         results = Result.objects.all()
 
-    return render(request, 'students/results_list.html',
-                  {'results': results })
+    # apply pagination, 7 students per page
+    context = paginate(results, 7, request, {}, var_name='results')
+
+    return render(request, 'students/results_list.html', context)
 
 
 class ResultCreateForm(ModelForm):

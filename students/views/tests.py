@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from django.forms import ModelForm
-from django.views.generic import UpdateView, CreateView, DeleteView
+from django.views.generic import UpdateView, CreateView, DeleteView, ListView
 
 from django.contrib import messages
 
@@ -13,23 +13,46 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
 from ..models.Test import Test
+from ..util import paginate, get_current_group
 
-# Views for Students.
 
-def tests_list (request):
-    tests = Test.objects.all()
+# Views for Tests.
+class TestList(ListView):
+    model = Test
+    context_object_name = 'tests'
+    template_name = 'students/tests_list.html'
 
-    # try to order tests_list
-    order_by = request.GET.get('order_by')
-    if order_by in ('title','teacher', 'group', 'date'):
-        tests = tests.order_by(order_by)
-        if request.GET.get('reverse', '') == '1':
-            tests = tests.reverse()
-    else :
-        tests = tests.order_by('title')
+    def get_context_data(self, **kwargs):
+        """This method adds extra variables to template"""
+        # get original context data from parent class
+        context = super(TestList, self).get_context_data(**kwargs)
 
-    return render(request, 'students/tests_list.html',
-                  {'tests': tests })
+        # tell template not to show logo on a page
+        context['show_logo'] = False
+
+        # check if we need to show only one group of students
+        current_group = get_current_group(self.request)
+        if current_group:
+            tests = Test.objects.filter(group=current_group)
+        else:
+            # otherwise show all students
+            tests = Test.objects.all()
+
+        # try to order tests_list
+        order_by = self.request.GET.get('order_by')
+        if order_by in ('id','title', 'teacher', 'group', 'date'):
+            tests = tests.order_by(order_by)
+            if self.request.GET.get('reverse', '') == '1':
+                tests = tests.reverse()
+        else:
+            tests = tests.order_by('title')
+
+        # apply pagination, 10 students per page
+        context = paginate(tests, 7, self.request, context, var_name='tests')
+
+        # return context mapping
+        return context
+
 
 class TestForm(ModelForm):
     class Meta:
@@ -64,6 +87,7 @@ class TestForm(ModelForm):
         #form buttons
         self.helper.add_input(Submit('save_button', u'Зберегти', css_class='btn btn-primary'))
         self.helper.add_input(Submit('cancel_button', u'Скасувати', css_class='btn btn-link'))
+
 
 class TestCreateView(CreateView):
     model = Test

@@ -46,7 +46,13 @@
   <tbody>
     {% for group in groups %}
     <tr>
-      <td>{{ group.id }}</td>
+      <td>
+      {% if is_paginated %}
+        {{ page_obj.start_index|add:forloop.counter|add:"-1" }}
+      {% else %}
+        {{ forloop.counter }}
+      {% endif %}
+      </td>
       <td>
         <a title="Редагувати" href="{% url 'groups_edit' group.id %}">
           {{ group.title }}
@@ -79,23 +85,8 @@
   </tbody>
 </table>
 
-{% if groups.has_other_pages %}
-{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
-<nav>
-    <ul class="pagination">
-        <li><a href="{% url 'groups' %}?page=1&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&laquo;</a> </li>
-        {% for p in groups.paginator.page_range %}
-        <li {% if groups.number == p %} class="active"{% endif %}>
-            <a href="{% url 'groups' %}?page={{ p }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">{{ p }}</a>
-        </li>
-        {% endfor %}
-        <li>
-            <a href="{% url 'groups' %}?page={{ groups.paginator.num_pages }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">
-                &raquo;</a>
-        </li>
-    </ul>
-</nav>
+{% with object_list=groups %}
+  {% include "students/pagination.html" %}
 {% endwith %}
-{% endif %}
 
 {% endblock content %}

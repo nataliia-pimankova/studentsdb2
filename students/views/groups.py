@@ -1,11 +1,9 @@
 # coding=utf8
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
 from django.forms import ModelForm
-from django.views.generic import UpdateView, CreateView, DeleteView
+from django.views.generic import ListView, UpdateView, CreateView, DeleteView
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
@@ -13,32 +11,35 @@ from crispy_forms.layout import Submit
 from django.contrib import messages
 
 from ..models.Group import Group
+from ..util import paginate
+
 
 # Views for Groups
-def groups_list (request):
-    groups = Group.objects.all().order_by('title')
+class GroupList(ListView):
+    model = Group
+    context_object_name = 'groups'
+    template_name = 'students/groups_list.html'
 
-    # try to order groups_list
-    order_by = request.GET.get('order_by', '')
-    if order_by in ('id','title', 'leader'):
-        groups = groups.order_by(order_by)
-        if request.GET.get('reverse', '') == '1':
-            groups = groups.reverse()
+    def get_context_data(self, **kwargs):
+        """This method adds extra variables to template"""
+        # get original context data from parent class
+        context = super(GroupList, self).get_context_data(**kwargs)
 
-    # paginate groups
-    paginator = Paginator(groups, 3)
-    page = request.GET.get('page')
-    try:
-        groups = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        groups = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999); deliver
-        # last page of results.
-        groups = paginator.page(paginator.num_pages)
+        groups = Group.objects.all()
 
-    return render(request, 'students/groups_list.html', {'groups': groups})
+        # try to order groups_list
+        order_by = self.request.GET.get('order_by', '')
+        if order_by in ('id', 'title', 'leader'):
+            groups = groups.order_by(order_by)
+            if self.request.GET.get('reverse', '') == '1':
+                groups = groups.reverse()
+
+        # apply pagination, 10 students per page
+        context = paginate(groups, 5, self.request, context, var_name='groups')
+
+        # return context mapping
+        return context
+
 
 class GroupCreateForm(ModelForm):
     class Meta:

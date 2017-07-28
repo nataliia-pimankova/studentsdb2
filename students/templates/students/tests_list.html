@@ -14,7 +14,7 @@
   {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
   <thead>
     <tr>
-      <th><a href="">№</a></th>
+      <th>№</th>
       <th>
         <a href="{% url 'tests' %}?order_by=title{% if order_by == 'title' and reverse != '1' %}&amp;reverse=1
                 {% elif not order_by and reverse != '1' %}&amp;reverse=1
@@ -56,8 +56,14 @@
   {% endwith %}
   <tbody>
     {% for test in tests %}
-    <tr class="hd">
-      <td>{{ test.id }}</td>
+    <tr>
+      <td>
+      {% if is_paginated %}
+        {{ page_obj.start_index|add:forloop.counter|add:"-1" }}
+      {% else %}
+        {{ forloop.counter }}
+      {% endif %}
+      </td>
       <td><a title="Редагувати" href="{% url 'tests_edit' test.id %}">{{ test.title }}</a></td>
       <td>{{ test.date }}</td>
       <td>{{ test.teacher }}</td>
@@ -85,17 +91,9 @@
     {% endfor %}
   </tbody>
 </table>
-<!-- End Students Listing -->
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-<script >
-    $(function () {
-        var per_page = 13;
-        $("tr.hd").slice(0, per_page).show();
-        $(window).scroll(function(){
-            $("tr:hidden").slice(0, per_page).slideDown();
-        });
-    });
-</script>
+<!-- End Tests Listing -->
+{% with object_list=tests %}
+  {% include "students/pagination.html" %}
+{% endwith %}
 
 {% endblock content %}

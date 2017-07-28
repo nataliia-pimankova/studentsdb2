@@ -68,7 +68,13 @@
   <tbody>
     {% for student in students %}
     <tr >
-      <td>{{ student.id }}</td>
+      <td>
+      {% if is_paginated %}
+        {{ page_obj.start_index|add:forloop.counter|add:"-1" }}
+      {% else %}
+        {{ forloop.counter }}
+      {% endif %}
+      </td>
       <td>
         {% if student.photo %}
           <img height="30" width="30" class="img-circle" src="{{ student.photo.url }}">
@@ -109,8 +115,8 @@
 <!-- End Students Listing -->
 {% endif %}
 
-  {% with object_list=students %}
-    {% include "students/pagination.html" %}
-  {% endwith %}
+{% with object_list=students %}
+  {% include "students/pagination.html" %}
+{% endwith %}
 
 {% endblock content %}
