@@ -23,6 +23,7 @@ class StudentFormAdmin(ModelForm):
 
         return self.cleaned_data['student_group']
 
+
 class StudentAdmin(admin.ModelAdmin):
     list_display = ['last_name', 'first_name', 'ticket', 'student_group']
     list_display_links = ['last_name', 'first_name']

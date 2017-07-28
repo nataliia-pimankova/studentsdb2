@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from students.views import students, groups, journal, tests, results, contact_admin
+from students.views import students, groups, tests, results, contact_admin
 from .settings import MEDIA_ROOT, DEBUG
 from django.views import static
 from students.views.students import StudentList, StudentCreateView, StudentUpdateView, StudentDeleteView

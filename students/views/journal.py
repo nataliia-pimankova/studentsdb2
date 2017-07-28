@@ -158,8 +158,8 @@ class JournalView(TemplateView):
                 'id': student.id,
                 'update_url': update_url,
             })
-            print student
-            print(days)
+            # print student
+            # print(days)
             
         # застосовуємо піганацію до списку студентів
         context = paginate(students, 10, self.request, context,
