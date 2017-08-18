@@ -62,7 +62,7 @@
   {% endwith %}
   <tbody>
     {% for student in students %}
-    <tr >
+    <tr class="">
       <td>
       {% if is_paginated %}
         {{ page_obj.start_index|add:forloop.counter|add:"-1" }}
@@ -115,7 +115,8 @@
 {#<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>#}
 {#<script >#}
 {#    $(function () {#}
-{#        var per_page = 3;#}
+{#        var per_page = {{ paginator.per_page }};#}
+{#        console.log(per_page);#}
 {#        $("tr.hd").slice(0, per_page).show();#}
 {#        $(window).scroll(function(){#}
 {#            $("tr:hidden").slice(0, per_page).slideDown();#}

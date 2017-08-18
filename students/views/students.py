@@ -8,7 +8,7 @@ from django.views.generic import UpdateView, CreateView, \
     DeleteView, ListView
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Reset, Layout, Field, Div, Fieldset
+from crispy_forms.layout import Submit, Reset, Layout, Field
 
 from django.contrib import messages
 
@@ -26,9 +26,6 @@ class StudentList(ListView):
         """This method adds extra variables to template"""
         # get original context data from parent class
         context = super(StudentList, self).get_context_data(**kwargs)
-
-        # tell template not to show logo on a page
-        context['show_logo'] = False
 
         # check if we need to show only one group of students
         current_group = get_current_group(self.request)
@@ -48,24 +45,24 @@ class StudentList(ListView):
             students = students.order_by('last_name')
 
         # apply pagination, 10 students per page
-        context['var_name'] =students
+        context['var_name'] = students
+        context['students'] = students
 
         # apply pagination, 7 students per page
         # context = paginate(students, 7, self.request, {}, var_name='students')
 
-        # return context mapping
         return context
 
-    def get_queryset(self):
-        """Order students by last_name."""
-        # get original query set
-        qs = super(StudentList, self).get_queryset()
+    # def get_queryset(self):
+    #     """Order students by last_name."""
+    #     # get original query set
+    #     qs = super(StudentList, self).get_queryset()
+    #
+    #     # order by last_name
+    #     return qs.order_by('last_name')
 
-        # order by last_name
-        return qs.order_by('last_name')
 
-
-def students_list (request):
+def students_list(request):
     # check if we need to show only one group of students
     current_group = get_current_group(request)
     if current_group:

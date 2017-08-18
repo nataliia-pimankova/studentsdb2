@@ -2,15 +2,15 @@
 from django.shortcuts import render
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
-from django.forms import ModelForm
+from django.forms import ModelForm, ModelChoiceField, HiddenInput
 from django.views.generic import UpdateView, CreateView, DeleteView
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
+from crispy_forms.layout import Submit, Reset, Layout, Field
 
 from django.contrib import messages
 
-from ..models import Student, Result
+from ..models import Student, Result, Group
 from ..util import paginate, get_current_group
 
 
@@ -26,8 +26,7 @@ def results_list (request):
     elif sid:
         results = Result.objects.filter(student=sid)
     elif current_group:
-        print current_group.id
-        results = Result.objects.filter(student__student_group=current_group)
+        results = Result.objects.filter(test__group=current_group)
     else:
         results = Result.objects.all()
 
@@ -38,11 +37,13 @@ def results_list (request):
 
 
 class ResultCreateForm(ModelForm):
+
     class Meta:
         model = Result
-        fields = ('test', 'student','grade')
+        fields = ('test', 'group', 'student', 'grade')
 
     def __init__(self, *args, **kwargs):
+
         # call original initializator
         super(ResultCreateForm, self).__init__(*args, **kwargs)
 
@@ -64,9 +65,18 @@ class ResultCreateForm(ModelForm):
         self.helper.label_class = 'col-sm-2 control-label'
         self.helper.field_class = 'col-sm-10'
 
-        #form buttons
+        layout = Layout(
+            Field('test', css_class='form-control-static'),
+            Field('group', css_class='form-control-static'),
+            Field('student', css_class='form-control-static'),
+            Field('grade', css_class='form-control-static'),
+        )
+        self.helper.add_layout(layout)
+
+        # form buttons
         self.helper.add_input(Submit('save_button', u'Зберегти', css_class='btn btn-primary'))
         self.helper.add_input(Submit('cancel_button', u'Скасувати', css_class='btn btn-link'))
+
 
 class ResultUpdateForm(ResultCreateForm):
     def __init__(self, *args, **kwargs):
@@ -74,6 +84,7 @@ class ResultUpdateForm(ResultCreateForm):
         self.form_action = reverse('results_edit',
                                    kwargs={'pk': kwargs['instance'].id})
         self.headline = u'Редагувати result'
+
 
 class ResultCreateView(CreateView):
     model = Result
@@ -98,12 +109,12 @@ class ResultUpdateView(UpdateView):
     template_name = 'students/templates_add_edit.html'
 
     def get_success_url(self):
-        messages.success(self.request, u'Result успішно збережено!')
+        messages.success(self.request, u'Оцінка успішно збережена!')
         return reverse('results')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            messages.info(request, u'Редагування групи відмінено!')
+            messages.info(request, u'Редагування результату іспиту відмінено!')
             return HttpResponseRedirect(reverse('results'))
         else:
             return super(ResultUpdateView, self).post(request,*args,**kwargs)

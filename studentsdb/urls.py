@@ -60,6 +60,8 @@ urlpatterns = [
     url(r'^contact/$', MyContactFormView.as_view(form_class=MyContactForm),name='contact_form'),
     url(r'^contact/sent/$', TemplateView.as_view(template_name='contact_form/contact_form_sent.html'), name='contact_form_sent'),
 
+    url(r'^chaining/', include('smart_selects.urls')),
+
     url(r'^admin/', include(admin.site.urls)),
 ]
 
