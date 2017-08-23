@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-23 09:42+0000\n"
+"POT-Creation-Date: 2017-08-23 09:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,6 +64,24 @@ msgstr ""
 
 #: templates/students/base.html:61
 msgid "Django Contact"
+msgstr ""
+
+#: templates/students/groups_confirm_delete.html:7
+#: templates/students/groups_confirm_delete.html:9
+msgid "Delete Group"
+msgstr ""
+
+#: templates/students/groups_confirm_delete.html:16
+#, python-format
+msgid "Do you really want to delete group: \"%(object)s\"?"
+msgstr ""
+
+#: templates/students/groups_confirm_delete.html:18
+msgid "Yes"
+msgstr ""
+
+#: templates/students/groups_confirm_delete.html:20
+msgid "No"
 msgstr ""
 
 #: templates/students/students_list.html:8
