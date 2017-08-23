@@ -12,20 +12,20 @@ from django.contrib import messages
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
-from ..models.Test import Test
+from ..models.Exam import Exam
 from ..util import paginate, get_current_group
 
 
 # Views for Tests.
-class TestList(ListView):
-    model = Test
-    context_object_name = 'tests'
-    template_name = 'students/tests_list.html'
+class ExamList(ListView):
+    model = Exam
+    context_object_name = 'exams'
+    template_name = 'students/exams_list.html'
 
     def get_context_data(self, **kwargs):
         """This method adds extra variables to template"""
         # get original context data from parent class
-        context = super(TestList, self).get_context_data(**kwargs)
+        context = super(ExamList, self).get_context_data(**kwargs)
 
         # tell template not to show logo on a page
         context['show_logo'] = False
@@ -33,10 +33,10 @@ class TestList(ListView):
         # check if we need to show only one group of students
         current_group = get_current_group(self.request)
         if current_group:
-            tests = Test.objects.filter(group=current_group)
+            tests = Exam.objects.filter(group=current_group)
         else:
             # otherwise show all students
-            tests = Test.objects.all()
+            tests = Exam.objects.all()
 
         # try to order tests_list
         order_by = self.request.GET.get('order_by')
@@ -48,30 +48,30 @@ class TestList(ListView):
             tests = tests.order_by('title')
 
         # apply pagination, 10 students per page
-        context = paginate(tests, 7, self.request, context, var_name='tests')
+        context = paginate(tests, 7, self.request, context, var_name='exams')
 
         # return context mapping
         return context
 
 
-class TestForm(ModelForm):
+class ExamForm(ModelForm):
     class Meta:
-        model = Test
+        model = Exam
         fields = "__all__"
 
     def __init__(self, *args, **kwargs):
         # call original initializator
-        super(TestForm, self).__init__(*args, **kwargs)
+        super(ExamForm, self).__init__(*args, **kwargs)
 
         self.helper = FormHelper(self)
 
         if hasattr(kwargs['instance'], 'id'):
-            self.helper.form_action = reverse('tests_edit',
+            self.helper.form_action = reverse('exams-edit',
                                               kwargs={'pk': kwargs['instance'].id})
             self.headline = u'Редагувати іспит'
         else:
         # set form tag attributes
-            self.helper.form_action = reverse('tests_add',
+            self.helper.form_action = reverse('exams-add',
                          kwargs={})
             self.headline = u'Додати іспит'
 
@@ -89,45 +89,45 @@ class TestForm(ModelForm):
         self.helper.add_input(Submit('cancel_button', u'Скасувати', css_class='btn btn-link'))
 
 
-class TestCreateView(CreateView):
-    model = Test
-    form_class = TestForm
-    template_name = 'students/groups_edit.html'
+class ExamCreateView(CreateView):
+    model = Exam
+    form_class = ExamForm
+    template_name = 'students/templates_add_edit.html'
 
     def get_success_url(self):
         messages.success(self.request, u'Іспит успішно доданий!')
-        return reverse('tests')
+        return reverse('exams')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
             messages.info(request, u'Додавання іспиту скасовано!')
-            return HttpResponseRedirect(reverse('tests'))
+            return HttpResponseRedirect(reverse('exams'))
         else:
-            return super(TestCreateView, self).post(request,*args,**kwargs)
+            return super(ExamCreateView, self).post(request, *args, **kwargs)
 
 
-class TestUpdateView(UpdateView):
-    model = Test
-    form_class = TestForm
-    template_name = 'students/groups_edit.html'
+class ExamUpdateView(UpdateView):
+    model = Exam
+    form_class = ExamForm
+    template_name = 'students/templates_add_edit.html'
 
     def get_success_url(self):
         messages.success(self.request, u'Іспит успішно збережено!')
-        return  reverse('tests')
+        return reverse('exams')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
             messages.info(request, u'Редагування іспиту відмінено!')
-            return HttpResponseRedirect(reverse('tests'))
+            return HttpResponseRedirect(reverse('exams'))
         else:
-            return super(TestUpdateView, self).post(request,*args,**kwargs)
+            return super(ExamUpdateView, self).post(request, *args, **kwargs)
 
 
-class TestDeleteView(DeleteView):
-    model = Test
-    template_name = 'students/tests_confirm_delete.html'
+class ExamDeleteView(DeleteView):
+    model = Exam
+    template_name = 'students/exam_confirm_delete.html'
 
     def get_success_url(self):
         messages.success(self.request, u'Іспит успішно видалено!')
-        return reverse('tests')
+        return reverse('exams')
 

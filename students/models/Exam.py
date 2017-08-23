@@ -5,8 +5,8 @@ from django.db import models
 
 
 # Create your models here.
-class Test(models.Model):
-    """Test Model"""
+class Exam(models.Model):
+    """Exam Model"""
 
     class Meta(object):
         verbose_name = u"Іспит"

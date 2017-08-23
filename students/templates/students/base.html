@@ -55,7 +55,7 @@
             <li role="presentation" {% if '/student_list/' in request.path %}class="active"{% endif %}><a href="{% url 'student_list' %}">{% trans "Students SL" %}</a></li>
             <li role="presentation" {% if '/journal' in request.path %}class="active"{% endif %}><a href="{% url 'journal' %}">{% trans "Journal" %}</a></li>
             <li role="presentation" {% if '/groups' in request.path %}class="active"{% endif %}><a href="{% url 'groups' %}">{% trans "Groups" %}</a></li>
-            <li role="presentation" {% if '/tests' in request.path %}class="active"{% endif %}><a href="{% url 'tests' %}">{% trans "Exams" %}</a></li>
+            <li role="presentation" {% if '/exams' in request.path %}class="active"{% endif %}><a href="{% url 'exams' %}">{% trans "Exams" %}</a></li>
             <li role="presentation" {% if '/results' in request.path %}class="active"{% endif %}><a href="{% url 'results' %}">{% trans "Results" %}</a></li>
             <li role="presentation" {% if '/contact_admin' in request.path %}class="active"{% endif %}><a href="{% url 'contact_admin' %}">{% trans "Contact" %}</a></li>
             <li role="presentation" {% if '/contact/' in request.path %}class="active"{% endif %}><a href="{% url 'contact_form' %}">{% trans "Django Contact" %}</a></li>

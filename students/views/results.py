@@ -22,11 +22,11 @@ def results_list (request):
     tid = request.GET.get('tid')
     sid = request.GET.get('sid')
     if tid:
-        results = Result.objects.filter(test=tid)
+        results = Result.objects.filter(exam=tid)
     elif sid:
         results = Result.objects.filter(student=sid)
     elif current_group:
-        results = Result.objects.filter(test__group=current_group)
+        results = Result.objects.filter(exam__group=current_group)
     else:
         results = Result.objects.all()
 
@@ -40,7 +40,7 @@ class ResultCreateForm(ModelForm):
 
     class Meta:
         model = Result
-        fields = ('test', 'group', 'student', 'grade')
+        fields = ("exam", 'group', 'student', 'grade')
 
     def __init__(self, *args, **kwargs):
 
@@ -66,7 +66,7 @@ class ResultCreateForm(ModelForm):
         self.helper.field_class = 'col-sm-10'
 
         layout = Layout(
-            Field('test', css_class='form-control-static'),
+            Field('exam', css_class='form-control-static'),
             Field('group', css_class='form-control-static'),
             Field('student', css_class='form-control-static'),
             Field('grade', css_class='form-control-static'),

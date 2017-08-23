@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from students.views import students, groups, tests, results, contact_admin
+from students.views import students, groups, exams, results, contact_admin
 from .settings import MEDIA_ROOT, DEBUG
 from django.views import static
 from students.views.contact_admin import ContactView
@@ -44,10 +44,10 @@ urlpatterns = [
     url(r'^journal/(?P<pk>\d+)?/?$', JournalView.as_view(), name='journal'),
 
     # Tests Urls
-    url(r'^tests/$', tests.TestList.as_view(), name='tests'),
-    url(r'^tests/add/$', tests.TestCreateView.as_view(), name='tests_add'),
-    url(r'^tests/(?P<pk>\d+)/edit/$', tests.TestUpdateView.as_view(), name='tests_edit'),
-    url(r'^tests/(?P<pk>\d+)/delete/$', tests.TestDeleteView.as_view(), name='tests_delete'),
+    url(r'^exams/$', exams.ExamList.as_view(), name='exams'),
+    url(r'^exams/add/$', exams.ExamCreateView.as_view(), name='exams-add'),
+    url(r'^exams/(?P<pk>\d+)/edit/$', exams.ExamUpdateView.as_view(), name='exams-edit'),
+    url(r'^exams/(?P<pk>\d+)/delete/$', exams.ExamDeleteView.as_view(), name='exams-delete'),
 
     # Results Urls
     url(r'^results/$', results.results_list, name='results'),

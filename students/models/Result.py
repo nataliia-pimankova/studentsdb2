@@ -19,8 +19,8 @@ class Result(models.Model):
         verbose_name=u"Оцінка"
     )
 
-    test = models.ForeignKey(
-        'Test',
+    exam = models.ForeignKey(
+        'Exam',
         verbose_name=u"Іспит",
         blank=False,
         null=True,
@@ -29,8 +29,8 @@ class Result(models.Model):
 
     group = ChainedForeignKey(
         'Group',
-        chained_field='test',
-        chained_model_field='test',
+        chained_field='exam',
+        chained_model_field='exam',
         show_all=False,
         auto_choose=True,
         sort=True,
@@ -46,5 +46,5 @@ class Result(models.Model):
         sort=True)
 
     def __unicode__(self):
-        return u"%s - %s %s" % (self.grade, self.student, self.test)
+        return u"%s - %s %s" % (self.grade, self.student, self.exam)
 

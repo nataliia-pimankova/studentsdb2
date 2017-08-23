@@ -61,12 +61,12 @@
             {{ forloop.counter }}
           {% endif %}
       </td>
-      <td><a title="Редагувати" href="{% url 'results_edit' result.id %}">{{ result.test.title }}</a></td>
+      <td><a title="Редагувати" href="{% url 'results_edit' result.id %}">{{ result.exam.title }}</a></td>
       <td><a title="Редагувати" href="{% url 'results_edit' result.id %}">{{ result.group }}</a></td>
       <td><a title="Редагувати" href="{% url 'results_edit' result.id %}">{{ result.student.last_name  }} {{ result.student.first_name  }}</a></td>
       <td><a title="Редагувати" href="{% url 'results_edit' result.id %}">{{ result.grade }}</a></td>
-      <td><a title="Редагувати" href="{% url 'results_edit' result.id %}">{{ result.test.teacher }}</a></td>
-      <td>{{ result.test.date }}</td>
+      <td><a title="Редагувати" href="{% url 'results_edit' result.id %}">{{ result.exam.teacher }}</a></td>
+      <td>{{ result.exam.date }}</td>
       <td>
         <div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">

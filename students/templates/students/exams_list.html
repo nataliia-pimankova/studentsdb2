@@ -7,16 +7,16 @@
 {% block title %}База Іспитів{% endblock title %}
 
 {% block content %}
-<a class="btn btn-primary" href="{% url 'tests_add' %}">Додати Іспит</a>
+<a class="btn btn-primary" href="{% url 'exams-add' %}">Додати Іспит</a>
 
-<!-- Start Tests Listing -->
+<!-- Start Exams Listing -->
 <table class="table table-hover table-striped">
   {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
   <thead>
     <tr>
       <th>№</th>
       <th>
-        <a href="{% url 'tests' %}?order_by=title{% if order_by == 'title' and reverse != '1' %}&amp;reverse=1
+        <a href="{% url 'exams' %}?order_by=title{% if order_by == 'title' and reverse != '1' %}&amp;reverse=1
                 {% elif not order_by and reverse != '1' %}&amp;reverse=1
                 {% endif %}">
         Назва
@@ -27,7 +27,7 @@
         </a>
       </th>
       <th>
-        <a href="{% url 'tests' %}?order_by=date{% if order_by == 'group' and reverse != '1' %}&amp;reverse=1{% endif %}">
+        <a href="{% url 'exams' %}?order_by=date{% if order_by == 'group' and reverse != '1' %}&amp;reverse=1{% endif %}">
         Дата і час
         {% if order_by == 'date' and reverse != '1' %}&uarr;
         {% elif order_by == 'date' and reverse == '1' %}&darr;
@@ -35,7 +35,7 @@
         </a>
       </th>
       <th>
-        <a href="{% url 'tests' %}?order_by=teacher{% if order_by == 'teacher' and reverse != '1' %}&amp;reverse=1{% endif %}">
+        <a href="{% url 'exams' %}?order_by=teacher{% if order_by == 'teacher' and reverse != '1' %}&amp;reverse=1{% endif %}">
         Викладач
         {% if order_by == 'teacher' and reverse != '1' %}&uarr;
         {% elif order_by == 'teacher' and reverse == '1' %}&darr;
@@ -43,7 +43,7 @@
         </a>
       </th>
       <th>
-        <a href="{% url 'tests' %}?order_by=group{% if order_by == 'group' and reverse != '1' %}&amp;reverse=1{% endif %}">
+        <a href="{% url 'exams' %}?order_by=group{% if order_by == 'group' and reverse != '1' %}&amp;reverse=1{% endif %}">
         Група
         {% if order_by == 'group' and reverse != '1' %}&uarr;
         {% elif order_by == 'group' and reverse == '1' %}&darr;
@@ -55,7 +55,7 @@
   </thead>
   {% endwith %}
   <tbody>
-    {% for test in tests %}
+    {% for exam in exams %}
     <tr>
       <td>
       {% if is_paginated %}
@@ -64,10 +64,10 @@
         {{ forloop.counter }}
       {% endif %}
       </td>
-      <td><a title="Редагувати" href="{% url 'tests_edit' test.id %}">{{ test.title }}</a></td>
-      <td>{{ test.date }}</td>
-      <td>{{ test.teacher }}</td>
-      <td><a title="Список груп" href="{% url 'groups_edit' test.group.id%}">{{ test.group }}</a></td>
+      <td><a title="Редагувати" href="{% url 'exams-edit' exam.id %}">{{ exam.title }}</a></td>
+      <td>{{ exam.date }}</td>
+      <td>{{ exam.teacher }}</td>
+      <td><a title="Список груп" href="{% url 'groups_edit' exam.group.id%}">{{ exam.group }}</a></td>
       <td>
         <div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
@@ -76,13 +76,13 @@
           </button>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
-              <a role="menuitem" tabindex="-1" href="{% url 'results' %}?tid={{ test.id }}">Результати</a>
+              <a role="menuitem" tabindex="-1" href="{% url 'results' %}?tid={{ exam.id }}">Результати</a>
             </li>
             <li role="presentation">
-              <a role="menuitem" tabindex="-1" href="{% url 'tests_edit' test.id %}">Редагувати</a>
+              <a role="menuitem" tabindex="-1" href="{% url 'exams-edit' exam.id %}">Редагувати</a>
             </li>
             <li role="presentation">
-              <a role="menuitem" tabindex="-1" href="{% url 'tests_delete' test.id %}">Видалити</a>
+              <a role="menuitem" tabindex="-1" href="{% url 'exams-delete' exam.id %}">Видалити</a>
             </li>
           </ul>
         </div>
@@ -91,8 +91,8 @@
     {% endfor %}
   </tbody>
 </table>
-<!-- End Tests Listing -->
-{% with object_list=tests %}
+<!-- End Exams Listing -->
+{% with object_list=exams %}
   {% include "students/pagination.html" %}
 {% endwith %}
 
