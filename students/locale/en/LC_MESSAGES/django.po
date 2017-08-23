@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-23 09:22+0000\n"
+"POT-Creation-Date: 2017-08-23 09:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "All Students"
 msgstr ""
 
-#: templates/students/base.html:54
+#: templates/students/base.html:54 templates/students/students_list.html:6
 msgid "Students"
 msgstr ""
 
@@ -42,7 +42,7 @@ msgstr ""
 msgid "Students SL"
 msgstr ""
 
-#: templates/students/base.html:56
+#: templates/students/base.html:56 templates/students/students_list.html:98
 msgid "Journal"
 msgstr ""
 
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Exams"
 msgstr ""
 
-#: templates/students/base.html:59
+#: templates/students/base.html:59 templates/students/students_list.html:101
 msgid "Results"
 msgstr ""
 
@@ -64,4 +64,48 @@ msgstr ""
 
 #: templates/students/base.html:61
 msgid "Django Contact"
+msgstr ""
+
+#: templates/students/students_list.html:8
+msgid "Students List"
+msgstr ""
+
+#: templates/students/students_list.html:11
+msgid "Add Student"
+msgstr ""
+
+#: templates/students/students_list.html:32
+msgid "Photo"
+msgstr ""
+
+#: templates/students/students_list.html:37
+msgid "Last Name"
+msgstr ""
+
+#: templates/students/students_list.html:46
+msgid "Firs Name"
+msgstr ""
+
+#: templates/students/students_list.html:54
+msgid "Ticket #"
+msgstr ""
+
+#: templates/students/students_list.html:62
+msgid "Group"
+msgstr ""
+
+#: templates/students/students_list.html:65
+msgid "Actions"
+msgstr ""
+
+#: templates/students/students_list.html:93
+msgid "Action"
+msgstr ""
+
+#: templates/students/students_list.html:104
+msgid "Edit"
+msgstr ""
+
+#: templates/students/students_list.html:107
+msgid "Delete"
 msgstr ""
