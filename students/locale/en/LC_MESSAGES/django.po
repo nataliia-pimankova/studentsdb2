@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-23 21:04+0000\n"
+"POT-Creation-Date: 2017-08-23 21:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -96,7 +96,7 @@ msgstr ""
 msgid "Add Exam"
 msgstr ""
 
-#: templates/students/exams_list.html:18
+#: templates/students/exams_list.html:18 templates/students/journal.html:34
 msgid "#"
 msgstr ""
 
@@ -123,7 +123,7 @@ msgid "Actions"
 msgstr ""
 
 #: templates/students/exams_list.html:68 templates/students/exams_list.html:83
-#: templates/students/students_list.html:105
+#: templates/students/journal.html:58 templates/students/students_list.html:105
 msgid "Edit"
 msgstr ""
 
@@ -145,6 +145,39 @@ msgstr ""
 #: templates/students/groups_confirm_delete.html:16
 #, python-format
 msgid "Do you really want to delete group: \"%(object)s\"?"
+msgstr ""
+
+#: templates/students/journal.html:6 templates/students/journal.html:8
+msgid "Journal of Attending"
+msgstr ""
+
+#: templates/students/journal.html:15 templates/students/students_list.html:16
+#, python-format
+msgid ""
+"There is not yet a single student in the database. Please\n"
+"    <a href=\"%(students_add_url)s\" class=\"btn btn-info\">add first</a>."
+msgstr ""
+
+#: templates/students/journal.html:21
+msgid ""
+"Changes to the journal are saved automatically with each click in the cell "
+"of the table."
+msgstr ""
+
+#: templates/students/journal.html:22
+msgid "Saving is in progress..."
+msgstr ""
+
+#: templates/students/journal.html:26
+msgid "Previous Month"
+msgstr ""
+
+#: templates/students/journal.html:29
+msgid "Next Month"
+msgstr ""
+
+#: templates/students/journal.html:35
+msgid "Student"
 msgstr ""
 
 #: templates/students/results_confirm_delete.html:7
@@ -173,13 +206,6 @@ msgstr ""
 
 #: templates/students/students_list.html:11
 msgid "Add Student"
-msgstr ""
-
-#: templates/students/students_list.html:16
-#, python-format
-msgid ""
-"There is not yet a single student in the database. Please\n"
-"    <a href=\"%(students_add_url)s\" class=\"btn btn-info\">add first</a>."
 msgstr ""
 
 #: templates/students/students_list.html:33

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-23 21:04+0000\n"
+"POT-Creation-Date: 2017-08-23 21:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -98,7 +98,7 @@ msgstr "Ні"
 msgid "Add Exam"
 msgstr "Створити Іспит"
 
-#: templates/students/exams_list.html:18
+#: templates/students/exams_list.html:18 templates/students/journal.html:34
 msgid "#"
 msgstr "№"
 
@@ -125,7 +125,7 @@ msgid "Actions"
 msgstr "Дії"
 
 #: templates/students/exams_list.html:68 templates/students/exams_list.html:83
-#: templates/students/students_list.html:105
+#: templates/students/journal.html:58 templates/students/students_list.html:105
 msgid "Edit"
 msgstr "Редагувати"
 
@@ -149,6 +149,43 @@ msgstr "Видалити Групу"
 msgid "Do you really want to delete group: \"%(object)s\"?"
 msgstr "Ви дійсно хочете видалити групу \"%(object)s\"?"
 
+#: templates/students/journal.html:6 templates/students/journal.html:8
+msgid "Journal of Attending"
+msgstr "Журнал Відвідування"
+
+#: templates/students/journal.html:15 templates/students/students_list.html:16
+#, python-format
+msgid ""
+"There is not yet a single student in the database. Please\n"
+"    <a href=\"%(students_add_url)s\" class=\"btn btn-info\">add first</a>."
+msgstr ""
+"Поки немає жодного студента в базі. Будь-ласка,\n"
+"    <a href=\"%(students_add_url)s\" class=\"btn btn-info\">додайте першого</"
+"a>."
+
+#: templates/students/journal.html:21
+msgid ""
+"Changes to the journal are saved automatically with each click in the cell "
+"of the table."
+msgstr ""
+"Зміни в журнал зберігаються автоматично при кожному кліку в клітинці таблиці."
+
+#: templates/students/journal.html:22
+msgid "Saving is in progress..."
+msgstr "Йде збереження..."
+
+#: templates/students/journal.html:26
+msgid "Previous Month"
+msgstr "Попередній Місяць"
+
+#: templates/students/journal.html:29
+msgid "Next Month"
+msgstr "Наступний Місяць"
+
+#: templates/students/journal.html:35
+msgid "Student"
+msgstr "Студент"
+
 #: templates/students/results_confirm_delete.html:7
 #: templates/students/results_confirm_delete.html:9
 msgid "Delete Result"
@@ -171,21 +208,11 @@ msgstr "Ви дійсно хочете видалити студента \"%(obj
 
 #: templates/students/students_list.html:8
 msgid "Students List"
-msgstr "Список студентів"
+msgstr "Список Студентів"
 
 #: templates/students/students_list.html:11
 msgid "Add Student"
 msgstr "Додати Студента"
-
-#: templates/students/students_list.html:16
-#, python-format
-msgid ""
-"There is not yet a single student in the database. Please\n"
-"    <a href=\"%(students_add_url)s\" class=\"btn btn-info\">add first</a>."
-msgstr ""
-"Поки немає жодного студента в базі. Будь-ласка,\n"
-"    <a href=\"%(students_add_url)s\" class=\"btn btn-info\">додайте першого</"
-"a>."
 
 #: templates/students/students_list.html:33
 msgid "Photo"
