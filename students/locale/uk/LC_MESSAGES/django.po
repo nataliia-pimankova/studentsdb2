@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-23 18:52+0000\n"
+"POT-Creation-Date: 2017-08-23 21:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,11 +52,13 @@ msgstr "Відвідування"
 msgid "Groups"
 msgstr "Групи"
 
-#: templates/students/base.html:58
+#: templates/students/base.html:58 templates/students/exams_list.html:6
+#: templates/students/exams_list.html:8
 msgid "Exams"
 msgstr "Іспити"
 
-#: templates/students/base.html:59 templates/students/students_list.html:102
+#: templates/students/base.html:59 templates/students/exams_list.html:80
+#: templates/students/students_list.html:102
 msgid "Results"
 msgstr "Результати"
 
@@ -68,6 +70,75 @@ msgstr "Контакт"
 msgid "Django Contact"
 msgstr "Django Контакт"
 
+#: templates/students/exam_confirm_delete.html:7
+#: templates/students/exam_confirm_delete.html:9
+msgid "Delete Exam"
+msgstr "Видалити Іспит"
+
+#: templates/students/exam_confirm_delete.html:16
+#, python-format
+msgid "Do you really want to delete Exam: \"%(object)s\"?"
+msgstr "Ви дійсно хочете видалити іспит \"%(object)s\"?"
+
+#: templates/students/exam_confirm_delete.html:18
+#: templates/students/groups_confirm_delete.html:18
+#: templates/students/results_confirm_delete.html:18
+#: templates/students/students_confirm_delete.html:17
+msgid "Yes"
+msgstr "Так"
+
+#: templates/students/exam_confirm_delete.html:20
+#: templates/students/groups_confirm_delete.html:20
+#: templates/students/results_confirm_delete.html:20
+#: templates/students/students_confirm_delete.html:19
+msgid "No"
+msgstr "Ні"
+
+#: templates/students/exams_list.html:11
+msgid "Add Exam"
+msgstr "Створити Іспит"
+
+#: templates/students/exams_list.html:18
+msgid "#"
+msgstr "№"
+
+#: templates/students/exams_list.html:23
+msgid "Title"
+msgstr "Назва"
+
+#: templates/students/exams_list.html:32
+msgid "Date and Time"
+msgstr "Дата і Час"
+
+#: templates/students/exams_list.html:40
+msgid "Teacher"
+msgstr "Викладач"
+
+#: templates/students/exams_list.html:48
+#: templates/students/students_list.html:63
+msgid "Group"
+msgstr "Група"
+
+#: templates/students/exams_list.html:54
+#: templates/students/students_list.html:66
+msgid "Actions"
+msgstr "Дії"
+
+#: templates/students/exams_list.html:68 templates/students/exams_list.html:83
+#: templates/students/students_list.html:105
+msgid "Edit"
+msgstr "Редагувати"
+
+#: templates/students/exams_list.html:75
+#: templates/students/students_list.html:94
+msgid "Action"
+msgstr "Дія"
+
+#: templates/students/exams_list.html:86
+#: templates/students/students_list.html:108
+msgid "Delete"
+msgstr "Видалити"
+
 #: templates/students/groups_confirm_delete.html:7
 #: templates/students/groups_confirm_delete.html:9
 msgid "Delete Group"
@@ -77,20 +148,6 @@ msgstr "Видалити Групу"
 #, python-format
 msgid "Do you really want to delete group: \"%(object)s\"?"
 msgstr "Ви дійсно хочете видалити групу \"%(object)s\"?"
-
-#: templates/students/groups_confirm_delete.html:18
-#: templates/students/results_confirm_delete.html:18
-#: templates/students/students_confirm_delete.html:17
-#: templates/students/tests_confirm_delete.html:18
-msgid "Yes"
-msgstr "Так"
-
-#: templates/students/groups_confirm_delete.html:20
-#: templates/students/results_confirm_delete.html:20
-#: templates/students/students_confirm_delete.html:19
-#: templates/students/tests_confirm_delete.html:20
-msgid "No"
-msgstr "Ні"
 
 #: templates/students/results_confirm_delete.html:7
 #: templates/students/results_confirm_delete.html:9
@@ -145,32 +202,3 @@ msgstr "Ім'я"
 #: templates/students/students_list.html:55
 msgid "Ticket #"
 msgstr "№ Білету"
-
-#: templates/students/students_list.html:63
-msgid "Group"
-msgstr "Група"
-
-#: templates/students/students_list.html:66
-msgid "Actions"
-msgstr "Дії"
-
-#: templates/students/students_list.html:94
-msgid "Action"
-msgstr "Дія"
-
-#: templates/students/students_list.html:105
-msgid "Edit"
-msgstr "Редагувати"
-
-#: templates/students/students_list.html:108
-msgid "Delete"
-msgstr "Видалити"
-
-#: templates/students/tests_confirm_delete.html:7
-#: templates/students/tests_confirm_delete.html:9
-msgid "Delete Exam"
-msgstr "Видалити Іспит"
-
-#: templates/students/tests_confirm_delete.html:16
-msgid "Do you really want to delete Exam: \"%(object)s\"?"
-msgstr "Ви дійсно хочете видалити іспит \"%(object)s\"?"
