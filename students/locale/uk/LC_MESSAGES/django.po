@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-23 10:05+0000\n"
+"POT-Creation-Date: 2017-08-23 10:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,12 +79,35 @@ msgid "Do you really want to delete group: \"%(object)s\"?"
 msgstr "Ви дійсно хочете видалити групу \"%(object)s\"?"
 
 #: templates/students/groups_confirm_delete.html:18
+#: templates/students/results_confirm_delete.html:18
+#: templates/students/students_confirm_delete.html:17
 msgid "Yes"
 msgstr "Так"
 
 #: templates/students/groups_confirm_delete.html:20
+#: templates/students/results_confirm_delete.html:20
+#: templates/students/students_confirm_delete.html:19
 msgid "No"
 msgstr "Ні"
+
+#: templates/students/results_confirm_delete.html:7
+#: templates/students/results_confirm_delete.html:9
+msgid "Delete Result"
+msgstr "Видалити Результат Іспиту"
+
+#: templates/students/results_confirm_delete.html:16
+msgid "Do you really want to delete result: \"%(object)s\"?"
+msgstr "Ви дійсно хочете видалити результат іспиту \"%(object)s\"?"
+
+#: templates/students/students_confirm_delete.html:7
+#: templates/students/students_confirm_delete.html:9
+msgid "Delete Student"
+msgstr "Видалити Студента"
+
+#: templates/students/students_confirm_delete.html:15
+#, python-format
+msgid "Do you really want to delete student: \"%(object)s\"?"
+msgstr "Ви дійсно хочете видалити студента \"%(object)s\"?"
 
 #: templates/students/students_list.html:8
 msgid "Students List"
@@ -99,8 +122,10 @@ msgstr "Додати Студента"
 msgid ""
 "There is not yet a single student in the database. Please\n"
 "    <a href=\"%(students_add_url)s\" class=\"btn btn-info\">add first</a>."
-msgstr "Поки немає жодного студента в базі. Будь-ласка,\n"
-"    <a href=\"%(students_add_url)s\" class=\"btn btn-info\">додайте першого</a>."
+msgstr ""
+"Поки немає жодного студента в базі. Будь-ласка,\n"
+"    <a href=\"%(students_add_url)s\" class=\"btn btn-info\">додайте першого</"
+"a>."
 
 #: templates/students/students_list.html:33
 msgid "Photo"

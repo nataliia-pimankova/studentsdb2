@@ -1,19 +1,24 @@
 {% extends "students/base.html" %}
 
+{% load i18n %}
 {% load static from staticfiles %}
 {% load crispy_forms_tags %}
 
-{% block meta_title %}Видалити Студента{% endblock meta_title %}
+{% block meta_title %}{% trans "Delete Student" %}{% endblock meta_title %}
 
-{% block title %}Видалити Студента{% endblock title %}
+{% block title %}{% trans "Delete Student" %}{% endblock title %}
 
 {% block content %}
 
 <form action="{% url 'students_delete' object.id %}" method="post">
     {% csrf_token %}
-    <p>Ви дійсно хочете видалити студента "{{ object }}"?</p>
-    <input type="submit" value="Так" name="delete_button"
-        class="btn btn-danger"/> <br /> <br />
+      {% blocktrans %}Do you really want to delete student: "{{ object }}"?{% endblocktrans %}
+    </p>
+    <input type="submit" value="{% trans "Yes" %}" name="delete_button"
+        class="btn btn-danger"/>
+    <a href="{% url "home" %}" class="btn btn-info">{% trans "No" %}</a>
+
+  <br /> <br />
 </form>
 
 {% endblock content %}
