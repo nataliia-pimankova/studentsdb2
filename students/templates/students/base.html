@@ -1,12 +1,13 @@
+{% load i18n %}
 {% load static from staticfiles %}
 <!DOCTYPE html>
 <html lang="uk">
   <head>
     <meta charset="UTF-8"/>
 
-    <title>Сервіс Обліку Студентів - {% block meta_title %}{% endblock meta_title %}</title>
+    <title>{% trans "Students Accounting Service" %} - {% block meta_title %}{% endblock meta_title %}</title>
 
-    <meta name="description" value="Система Обліку Студентів Навчального Закладу">
+    <meta name="description" value="{% trans "App to manage students database" %}">
 
     <!-- Include Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -26,15 +27,15 @@
 
         <!-- Logo -->
         <div class="col-xs-8">
-          <h1>{% block logo %}Сервіс Обліку Студентів{%  endblock logo%}</h1>
+          <h1>{% block logo %}{% trans "Students Accounting Service" %}{%  endblock logo%}</h1>
         </div>
 
         <!-- Groups Selector -->
         <div class="col-xs-4" id="group-selector">
           {% block groups_selector %}
-          <strong>Група:</strong>
+          <strong>{% trans "Group:" %}</strong>
           <select>
-            <option value="">Усі Студенти</option>
+            <option value="">{% trans "All Students" %}</option>
             {% for group in GROUPS %}
             <option value="{{ group.id }}"{%  if group.selected %}selected="1"{% endif %}>
               {{ group.title }}{% if group.leader %}, {{ group.leader }}{% endif %}
@@ -50,14 +51,14 @@
       <div class="row" id="sub-header">
         <div class="col-xs-12">
           <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" {% if request.path == '/' %}class="active"{% elif '/students' in request.path %}class="active"{% endif %}><a href="{% url 'home' %}">Студенти</a></li>
-            <li role="presentation" {% if '/student_list/' in request.path %}class="active"{% endif %}><a href="{% url 'student_list' %}">Студенти SL</a></li>
-            <li role="presentation" {% if '/journal' in request.path %}class="active"{% endif %}><a href="{% url 'journal' %}">Відвідування</a></li>
-            <li role="presentation" {% if '/groups' in request.path %}class="active"{% endif %}><a href="{% url 'groups' %}">Групи</a></li>
-            <li role="presentation" {% if '/tests' in request.path %}class="active"{% endif %}><a href="{% url 'tests' %}">Іспити</a></li>
-            <li role="presentation" {% if '/results' in request.path %}class="active"{% endif %}><a href="{% url 'results' %}">Результати</a></li>
-            <li role="presentation" {% if '/contact_admin' in request.path %}class="active"{% endif %}><a href="{% url 'contact_admin' %}">Контакт</a></li>
-            <li role="presentation" {% if '/contact/' in request.path %}class="active"{% endif %}><a href="{% url 'contact_form' %}">Django Контакт</a></li>
+            <li role="presentation" {% if request.path == '/' %}class="active"{% elif '/students' in request.path %}class="active"{% endif %}><a href="{% url 'home' %}">{% trans "Students" %}</a></li>
+            <li role="presentation" {% if '/student_list/' in request.path %}class="active"{% endif %}><a href="{% url 'student_list' %}">{% trans "Students SL" %}</a></li>
+            <li role="presentation" {% if '/journal' in request.path %}class="active"{% endif %}><a href="{% url 'journal' %}">{% trans "Journal" %}</a></li>
+            <li role="presentation" {% if '/groups' in request.path %}class="active"{% endif %}><a href="{% url 'groups' %}">{% trans "Groups" %}</a></li>
+            <li role="presentation" {% if '/tests' in request.path %}class="active"{% endif %}><a href="{% url 'tests' %}">{% trans "Exams" %}</a></li>
+            <li role="presentation" {% if '/results' in request.path %}class="active"{% endif %}><a href="{% url 'results' %}">{% trans "Results" %}</a></li>
+            <li role="presentation" {% if '/contact_admin' in request.path %}class="active"{% endif %}><a href="{% url 'contact_admin' %}">{% trans "Contact" %}</a></li>
+            <li role="presentation" {% if '/contact/' in request.path %}class="active"{% endif %}><a href="{% url 'contact_form' %}">{% trans "Django Contact" %}</a></li>
           </ul>
         </div>
       </div>
@@ -89,7 +90,7 @@
       <div class="row" id="footer">
         <div class="col-xs-12">
           {% block footer %}
-          &copy;2016-2017 Сервіс Обліку Студентів
+          &copy;2016-2017 {% trans "Students Accounting Service" %}
           {% endblock footer %}
         </div>
       </div>
