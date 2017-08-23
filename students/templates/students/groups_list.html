@@ -1,23 +1,24 @@
 {% extends "students/base.html" %}
 
+{% load i18n %}
 {% load static from staticfiles %}
 
-{% block meta_title %}Групи{% endblock meta_title %}
+{% block meta_title %}{% trans "Groups" %}{% endblock meta_title %}
 
-{% block title %}Групи{% endblock title %}
+{% block title %}{% trans "Groups" %}{% endblock title %}
 
 {% block content %}
 
-<a class="btn btn-primary" href="{% url 'groups_add' %}">Додати Групу</a>
+<a class="btn btn-primary" href="{% url 'groups_add' %}">{% trans "Add Group" %}</a>
 
-<!-- Start Students Listing -->
+<!-- Start Groups Listing -->
 <table class="table table-hover table-striped">
 {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
     <thead>
     <tr>
       <th>
         <a href="{% url 'groups' %}?order_by=id{% if order_by == 'id' and reverse != '1' %}&amp;reverse=1{% endif %}">
-        №
+        {% trans "#" %}
         {% if order_by == 'id' and reverse != '1' %}&uarr;
         {% elif order_by == 'id' and reverse == '1' %}&darr;
         {% endif %}
@@ -25,7 +26,7 @@
       </th>
       <th>
         <a href="{% url 'groups' %}?order_by=title{% if order_by == 'title' and reverse != '1' %}&amp;reverse=1{% endif %}">
-        Назва
+        {% trans "Title" %}
         {% if order_by == 'title' and reverse != '1' %}&uarr;
         {% elif order_by == 'title' and reverse == '1' %}&darr;
         {% endif %}
@@ -33,13 +34,13 @@
       </th>
       <th>
         <a href="{% url 'groups' %}?order_by=leader{% if order_by == 'leader' and reverse != '1' %}&amp;reverse=1{% endif %}">
-        Староста
+        {% trans "Leader" %}
         {% if order_by == 'leader' and reverse != '1' %}&uarr;
         {% elif order_by == 'leader' and reverse == '1' %}&darr;
         {% endif %}
         </a>
       </th>
-      <th>Дії</th>
+      <th>{% trans "Actions" %}</th>
     </tr>
   </thead>
 {% endwith %}
@@ -54,7 +55,7 @@
       {% endif %}
       </td>
       <td>
-        <a title="Редагувати" href="{% url 'groups_edit' group.id %}">
+        <a title="{% trans "Edit" %}" href="{% url 'groups_edit' group.id %}">
           {{ group.title }}
         </a>
       </td>
@@ -64,18 +65,18 @@
       <td>
         <div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-            Дія
+            {% trans "Action" %}
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu">
+{#            <li role="presentation">#}
+{#              <a role="menuitem" tabindex="-1" href="/journal/{{ group.id }}">{% trans "Journal" %}</a>#}
+{#            </li>#}
             <li role="presentation">
-              <a role="menuitem" tabindex="-1" href="/journal/{{ group.id }}">Відвідування</a>
+              <a role="menuitem" tabindex="-1" href="{% url 'groups_edit'  group.id  %}">{% trans "Edit" %}</a>
             </li>
             <li role="presentation">
-              <a role="menuitem" tabindex="-1" href="{% url 'groups_edit'  group.id  %}">Редагувати</a>
-            </li>
-            <li role="presentation">
-              <a role="menuitem" tabindex="-1" href="{% url 'groups_delete' group.id %}">Видалити</a>
+              <a role="menuitem" tabindex="-1" href="{% url 'groups_delete' group.id %}">{% trans "Delete" %}</a>
             </li>
           </ul>
         </div>
