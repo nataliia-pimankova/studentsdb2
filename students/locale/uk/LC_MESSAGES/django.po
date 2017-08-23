@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-23 09:50+0000\n"
+"POT-Creation-Date: 2017-08-23 10:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,7 +44,7 @@ msgstr "Студенти"
 msgid "Students SL"
 msgstr "Студенти SL"
 
-#: templates/students/base.html:56 templates/students/students_list.html:98
+#: templates/students/base.html:56 templates/students/students_list.html:99
 msgid "Journal"
 msgstr "Відвідування"
 
@@ -56,7 +56,7 @@ msgstr "Групи"
 msgid "Exams"
 msgstr "Іспити"
 
-#: templates/students/base.html:59 templates/students/students_list.html:101
+#: templates/students/base.html:59 templates/students/students_list.html:102
 msgid "Results"
 msgstr "Результати"
 
@@ -94,38 +94,46 @@ msgstr "Список студентів"
 msgid "Add Student"
 msgstr "Додати Студента"
 
-#: templates/students/students_list.html:32
+#: templates/students/students_list.html:16
+#, python-format
+msgid ""
+"There is not yet a single student in the database. Please\n"
+"    <a href=\"%(students_add_url)s\" class=\"btn btn-info\">add first</a>."
+msgstr "Поки немає жодного студента в базі. Будь-ласка,\n"
+"    <a href=\"%(students_add_url)s\" class=\"btn btn-info\">додайте першого</a>."
+
+#: templates/students/students_list.html:33
 msgid "Photo"
 msgstr "Фото"
 
-#: templates/students/students_list.html:37
+#: templates/students/students_list.html:38
 msgid "Last Name"
 msgstr "Прізвище"
 
-#: templates/students/students_list.html:46
+#: templates/students/students_list.html:47
 msgid "Firs Name"
 msgstr "Ім'я"
 
-#: templates/students/students_list.html:54
+#: templates/students/students_list.html:55
 msgid "Ticket #"
 msgstr "№ Білету"
 
-#: templates/students/students_list.html:62
+#: templates/students/students_list.html:63
 msgid "Group"
 msgstr "Група"
 
-#: templates/students/students_list.html:65
+#: templates/students/students_list.html:66
 msgid "Actions"
 msgstr "Дії"
 
-#: templates/students/students_list.html:93
+#: templates/students/students_list.html:94
 msgid "Action"
 msgstr "Дія"
 
-#: templates/students/students_list.html:104
+#: templates/students/students_list.html:105
 msgid "Edit"
 msgstr "Редагувати"
 
-#: templates/students/students_list.html:107
+#: templates/students/students_list.html:108
 msgid "Delete"
 msgstr "Видалити"

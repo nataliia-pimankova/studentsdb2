@@ -12,8 +12,9 @@
 
 {% if not students %}
   <div class="alert alert-warning">
-  Поки немає жодного студента в базі. Будь-ласка,
-    <a href="{% url "students_add" %}">додайте</a> першого.
+  {% url "students_add"  as students_add_url%}
+  {% blocktrans %}There is not yet a single student in the database. Please
+    <a href="{{ students_add_url }}" class="btn btn-info">add first</a>.{% endblocktrans %}
   </div>
 {% else %}
 <!-- Start Students Listing -->
