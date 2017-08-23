@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-23 10:14+0000\n"
+"POT-Creation-Date: 2017-08-23 18:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,12 +79,14 @@ msgstr ""
 #: templates/students/groups_confirm_delete.html:18
 #: templates/students/results_confirm_delete.html:18
 #: templates/students/students_confirm_delete.html:17
+#: templates/students/tests_confirm_delete.html:18
 msgid "Yes"
 msgstr ""
 
 #: templates/students/groups_confirm_delete.html:20
 #: templates/students/results_confirm_delete.html:20
 #: templates/students/students_confirm_delete.html:19
+#: templates/students/tests_confirm_delete.html:20
 msgid "No"
 msgstr ""
 
@@ -157,4 +159,14 @@ msgstr ""
 
 #: templates/students/students_list.html:108
 msgid "Delete"
+msgstr ""
+
+#: templates/students/tests_confirm_delete.html:7
+#: templates/students/tests_confirm_delete.html:9
+msgid "Delete Exam"
+msgstr ""
+
+#: templates/students/tests_confirm_delete.html:16
+#, python-format
+msgid "Do you really want to delete Exam: \"%(object)s\"?"
 msgstr ""
