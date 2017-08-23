@@ -1,17 +1,19 @@
 # -*- coding: utf-8 -*-
+import logging
+
 from django.shortcuts import render
 from django import forms
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views.generic.edit import FormView
-
 from django.contrib import messages
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
 from studentsdb.settings import ADMIN_EMAIL
+
 
 class ContactForm(forms.Form):
 
@@ -51,6 +53,7 @@ class ContactForm(forms.Form):
         widget=forms.Textarea
     )
 
+
 def contact_admin(request):
     # check it form was posted
     if request.method == 'POST':
@@ -67,10 +70,14 @@ def contact_admin(request):
             try:
                 send_mail(subject, message, from_email, [ADMIN_EMAIL])
             except Exception:
-                messages.warning(request,u'Під час відправки листа виникла непередбачувана ' \
-                    u'помилка. Спробуйте скористатись даною формою пізніше.')
+                message = u'Під час відправки листа виникла непередбачувана ' \
+                    u'помилка. Спробуйте скористатись даною формою пізніше.'
+                messages.warning(request, message)
+                logger = logging.getLogger(__name__)
+                logger.exception(message)
             else:
-                messages.success(request, u'Повідомлення успішно надіслане!')
+                message = u'Повідомлення успішно надіслане!'
+                messages.success(request, message)
 
             # redirect to same contact page with success message
             return HttpResponseRedirect(reverse('contact_admin'))
@@ -99,10 +106,13 @@ class ContactView(FormView):
         try:
             send_mail(subject, message, from_email, [ADMIN_EMAIL])
         except Exception:
-            messages.warning(self.request, u'Під час відправки листа виникла непередбачувана ' \
-                                      u'помилка. Спробуйте скористатись даною формою пізніше.')
+            message = u'Під час відправки листа виникла непередбачувана ' \
+                      u'помилка. Спробуйте скористатись даною формою пізніше.'
+            messages.warning(self.request, message)
+            logger = logging.getLogger(__name__)
+            logger.exception(message)
         else:
-            messages.success(self.request, u'Повідомлення успішно надіслане!')
-
+            message = u'Повідомлення успішно надіслане!'
+            messages.success(self.request, message)
 
         return super(ContactView, self).form_valid(form)
