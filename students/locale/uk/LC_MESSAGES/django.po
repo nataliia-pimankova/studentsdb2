@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-23 21:37+0000\n"
+"POT-Creation-Date: 2017-08-23 21:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -100,28 +100,33 @@ msgid "Add Exam"
 msgstr "Створити Іспит"
 
 #: templates/students/exams_list.html:18 templates/students/groups_list.html:21
-#: templates/students/journal.html:34
+#: templates/students/journal.html:34 templates/students/results_list.html:19
 msgid "#"
 msgstr "№"
 
 #: templates/students/exams_list.html:23 templates/students/groups_list.html:29
+#: templates/students/results_list.html:23
 msgid "Title"
 msgstr "Назва"
 
 #: templates/students/exams_list.html:32
+#: templates/students/results_list.html:48
 msgid "Date and Time"
 msgstr "Дата і Час"
 
 #: templates/students/exams_list.html:40
+#: templates/students/results_list.html:43
 msgid "Teacher"
 msgstr "Викладач"
 
 #: templates/students/exams_list.html:48
+#: templates/students/results_list.html:28
 #: templates/students/students_list.html:63
 msgid "Group"
 msgstr "Група"
 
 #: templates/students/exams_list.html:54 templates/students/groups_list.html:43
+#: templates/students/results_list.html:51
 #: templates/students/students_list.html:66
 msgid "Actions"
 msgstr "Дії"
@@ -129,16 +134,24 @@ msgstr "Дії"
 #: templates/students/exams_list.html:68 templates/students/exams_list.html:83
 #: templates/students/groups_list.html:58
 #: templates/students/groups_list.html:76 templates/students/journal.html:58
+#: templates/students/results_list.html:65
+#: templates/students/results_list.html:66
+#: templates/students/results_list.html:67
+#: templates/students/results_list.html:68
+#: templates/students/results_list.html:69
+#: templates/students/results_list.html:79
 #: templates/students/students_list.html:105
 msgid "Edit"
 msgstr "Редагувати"
 
 #: templates/students/exams_list.html:75 templates/students/groups_list.html:68
+#: templates/students/results_list.html:74
 #: templates/students/students_list.html:94
 msgid "Action"
 msgstr "Дія"
 
 #: templates/students/exams_list.html:86 templates/students/groups_list.html:79
+#: templates/students/results_list.html:82
 #: templates/students/students_list.html:108
 msgid "Delete"
 msgstr "Видалити"
@@ -194,7 +207,7 @@ msgstr "Попередній Місяць"
 msgid "Next Month"
 msgstr "Наступний Місяць"
 
-#: templates/students/journal.html:35
+#: templates/students/journal.html:35 templates/students/results_list.html:33
 msgid "Student"
 msgstr "Студент"
 
@@ -207,6 +220,19 @@ msgstr "Видалити Результат Іспиту"
 #, python-format
 msgid "Do you really want to delete result: \"%(object)s\"?"
 msgstr "Ви дійсно хочете видалити результат іспиту \"%(object)s\"?"
+
+#: templates/students/results_list.html:6
+#: templates/students/results_list.html:8
+msgid "Exam Results"
+msgstr "Результати Іспитів"
+
+#: templates/students/results_list.html:11
+msgid "Add Result"
+msgstr "Додати Результат Іспиту"
+
+#: templates/students/results_list.html:38
+msgid "Grade"
+msgstr "Оцінка"
 
 #: templates/students/students_confirm_delete.html:7
 #: templates/students/students_confirm_delete.html:9

@@ -1,13 +1,14 @@
 {% extends "students/base.html" %}
 
+{% load i18n %}
 {% load static from staticfiles %}
 
-{% block meta_title %}Результати іспитів{% endblock meta_title %}
+{% block meta_title %}{% trans "Exam Results" %}{% endblock meta_title %}
 
-{% block title %}База Результатів Іспитів{% endblock title %}
+{% block title %}{% trans "Exam Results" %}{% endblock title %}
 
 {% block content %}
-<a class="btn btn-primary" href="{% url 'results_add' %}">Додати Результат</a>
+<a class="btn btn-primary" href="{% url 'results_add' %}">{% trans "Add Result" %}</a>
 
 <!-- Start  Listing -->
 <table class="table table-hover table-striped">
@@ -15,39 +16,39 @@
   <thead>
     <tr>
       <th>
-        №
+        {% trans "#" %}
       </th>
       <th>
         <a href="#">
-        Предмет
+        {% trans "Title" %}
         </a>
       </th>
       <th>
         <a href="#">
-        Група
+        {% trans "Group" %}
         </a>
       </th>
       <th>
         <a href="#">
-        Студент
+        {% trans "Student" %}
         </a>
       </th>
       <th>
         <a href="#">
-        Оцінка
+        {% trans "Grade" %}
         </a>
       </th>
       <th>
         <a href="#">
-        Викладач
+        {% trans "Teacher" %}
         </a>
       </th>
       <th>
         <a href="#">
-        Дата і час
+        {% trans "Date and Time" %}
         </a>
       </th>
-      <th>Дії</th>
+      <th>{% trans "Actions" %}</th>
     </tr>
   </thead>
   {% endwith %}
@@ -61,24 +62,24 @@
             {{ forloop.counter }}
           {% endif %}
       </td>
-      <td><a title="Редагувати" href="{% url 'results_edit' result.id %}">{{ result.exam.title }}</a></td>
-      <td><a title="Редагувати" href="{% url 'results_edit' result.id %}">{{ result.group }}</a></td>
-      <td><a title="Редагувати" href="{% url 'results_edit' result.id %}">{{ result.student.last_name  }} {{ result.student.first_name  }}</a></td>
-      <td><a title="Редагувати" href="{% url 'results_edit' result.id %}">{{ result.grade }}</a></td>
-      <td><a title="Редагувати" href="{% url 'results_edit' result.id %}">{{ result.exam.teacher }}</a></td>
+      <td><a title="{% trans "Edit" %}" href="{% url 'results_edit' result.id %}">{{ result.exam.title }}</a></td>
+      <td><a title="{% trans "Edit" %}" href="{% url 'results_edit' result.id %}">{{ result.group }}</a></td>
+      <td><a title="{% trans "Edit" %}" href="{% url 'results_edit' result.id %}">{{ result.student.last_name  }} {{ result.student.first_name  }}</a></td>
+      <td><a title="{% trans "Edit" %}" href="{% url 'results_edit' result.id %}">{{ result.grade }}</a></td>
+      <td><a title="{% trans "Edit" %}" href="{% url 'results_edit' result.id %}">{{ result.exam.teacher }}</a></td>
       <td>{{ result.exam.date }}</td>
       <td>
         <div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-            Дія
+            {% trans "Action" %}
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
-              <a role="menuitem" tabindex="-1" href="{% url 'results_edit' result.id %}">Редагувати</a>
+              <a role="menuitem" tabindex="-1" href="{% url 'results_edit' result.id %}">{% trans "Edit" %}</a>
             </li>
             <li role="presentation">
-              <a role="menuitem" tabindex="-1" href="{% url 'results_delete' result.id %}">Видалити</a>
+              <a role="menuitem" tabindex="-1" href="{% url 'results_delete' result.id %}">{% trans "Delete" %}</a>
             </li>
           </ul>
         </div>

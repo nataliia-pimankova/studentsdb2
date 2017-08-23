@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-23 21:37+0000\n"
+"POT-Creation-Date: 2017-08-23 21:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -98,28 +98,33 @@ msgid "Add Exam"
 msgstr ""
 
 #: templates/students/exams_list.html:18 templates/students/groups_list.html:21
-#: templates/students/journal.html:34
+#: templates/students/journal.html:34 templates/students/results_list.html:19
 msgid "#"
 msgstr ""
 
 #: templates/students/exams_list.html:23 templates/students/groups_list.html:29
+#: templates/students/results_list.html:23
 msgid "Title"
 msgstr ""
 
 #: templates/students/exams_list.html:32
+#: templates/students/results_list.html:48
 msgid "Date and Time"
 msgstr ""
 
 #: templates/students/exams_list.html:40
+#: templates/students/results_list.html:43
 msgid "Teacher"
 msgstr ""
 
 #: templates/students/exams_list.html:48
+#: templates/students/results_list.html:28
 #: templates/students/students_list.html:63
 msgid "Group"
 msgstr ""
 
 #: templates/students/exams_list.html:54 templates/students/groups_list.html:43
+#: templates/students/results_list.html:51
 #: templates/students/students_list.html:66
 msgid "Actions"
 msgstr ""
@@ -127,16 +132,24 @@ msgstr ""
 #: templates/students/exams_list.html:68 templates/students/exams_list.html:83
 #: templates/students/groups_list.html:58
 #: templates/students/groups_list.html:76 templates/students/journal.html:58
+#: templates/students/results_list.html:65
+#: templates/students/results_list.html:66
+#: templates/students/results_list.html:67
+#: templates/students/results_list.html:68
+#: templates/students/results_list.html:69
+#: templates/students/results_list.html:79
 #: templates/students/students_list.html:105
 msgid "Edit"
 msgstr ""
 
 #: templates/students/exams_list.html:75 templates/students/groups_list.html:68
+#: templates/students/results_list.html:74
 #: templates/students/students_list.html:94
 msgid "Action"
 msgstr ""
 
 #: templates/students/exams_list.html:86 templates/students/groups_list.html:79
+#: templates/students/results_list.html:82
 #: templates/students/students_list.html:108
 msgid "Delete"
 msgstr ""
@@ -188,7 +201,7 @@ msgstr ""
 msgid "Next Month"
 msgstr ""
 
-#: templates/students/journal.html:35
+#: templates/students/journal.html:35 templates/students/results_list.html:33
 msgid "Student"
 msgstr ""
 
@@ -200,6 +213,19 @@ msgstr ""
 #: templates/students/results_confirm_delete.html:16
 #, python-format
 msgid "Do you really want to delete result: \"%(object)s\"?"
+msgstr ""
+
+#: templates/students/results_list.html:6
+#: templates/students/results_list.html:8
+msgid "Exam Results"
+msgstr ""
+
+#: templates/students/results_list.html:11
+msgid "Add Result"
+msgstr ""
+
+#: templates/students/results_list.html:38
+msgid "Grade"
 msgstr ""
 
 #: templates/students/students_confirm_delete.html:7
