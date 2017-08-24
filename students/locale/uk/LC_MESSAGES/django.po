@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-24 11:15+0000\n"
+"POT-Creation-Date: 2017-08-24 11:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -237,7 +237,7 @@ msgstr "Ви дійсно хочете видалити результат іс�
 msgid "Exam Results"
 msgstr "Результати Іспитів"
 
-#: templates/students/results_list.html:11
+#: templates/students/results_list.html:11 views/results.py:54
 msgid "Add Result"
 msgstr "Додати Результат Іспиту"
 
@@ -288,13 +288,37 @@ msgstr "Ви дійсно хочете видалити студента \"%(obj
 msgid "Students List"
 msgstr "Список Студентів"
 
-#: views/students.py:137
+#: views/results.py:76 views/students.py:137
 msgid "Save"
 msgstr "Зберегти"
 
-#: views/students.py:138
+#: views/results.py:77 views/students.py:138
 msgid "Cancel"
 msgstr "Скасувати"
+
+#: views/results.py:85
+msgid "Edit result"
+msgstr "Редагувати Результат Іспиту"
+
+#: views/results.py:94
+msgid "Result added successfully!"
+msgstr "Оцінку успішно додано"
+
+#: views/results.py:99
+msgid "Result adding canceled!"
+msgstr "Додавання результату відмінено"
+
+#: views/results.py:111
+msgid "Result updated successfully!"
+msgstr "Оцінку успішно збережено"
+
+#: views/results.py:116
+msgid "Result updating canceled!"
+msgstr "Редагування результату відмінено"
+
+#: views/results.py:127
+msgid "Result deleted successfully!"
+msgstr "Оцінку успішно видалено"
 
 #: views/students.py:139
 msgid "Reset"
@@ -323,3 +347,6 @@ msgstr "Редагування студента відмінено"
 #: views/students.py:195
 msgid "Student deleted Successfully!"
 msgstr "Студента успішно видалено"
+
+#~ msgid "Add result"
+#~ msgstr "Додати Результат Іспиту"

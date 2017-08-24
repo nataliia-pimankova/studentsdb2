@@ -1,14 +1,13 @@
-# coding=utf-8
 from django.shortcuts import render
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.forms import ModelForm, ModelChoiceField, HiddenInput
 from django.views.generic import UpdateView, CreateView, DeleteView
+from django.contrib import messages
+from django.utils.translation import ugettext as _
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Reset, Layout, Field
-
-from django.contrib import messages
 
 from ..models import Student, Result, Group
 from ..util import paginate, get_current_group
@@ -52,7 +51,7 @@ class ResultCreateForm(ModelForm):
         # set form tag attributes
         self.form_action = reverse('results_add',
                      kwargs={})
-        self.headline = u'Додати result'
+        self.headline = _(u'Add Result')
 
         # self.helper.form_tag = True
         self.form_method = 'POST'
@@ -74,8 +73,8 @@ class ResultCreateForm(ModelForm):
         self.helper.add_layout(layout)
 
         # form buttons
-        self.helper.add_input(Submit('save_button', u'Зберегти', css_class='btn btn-primary'))
-        self.helper.add_input(Submit('cancel_button', u'Скасувати', css_class='btn btn-link'))
+        self.helper.add_input(Submit('save_button', _(u'Save'), css_class='btn btn-primary'))
+        self.helper.add_input(Submit('cancel_button', _(u'Cancel'), css_class='btn btn-link'))
 
 
 class ResultUpdateForm(ResultCreateForm):
@@ -83,7 +82,7 @@ class ResultUpdateForm(ResultCreateForm):
         super(ResultUpdateForm, self).__init__(*args, **kwargs)
         self.form_action = reverse('results_edit',
                                    kwargs={'pk': kwargs['instance'].id})
-        self.headline = u'Редагувати result'
+        self.headline = _(u'Edit result')
 
 
 class ResultCreateView(CreateView):
@@ -92,12 +91,12 @@ class ResultCreateView(CreateView):
     template_name = 'students/templates_add_edit.html'
 
     def get_success_url(self):
-        messages.success(self.request, u'Result успішно додана!')
+        messages.success(self.request, _(u'Result added successfully!'))
         return reverse('results')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            messages.info(request, u'Додавання result скасовано!')
+            messages.info(request, _(u'Result adding canceled!'))
             return HttpResponseRedirect(reverse('results'))
         else:
             return super(ResultCreateView, self).post(request,*args,**kwargs)
@@ -109,12 +108,12 @@ class ResultUpdateView(UpdateView):
     template_name = 'students/templates_add_edit.html'
 
     def get_success_url(self):
-        messages.success(self.request, u'Оцінка успішно збережена!')
+        messages.success(self.request, _(u'Result updated successfully!'))
         return reverse('results')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            messages.info(request, u'Редагування результату іспиту відмінено!')
+            messages.info(request, _(u'Result updating canceled!'))
             return HttpResponseRedirect(reverse('results'))
         else:
             return super(ResultUpdateView, self).post(request,*args,**kwargs)
@@ -125,6 +124,6 @@ class ResultDeleteView(DeleteView):
     template_name = 'students/results_confirm_delete.html'
 
     def get_success_url(self):
-        messages.success(self.request, u'result успішно видалено!')
+        messages.success(self.request, _(u'Result deleted successfully!'))
         return reverse('results')
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-24 11:15+0000\n"
+"POT-Creation-Date: 2017-08-24 11:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -231,7 +231,7 @@ msgstr ""
 msgid "Exam Results"
 msgstr ""
 
-#: templates/students/results_list.html:11
+#: templates/students/results_list.html:11 views/results.py:54
 msgid "Add Result"
 msgstr ""
 
@@ -282,12 +282,36 @@ msgstr ""
 msgid "Students List"
 msgstr ""
 
-#: views/students.py:137
+#: views/results.py:76 views/students.py:137
 msgid "Save"
 msgstr ""
 
-#: views/students.py:138
+#: views/results.py:77 views/students.py:138
 msgid "Cancel"
+msgstr ""
+
+#: views/results.py:85
+msgid "Edit result"
+msgstr ""
+
+#: views/results.py:94
+msgid "Result added successfully!"
+msgstr ""
+
+#: views/results.py:99
+msgid "Result adding canceled!"
+msgstr ""
+
+#: views/results.py:111
+msgid "Result updated successfully!"
+msgstr ""
+
+#: views/results.py:116
+msgid "Result updating canceled!"
+msgstr ""
+
+#: views/results.py:127
+msgid "Result deleted successfully!"
 msgstr ""
 
 #: views/students.py:139
