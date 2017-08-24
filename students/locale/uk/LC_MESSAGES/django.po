@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-23 21:46+0000\n"
+"POT-Creation-Date: 2017-08-24 11:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,7 +36,9 @@ msgstr "Група:"
 msgid "All Students"
 msgstr "Усі Студенти"
 
-#: templates/students/base.html:54 templates/students/students_list.html:6
+#: templates/students/base.html:54 templates/students/student_list.html:6
+#: templates/students/student_list.html:8
+#: templates/students/students_list.html:6
 msgid "Students"
 msgstr "Студенти"
 
@@ -44,7 +46,8 @@ msgstr "Студенти"
 msgid "Students SL"
 msgstr "Студенти SL"
 
-#: templates/students/base.html:56 templates/students/students_list.html:99
+#: templates/students/base.html:56 templates/students/student_list.html:93
+#: templates/students/students_list.html:99
 msgid "Journal"
 msgstr "Відвідування"
 
@@ -101,6 +104,7 @@ msgstr "Створити Іспит"
 
 #: templates/students/exams_list.html:18 templates/students/groups_list.html:21
 #: templates/students/journal.html:34 templates/students/results_list.html:19
+#: templates/students/student_list.html:21
 msgid "#"
 msgstr "№"
 
@@ -121,12 +125,14 @@ msgstr "Викладач"
 
 #: templates/students/exams_list.html:48
 #: templates/students/results_list.html:28
+#: templates/students/student_list.html:57
 #: templates/students/students_list.html:63
 msgid "Group"
 msgstr "Група"
 
 #: templates/students/exams_list.html:54 templates/students/groups_list.html:43
 #: templates/students/results_list.html:51
+#: templates/students/student_list.html:60
 #: templates/students/students_list.html:66
 msgid "Actions"
 msgstr "Дії"
@@ -140,18 +146,23 @@ msgstr "Дії"
 #: templates/students/results_list.html:68
 #: templates/students/results_list.html:69
 #: templates/students/results_list.html:79
+#: templates/students/student_list.html:81
+#: templates/students/student_list.html:82
+#: templates/students/student_list.html:99
 #: templates/students/students_list.html:105
 msgid "Edit"
 msgstr "Редагувати"
 
 #: templates/students/exams_list.html:75 templates/students/groups_list.html:68
 #: templates/students/results_list.html:74
+#: templates/students/student_list.html:88
 #: templates/students/students_list.html:94
 msgid "Action"
 msgstr "Дія"
 
 #: templates/students/exams_list.html:86 templates/students/groups_list.html:79
 #: templates/students/results_list.html:82
+#: templates/students/student_list.html:102
 #: templates/students/students_list.html:108
 msgid "Delete"
 msgstr "Видалити"
@@ -234,6 +245,35 @@ msgstr "Додати Результат Іспиту"
 msgid "Grade"
 msgstr "Оцінка"
 
+#: templates/students/student_list.html:12
+#: templates/students/students_list.html:11
+msgid "Add Student"
+msgstr "Додати Студента"
+
+#: templates/students/student_list.html:27
+#: templates/students/students_list.html:33
+msgid "Photo"
+msgstr "Фото"
+
+#: templates/students/student_list.html:32
+#: templates/students/students_list.html:38
+msgid "Last Name"
+msgstr "Прізвище"
+
+#: templates/students/student_list.html:41
+#: templates/students/students_list.html:47
+msgid "First Name"
+msgstr "Ім'я"
+
+#: templates/students/student_list.html:49
+#: templates/students/students_list.html:55
+msgid "Ticket #"
+msgstr "№ Білету"
+
+#: templates/students/student_list.html:96
+msgid "Results of Exams"
+msgstr "Результати іспитів"
+
 #: templates/students/students_confirm_delete.html:7
 #: templates/students/students_confirm_delete.html:9
 msgid "Delete Student"
@@ -247,23 +287,3 @@ msgstr "Ви дійсно хочете видалити студента \"%(obj
 #: templates/students/students_list.html:8
 msgid "Students List"
 msgstr "Список Студентів"
-
-#: templates/students/students_list.html:11
-msgid "Add Student"
-msgstr "Додати Студента"
-
-#: templates/students/students_list.html:33
-msgid "Photo"
-msgstr "Фото"
-
-#: templates/students/students_list.html:38
-msgid "Last Name"
-msgstr "Прізвище"
-
-#: templates/students/students_list.html:47
-msgid "Firs Name"
-msgstr "Ім'я"
-
-#: templates/students/students_list.html:55
-msgid "Ticket #"
-msgstr "№ Білету"

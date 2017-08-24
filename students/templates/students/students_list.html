@@ -44,7 +44,7 @@
       </th>
       <th>
         <a href="{% url 'home' %}?order_by=first_name{% if order_by == 'first_name' and reverse != '1' %}&amp;reverse=1{% endif %}">
-        {% trans "Firs Name" %}
+        {% trans "First Name" %}
         {% if order_by == 'first_name' and reverse != '1' %}&uarr;
         {% elif order_by == 'first_name' and reverse == '1' %}&darr;
         {% endif %}
