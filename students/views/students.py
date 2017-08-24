@@ -1,16 +1,14 @@
-# coding=utf-8
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
-
+from django.utils.translation import ugettext as _
 from django.forms import ModelForm
+from django.contrib import messages
 from django.views.generic import UpdateView, CreateView, \
     DeleteView, ListView
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Reset, Layout, Field
-
-from django.contrib import messages
 
 from ..models.students import Student
 from ..util import paginate, get_current_group
@@ -99,7 +97,7 @@ class StudentCreateForm(ModelForm):
         # set form tag attributes
         self.form_action = reverse('students_add',
                      kwargs={})
-        self.headline = u'Додати студента'
+        self.headline = _(u'Add Student')
 
         self.form_method = 'POST'
         # self.form_class = 'form-horizontal'
@@ -136,9 +134,9 @@ class StudentCreateForm(ModelForm):
         self.helper.add_layout(layout)
 
         #form buttons
-        self.helper.add_input(Submit('save_button', u'Зберегти', css_class='btn btn-primary'))
-        self.helper.add_input(Submit('cancel_button', u'Скасувати', css_class='btn btn-link'))
-        self.helper.add_input(Reset('reset_button', u'Reset', css_class='btn btn-reset'))
+        self.helper.add_input(Submit('save_button', _(u'Save'), css_class='btn btn-primary'))
+        self.helper.add_input(Submit('cancel_button', _(u'Cancel'), css_class='btn btn-link'))
+        self.helper.add_input(Reset('reset_button', _(u'Reset'), css_class='btn btn-reset'))
 
 
 class StudentUpdateForm(StudentCreateForm):
@@ -147,47 +145,45 @@ class StudentUpdateForm(StudentCreateForm):
         super(StudentUpdateForm, self).__init__(*args, **kwargs)
         self.form_action = reverse('students_edit',
                                           kwargs={'pk': kwargs['instance'].id})
-        self.headline = u'Редагувати студента'
+        self.headline = _(u'Edit Student')
 
 
 class StudentCreateView(CreateView):
     model = Student
     form_class = StudentCreateForm
     template_name = 'students/templates_add_edit.html'
-    # form_class.title = u'Додати студента'
 
     def get_success_url(self):
         list(messages.get_messages(self.request))
-        messages.success(self.request, u'Студент успішно доданий!')
+        messages.success(self.request, _(u"Student added successfully!"))
         return reverse('home')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
             list(messages.get_messages(self.request))
-            messages.info(request,u'Додавання студента відмінено!')
+            messages.info(request, _(u'Student addition canceled!'))
             return HttpResponseRedirect(reverse('home'))
         else:
             return super(StudentCreateView, self).post(request,*args,**kwargs)
+
 
 class StudentUpdateView(UpdateView):
     model = Student
     form_class = StudentUpdateForm
     template_name = 'students/templates_add_edit.html'
-    # form_class.title = u'Редагувати студента'
 
     def get_success_url(self):
         list(messages.get_messages(self.request))
-        messages.success(self.request, u'Студента успішно збережено!')
+        messages.success(self.request, _(u'Student updated successfully!'))
         return reverse('home')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
             list(messages.get_messages(self.request))
-            messages.info(request,u'Редагування студента відмінено!')
+            messages.info(request, _(u'Student updating canceled!'))
             return HttpResponseRedirect(reverse('home'))
         else:
             return super(StudentUpdateView, self).post(request,*args,**kwargs)
-
 
 
 class StudentDeleteView(DeleteView):
@@ -196,5 +192,5 @@ class StudentDeleteView(DeleteView):
 
     def get_success_url(self):
         list(messages.get_messages(self.request))
-        messages.success(self.request,u'Студента успішно видалено!')
+        messages.success(self.request, _(u'Student deleted Successfully!'))
         return reverse('home')

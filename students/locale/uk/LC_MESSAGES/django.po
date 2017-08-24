@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-24 11:02+0000\n"
+"POT-Creation-Date: 2017-08-24 11:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -246,7 +246,7 @@ msgid "Grade"
 msgstr "Оцінка"
 
 #: templates/students/student_list.html:12
-#: templates/students/students_list.html:11
+#: templates/students/students_list.html:11 views/students.py:100
 msgid "Add Student"
 msgstr "Додати Студента"
 
@@ -287,3 +287,39 @@ msgstr "Ви дійсно хочете видалити студента \"%(obj
 #: templates/students/students_list.html:8
 msgid "Students List"
 msgstr "Список Студентів"
+
+#: views/students.py:137
+msgid "Save"
+msgstr "Зберегти"
+
+#: views/students.py:138
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: views/students.py:139
+msgid "Reset"
+msgstr "Скинути"
+
+#: views/students.py:148
+msgid "Edit Student"
+msgstr "Редагувати Студента"
+
+#: views/students.py:158
+msgid "Student added successfully!"
+msgstr "Студента успішно додано"
+
+#: views/students.py:164
+msgid "Student addition canceled!"
+msgstr "Додавання студента відмінено"
+
+#: views/students.py:177
+msgid "Student updated successfully!"
+msgstr "Студента успішно збережено"
+
+#: views/students.py:183
+msgid "Student updating canceled!"
+msgstr "Редагування студента відмінено"
+
+#: views/students.py:195
+msgid "Student deleted Successfully!"
+msgstr "Студента успішно видалено"
