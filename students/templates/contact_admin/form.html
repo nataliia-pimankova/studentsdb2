@@ -1,16 +1,17 @@
 {% extends "students/base.html" %}
 
+{% load i18n %}
 {% load static from staticfiles %}
 {% load crispy_forms_tags %}
 
-{% block meta_title %}Зв'язок із адміністратором{% endblock meta_title %}
+{% block meta_title %}{% trans "Admin Contact Form" %}{% endblock meta_title %}
 
-{% block title %}Зв'язок із адміністратором{% endblock title %}
+{% block title %}{% trans "Admin Contact Form" %}{% endblock title %}
 
 {% block status_message %}
 {% if form.errors %}
   <div class="alert alert-warning" role="alert">
-    Будь-ласка, виправте наступні помилки
+    {% trans "Please, correct the following errors." %}
   </div>
 {% endif %}
 
@@ -20,7 +21,7 @@
 {% block content %}
 
 <form action="{{ form.form_action }}" method="{{ form.form_method }}"
-      class="form-horizontal" >
+      class="form-horizontal" novalidate>
 
 {% crispy form %}
 

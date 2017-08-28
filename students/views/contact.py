@@ -1,6 +1,7 @@
-# -*- coding: utf-8 -*-
 from django.core.urlresolvers import reverse
 from django.contrib import messages
+from django.utils.translation import ugettext as _
+
 from ..forms import MyContactForm
 from contact_form.views import ContactFormView
 
@@ -12,9 +13,8 @@ class MyContactFormView(ContactFormView):
 
     def form_invalid(self, form):
         list(messages.get_messages(self.request))
-        messages.warning(self.request, u'Виправте, будь-ласка, наступні помилки!')
+        messages.warning(self.request, _(u'Please, correct the following errors.'))
         return self.render_to_response(self.get_context_data(form=form))
-
 
     def get_success_url(self):
         return reverse('contact_form_sent')

@@ -1,13 +1,14 @@
 {% extends "students/base.html" %}
 
+{% load i18n %}
 {% load static from staticfiles %}
 
-{% block meta_title %}Зв'язок із адміністратором{% endblock meta_title %}
+{% block meta_title %}{% trans "Admin Contact Form" %}{% endblock meta_title %}
 
 {% block statusmessages %}
 {% endblock %}
 
-{% block title %}Зв'язок із адміністратором{% endblock title %}
+{% block title %}{% trans "Admin Contact Form" %}{% endblock title %}
 
 {% block content %}
 

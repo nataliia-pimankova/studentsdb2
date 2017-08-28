@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 08:52+0000\n"
+"POT-Creation-Date: 2017-08-28 09:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: templates/contact_admin/form.html:7 templates/contact_admin/form.html:9
+#: templates/contact_form/contact_form.html:8
+#: templates/contact_form/contact_form.html:10
+#: templates/contact_form/contact_form_sent.html:6
+#: templates/contact_form/contact_form_sent.html:11
+msgid "Admin Contact Form"
+msgstr "Зв'язок з адміністратором"
+
+#: templates/contact_admin/form.html:14
+#: templates/contact_form/contact_form.html:15 views/contact.py:16
+msgid "Please, correct the following errors."
+msgstr "Будь-ласка, виправте наступні помилки"
 
 #: templates/students/base.html:8 templates/students/base.html:32
 #: templates/students/base.html:95
