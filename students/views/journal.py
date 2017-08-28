@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from datetime import date, datetime
 from dateutil.relativedelta import relativedelta
 from calendar import monthrange, weekday, day_abbr
@@ -88,7 +87,7 @@ class JournalView(TemplateView):
             # print student
             # print(days)
             
-        # застосовуємо піганацію до списку студентів
+        # Apply pagination
         context = paginate(students, 10, self.request, context,
                            var_name='students')
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 07:58+0000\n"
+"POT-Creation-Date: 2017-08-28 08:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,8 +19,8 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: templates/students/base.html:8 templates/students/base.html:30
-#: templates/students/base.html:93
+#: templates/students/base.html:8 templates/students/base.html:32
+#: templates/students/base.html:95
 msgid "Students Accounting Service"
 msgstr "Сервіс Обліку Студентів"
 
@@ -28,49 +28,49 @@ msgstr "Сервіс Обліку Студентів"
 msgid "App to manage students database"
 msgstr "Система Обліку Студентів Навчального Закладу"
 
-#: templates/students/base.html:36
+#: templates/students/base.html:38
 msgid "Group:"
 msgstr "Група:"
 
-#: templates/students/base.html:38
+#: templates/students/base.html:40
 msgid "All Students"
 msgstr "Усі Студенти"
 
-#: templates/students/base.html:54 templates/students/student_list.html:6
+#: templates/students/base.html:56 templates/students/student_list.html:6
 #: templates/students/student_list.html:8
 #: templates/students/students_list.html:6
 msgid "Students"
 msgstr "Студенти"
 
-#: templates/students/base.html:55
+#: templates/students/base.html:57
 msgid "Students SL"
 msgstr "Студенти SL"
 
-#: templates/students/base.html:56 templates/students/student_list.html:93
+#: templates/students/base.html:58 templates/students/student_list.html:93
 #: templates/students/students_list.html:99
 msgid "Journal"
 msgstr "Відвідування"
 
-#: templates/students/base.html:57 templates/students/groups_list.html:6
+#: templates/students/base.html:59 templates/students/groups_list.html:6
 #: templates/students/groups_list.html:8
 msgid "Groups"
 msgstr "Групи"
 
-#: templates/students/base.html:58 templates/students/exams_list.html:6
+#: templates/students/base.html:60 templates/students/exams_list.html:6
 #: templates/students/exams_list.html:8
 msgid "Exams"
 msgstr "Іспити"
 
-#: templates/students/base.html:59 templates/students/exams_list.html:80
+#: templates/students/base.html:61 templates/students/exams_list.html:80
 #: templates/students/students_list.html:102
 msgid "Results"
 msgstr "Результати"
 
-#: templates/students/base.html:60
+#: templates/students/base.html:62
 msgid "Contact"
 msgstr "Контакт"
 
-#: templates/students/base.html:61
+#: templates/students/base.html:63
 msgid "Django Contact"
 msgstr "Django Контакт"
 
@@ -177,7 +177,7 @@ msgstr "Видалити Групу"
 msgid "Do you really want to delete group: \"%(object)s\"?"
 msgstr "Ви дійсно хочете видалити групу \"%(object)s\"?"
 
-#: templates/students/groups_list.html:12
+#: templates/students/groups_list.html:12 views/groups.py:57
 msgid "Add Group"
 msgstr "Додати Групу"
 
@@ -292,11 +292,13 @@ msgstr "Список Студентів"
 msgid "Edit Exam"
 msgstr "Редагувати Іспит"
 
-#: views/exams.py:84 views/results.py:76 views/students.py:137
+#: views/exams.py:84 views/groups.py:71 views/results.py:76
+#: views/students.py:137
 msgid "Save"
 msgstr "Зберегти"
 
-#: views/exams.py:85 views/results.py:77 views/students.py:138
+#: views/exams.py:85 views/groups.py:72 views/results.py:77
+#: views/students.py:138
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -319,6 +321,30 @@ msgstr "Редагування іспиту відмінено"
 #: views/exams.py:127
 msgid "Exam deleted successfully!"
 msgstr "Іспит успішно видалено"
+
+#: views/groups.py:80
+msgid "Edit Group"
+msgstr "Редагувати Групу"
+
+#: views/groups.py:89
+msgid "Group added successfully!"
+msgstr "Групу успішно додано"
+
+#: views/groups.py:94
+msgid "Group addition canceled!"
+msgstr "Додавання групи відмінено"
+
+#: views/groups.py:106
+msgid "Group saved successfully!"
+msgstr "Групу успішно збережено"
+
+#: views/groups.py:111
+msgid "Group edition canceled!"
+msgstr "Додавання групи відмінено"
+
+#: views/groups.py:122
+msgid "Group deleted successfully!"
+msgstr "Групу успішно видалено"
 
 #: views/results.py:85
 msgid "Edit result"

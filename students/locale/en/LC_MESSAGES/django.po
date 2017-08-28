@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 07:58+0000\n"
+"POT-Creation-Date: 2017-08-28 08:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: templates/students/base.html:8 templates/students/base.html:30
-#: templates/students/base.html:93
+#: templates/students/base.html:8 templates/students/base.html:32
+#: templates/students/base.html:95
 msgid "Students Accounting Service"
 msgstr ""
 
@@ -26,49 +26,49 @@ msgstr ""
 msgid "App to manage students database"
 msgstr ""
 
-#: templates/students/base.html:36
+#: templates/students/base.html:38
 msgid "Group:"
 msgstr ""
 
-#: templates/students/base.html:38
+#: templates/students/base.html:40
 msgid "All Students"
 msgstr ""
 
-#: templates/students/base.html:54 templates/students/student_list.html:6
+#: templates/students/base.html:56 templates/students/student_list.html:6
 #: templates/students/student_list.html:8
 #: templates/students/students_list.html:6
 msgid "Students"
 msgstr ""
 
-#: templates/students/base.html:55
+#: templates/students/base.html:57
 msgid "Students SL"
 msgstr ""
 
-#: templates/students/base.html:56 templates/students/student_list.html:93
+#: templates/students/base.html:58 templates/students/student_list.html:93
 #: templates/students/students_list.html:99
 msgid "Journal"
 msgstr ""
 
-#: templates/students/base.html:57 templates/students/groups_list.html:6
+#: templates/students/base.html:59 templates/students/groups_list.html:6
 #: templates/students/groups_list.html:8
 msgid "Groups"
 msgstr ""
 
-#: templates/students/base.html:58 templates/students/exams_list.html:6
+#: templates/students/base.html:60 templates/students/exams_list.html:6
 #: templates/students/exams_list.html:8
 msgid "Exams"
 msgstr ""
 
-#: templates/students/base.html:59 templates/students/exams_list.html:80
+#: templates/students/base.html:61 templates/students/exams_list.html:80
 #: templates/students/students_list.html:102
 msgid "Results"
 msgstr ""
 
-#: templates/students/base.html:60
+#: templates/students/base.html:62
 msgid "Contact"
 msgstr ""
 
-#: templates/students/base.html:61
+#: templates/students/base.html:63
 msgid "Django Contact"
 msgstr ""
 
@@ -175,7 +175,7 @@ msgstr ""
 msgid "Do you really want to delete group: \"%(object)s\"?"
 msgstr ""
 
-#: templates/students/groups_list.html:12
+#: templates/students/groups_list.html:12 views/groups.py:57
 msgid "Add Group"
 msgstr ""
 
@@ -286,11 +286,13 @@ msgstr ""
 msgid "Edit Exam"
 msgstr ""
 
-#: views/exams.py:84 views/results.py:76 views/students.py:137
+#: views/exams.py:84 views/groups.py:71 views/results.py:76
+#: views/students.py:137
 msgid "Save"
 msgstr ""
 
-#: views/exams.py:85 views/results.py:77 views/students.py:138
+#: views/exams.py:85 views/groups.py:72 views/results.py:77
+#: views/students.py:138
 msgid "Cancel"
 msgstr ""
 
@@ -312,6 +314,30 @@ msgstr ""
 
 #: views/exams.py:127
 msgid "Exam deleted successfully!"
+msgstr ""
+
+#: views/groups.py:80
+msgid "Edit Group"
+msgstr ""
+
+#: views/groups.py:89
+msgid "Group added successfully!"
+msgstr ""
+
+#: views/groups.py:94
+msgid "Group addition canceled!"
+msgstr ""
+
+#: views/groups.py:106
+msgid "Group saved successfully!"
+msgstr ""
+
+#: views/groups.py:111
+msgid "Group edition canceled!"
+msgstr ""
+
+#: views/groups.py:122
+msgid "Group deleted successfully!"
 msgstr ""
 
 #: views/results.py:85

@@ -1,14 +1,13 @@
-# coding=utf-8
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.forms import ModelForm
 from django.views.generic import ListView, UpdateView, CreateView, DeleteView
+from django.contrib import messages
+from django.utils.translation import ugettext as _
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
-
-from django.contrib import messages
 
 from ..models.Group import Group
 from ..util import paginate
@@ -55,7 +54,7 @@ class GroupCreateForm(ModelForm):
         # set form tag attributes
         self.form_action = reverse('groups_add',
                      kwargs={})
-        self.headline = u'Додати групу'
+        self.headline = _(u'Add Group')
 
         # self.helper.form_tag = True
         self.form_method = 'POST'
@@ -68,16 +67,18 @@ class GroupCreateForm(ModelForm):
         self.helper.label_class = 'col-sm-2 control-label'
         self.helper.field_class = 'col-sm-10'
 
-        #form buttons
-        self.helper.add_input(Submit('save_button', u'Зберегти', css_class='btn btn-primary'))
-        self.helper.add_input(Submit('cancel_button', u'Скасувати', css_class='btn btn-link'))
+        # form buttons
+        self.helper.add_input(Submit('save_button', _(u'Save'), css_class='btn btn-primary'))
+        self.helper.add_input(Submit('cancel_button', _(u'Cancel'), css_class='btn btn-link'))
+
 
 class GroupUpdateForm(GroupCreateForm):
     def __init__(self, *args, **kwargs):
         super(GroupUpdateForm, self).__init__(*args, **kwargs)
         self.form_action = reverse('groups_edit',
                                    kwargs={'pk': kwargs['instance'].id})
-        self.headline = u'Редагувати групу'
+        self.headline = _(u'Edit Group')
+
 
 class GroupCreateView(CreateView):
     model = Group
@@ -85,12 +86,12 @@ class GroupCreateView(CreateView):
     template_name = 'students/templates_add_edit.html'
 
     def get_success_url(self):
-        messages.success(self.request, u'Група успішно додана!')
+        messages.success(self.request, _(u"Group added successfully!"))
         return reverse('groups')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            messages.info(request, u'Додавання групи скасовано!')
+            messages.info(request, _(u'Group addition canceled!'))
             return HttpResponseRedirect(reverse('groups'))
         else:
             return super(GroupCreateView, self).post(request,*args,**kwargs)
@@ -102,12 +103,12 @@ class GroupUpdateView(UpdateView):
     template_name = 'students/templates_add_edit.html'
 
     def get_success_url(self):
-        messages.success(self.request, u'Групу успішно збережено!')
+        messages.success(self.request, _(u"Group saved successfully!"))
         return reverse('groups')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            messages.info(request, u'Редагування групи відмінено!')
+            messages.info(request, _(u'Group edition canceled!'))
             return HttpResponseRedirect(reverse('groups'))
         else:
             return super(GroupUpdateView, self).post(request,*args,**kwargs)
@@ -118,6 +119,6 @@ class GroupDeleteView(DeleteView):
     template_name = 'students/groups_confirm_delete.html'
 
     def get_success_url(self):
-        messages.success(self.request, u'Групу успішно видалено!')
+        messages.success(self.request, _(u"Group deleted successfully!"))
         return reverse('groups')
 
