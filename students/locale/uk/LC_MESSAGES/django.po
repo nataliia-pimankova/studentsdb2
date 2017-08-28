@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 08:22+0000\n"
+"POT-Creation-Date: 2017-08-28 08:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -287,6 +287,32 @@ msgstr "Ви дійсно хочете видалити студента \"%(obj
 #: templates/students/students_list.html:8
 msgid "Students List"
 msgstr "Список Студентів"
+
+#: views/contact_admin.py:39
+msgid "Send"
+msgstr "Надіслати"
+
+#: views/contact_admin.py:42
+msgid "Your Email Address"
+msgstr "Ваша Емейл Адреса"
+
+#: views/contact_admin.py:46
+msgid "Email Subject"
+msgstr "Заголовок Листа"
+
+#: views/contact_admin.py:50
+msgid "Email Body"
+msgstr "Текст Повідомлення"
+
+#: views/contact_admin.py:72 views/contact_admin.py:109
+msgid "An error occured during email transfer. Please, try again later."
+msgstr ""
+"Під час відправки листа виникла непередбачувана помилка. Спробуйте "
+"скористатись даною формою пізніше."
+
+#: views/contact_admin.py:78 views/contact_admin.py:115
+msgid "Message sent successfully!"
+msgstr "Повідомлення успішно надіслане!"
 
 #: views/exams.py:67
 msgid "Edit Exam"

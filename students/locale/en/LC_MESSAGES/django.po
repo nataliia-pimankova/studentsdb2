@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 08:22+0000\n"
+"POT-Creation-Date: 2017-08-28 08:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -280,6 +280,30 @@ msgstr ""
 
 #: templates/students/students_list.html:8
 msgid "Students List"
+msgstr ""
+
+#: views/contact_admin.py:39
+msgid "Send"
+msgstr ""
+
+#: views/contact_admin.py:42
+msgid "Your Email Address"
+msgstr ""
+
+#: views/contact_admin.py:46
+msgid "Email Subject"
+msgstr ""
+
+#: views/contact_admin.py:50
+msgid "Email Body"
+msgstr ""
+
+#: views/contact_admin.py:72 views/contact_admin.py:109
+msgid "An error occured during email transfer. Please, try again later."
+msgstr ""
+
+#: views/contact_admin.py:78 views/contact_admin.py:115
+msgid "Message sent successfully!"
 msgstr ""
 
 #: views/exams.py:67
