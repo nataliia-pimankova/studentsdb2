@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-24 11:32+0000\n"
+"POT-Creation-Date: 2017-08-28 07:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -98,7 +98,7 @@ msgstr "Так"
 msgid "No"
 msgstr "Ні"
 
-#: templates/students/exams_list.html:11
+#: templates/students/exams_list.html:11 views/exams.py:72
 msgid "Add Exam"
 msgstr "Створити Іспит"
 
@@ -288,13 +288,37 @@ msgstr "Ви дійсно хочете видалити студента \"%(obj
 msgid "Students List"
 msgstr "Список Студентів"
 
-#: views/results.py:76 views/students.py:137
+#: views/exams.py:67
+msgid "Edit Exam"
+msgstr "Редагувати Іспит"
+
+#: views/exams.py:84 views/results.py:76 views/students.py:137
 msgid "Save"
 msgstr "Зберегти"
 
-#: views/results.py:77 views/students.py:138
+#: views/exams.py:85 views/results.py:77 views/students.py:138
 msgid "Cancel"
 msgstr "Скасувати"
+
+#: views/exams.py:94
+msgid "Exam added successfully!!"
+msgstr "Іспит успішно додано"
+
+#: views/exams.py:99
+msgid "Exam adding canceled!"
+msgstr "Додавання іспиту відмінено"
+
+#: views/exams.py:111
+msgid "Exam updated successfully!"
+msgstr "Іспит успішно збережено"
+
+#: views/exams.py:116
+msgid "Exam updating canceled!"
+msgstr "Редагування іспиту відмінено"
+
+#: views/exams.py:127
+msgid "Exam deleted successfully!"
+msgstr "Іспит успішно видалено"
 
 #: views/results.py:85
 msgid "Edit result"
@@ -347,6 +371,3 @@ msgstr "Редагування студента відмінено"
 #: views/students.py:195
 msgid "Student deleted Successfully!"
 msgstr "Студента успішно видалено"
-
-#~ msgid "Add result"
-#~ msgstr "Додати Результат Іспиту"

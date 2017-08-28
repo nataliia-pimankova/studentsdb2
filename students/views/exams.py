@@ -1,12 +1,8 @@
-# coding=utf-8
-from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
 from django.forms import ModelForm
 from django.views.generic import UpdateView, CreateView, DeleteView, ListView
-
+from django.utils.translation import ugettext as _
 from django.contrib import messages
 
 from crispy_forms.helper import FormHelper
@@ -40,7 +36,7 @@ class ExamList(ListView):
 
         # try to order tests_list
         order_by = self.request.GET.get('order_by')
-        if order_by in ('id','title', 'teacher', 'group', 'date'):
+        if order_by in ('id', 'title', 'teacher', 'group', 'date'):
             tests = tests.order_by(order_by)
             if self.request.GET.get('reverse', '') == '1':
                 tests = tests.reverse()
@@ -59,21 +55,21 @@ class ExamForm(ModelForm):
         model = Exam
         fields = "__all__"
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, instance, *args, **kwargs):
         # call original initializator
         super(ExamForm, self).__init__(*args, **kwargs)
 
         self.helper = FormHelper(self)
 
-        if hasattr(kwargs['instance'], 'id'):
+        if hasattr(instance, 'id'):
             self.helper.form_action = reverse('exams-edit',
-                                              kwargs={'pk': kwargs['instance'].id})
-            self.headline = u'Редагувати іспит'
+                                              kwargs={'pk': instance.id})
+            self.headline = _(u'Edit Exam')
         else:
-        # set form tag attributes
+            # set form tag attributes
             self.helper.form_action = reverse('exams-add',
-                         kwargs={})
-            self.headline = u'Додати іспит'
+                                              kwargs={})
+            self.headline = _(u'Add Exam')
 
         self.helper.form_method = 'POST'
         self.helper.form_class = 'form-horizontal'
@@ -84,9 +80,9 @@ class ExamForm(ModelForm):
         self.helper.label_class = 'col-sm-2 control-label'
         self.helper.field_class = 'col-sm-10'
 
-        #form buttons
-        self.helper.add_input(Submit('save_button', u'Зберегти', css_class='btn btn-primary'))
-        self.helper.add_input(Submit('cancel_button', u'Скасувати', css_class='btn btn-link'))
+        # form buttons
+        self.helper.add_input(Submit('save_button', _(u'Save'), css_class='btn btn-primary'))
+        self.helper.add_input(Submit('cancel_button', _(u'Cancel'), css_class='btn btn-link'))
 
 
 class ExamCreateView(CreateView):
@@ -95,12 +91,12 @@ class ExamCreateView(CreateView):
     template_name = 'students/templates_add_edit.html'
 
     def get_success_url(self):
-        messages.success(self.request, u'Іспит успішно доданий!')
+        messages.success(self.request, _(u'Exam added successfully!!'))
         return reverse('exams')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            messages.info(request, u'Додавання іспиту скасовано!')
+            messages.info(request, _(u'Exam adding canceled!'))
             return HttpResponseRedirect(reverse('exams'))
         else:
             return super(ExamCreateView, self).post(request, *args, **kwargs)
@@ -112,12 +108,12 @@ class ExamUpdateView(UpdateView):
     template_name = 'students/templates_add_edit.html'
 
     def get_success_url(self):
-        messages.success(self.request, u'Іспит успішно збережено!')
+        messages.success(self.request, _(u'Exam updated successfully!'))
         return reverse('exams')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            messages.info(request, u'Редагування іспиту відмінено!')
+            messages.info(request, _(u'Exam updating canceled!'))
             return HttpResponseRedirect(reverse('exams'))
         else:
             return super(ExamUpdateView, self).post(request, *args, **kwargs)
@@ -128,6 +124,5 @@ class ExamDeleteView(DeleteView):
     template_name = 'students/exam_confirm_delete.html'
 
     def get_success_url(self):
-        messages.success(self.request, u'Іспит успішно видалено!')
+        messages.success(self.request, _(u'Exam deleted successfully!'))
         return reverse('exams')
-

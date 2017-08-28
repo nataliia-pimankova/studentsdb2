@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-24 11:32+0000\n"
+"POT-Creation-Date: 2017-08-28 07:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -96,7 +96,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: templates/students/exams_list.html:11
+#: templates/students/exams_list.html:11 views/exams.py:72
 msgid "Add Exam"
 msgstr ""
 
@@ -282,12 +282,36 @@ msgstr ""
 msgid "Students List"
 msgstr ""
 
-#: views/results.py:76 views/students.py:137
+#: views/exams.py:67
+msgid "Edit Exam"
+msgstr ""
+
+#: views/exams.py:84 views/results.py:76 views/students.py:137
 msgid "Save"
 msgstr ""
 
-#: views/results.py:77 views/students.py:138
+#: views/exams.py:85 views/results.py:77 views/students.py:138
 msgid "Cancel"
+msgstr ""
+
+#: views/exams.py:94
+msgid "Exam added successfully!!"
+msgstr ""
+
+#: views/exams.py:99
+msgid "Exam adding canceled!"
+msgstr ""
+
+#: views/exams.py:111
+msgid "Exam updated successfully!"
+msgstr ""
+
+#: views/exams.py:116
+msgid "Exam updating canceled!"
+msgstr ""
+
+#: views/exams.py:127
+msgid "Exam deleted successfully!"
 msgstr ""
 
 #: views/results.py:85
