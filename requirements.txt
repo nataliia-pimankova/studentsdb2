@@ -1,4 +1,4 @@
-Django==1.9
+Django==1.10
 Pillow
 psycopg2==2.6
 django-crispy-forms==1.5.2
