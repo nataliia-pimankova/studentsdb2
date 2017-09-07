@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 09:06+0000\n"
+"POT-Creation-Date: 2017-09-07 08:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,56 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: models/students.py:12 templates/students/journal.html:35
+#: templates/students/results_list.html:33
+msgid "Student"
+msgstr ""
+
+#: models/students.py:13 templates/students/base.html:56
+#: templates/students/student_list.html:6
+#: templates/students/student_list.html:8
+#: templates/students/students_list.html:6
+msgid "Students"
+msgstr ""
+
+#: models/students.py:18 templates/students/student_list.html:41
+#: templates/students/students_list.html:47
+msgid "First Name"
+msgstr ""
+
+#: models/students.py:24 templates/students/student_list.html:32
+#: templates/students/students_list.html:38
+msgid "Last Name"
+msgstr ""
+
+#: models/students.py:30
+msgid "Patronymic"
+msgstr ""
+
+#: models/students.py:36
+msgid "Date of Birth"
+msgstr ""
+
+#: models/students.py:42 templates/students/student_list.html:27
+#: templates/students/students_list.html:33
+msgid "Photo"
+msgstr ""
+
+#: models/students.py:49
+msgid "Ticket"
+msgstr ""
+
+#: models/students.py:53 templates/students/exams_list.html:48
+#: templates/students/results_list.html:28
+#: templates/students/student_list.html:57
+#: templates/students/students_list.html:63
+msgid "Group"
+msgstr ""
+
+#: models/students.py:61
+msgid "Extra Notes"
+msgstr ""
 
 #: templates/contact_admin/form.html:7 templates/contact_admin/form.html:9
 #: templates/contact_form/contact_form.html:8
@@ -45,12 +95,6 @@ msgstr ""
 
 #: templates/students/base.html:40
 msgid "All Students"
-msgstr ""
-
-#: templates/students/base.html:56 templates/students/student_list.html:6
-#: templates/students/student_list.html:8
-#: templates/students/students_list.html:6
-msgid "Students"
 msgstr ""
 
 #: templates/students/base.html:57
@@ -132,13 +176,6 @@ msgstr ""
 #: templates/students/exams_list.html:40
 #: templates/students/results_list.html:43
 msgid "Teacher"
-msgstr ""
-
-#: templates/students/exams_list.html:48
-#: templates/students/results_list.html:28
-#: templates/students/student_list.html:57
-#: templates/students/students_list.html:63
-msgid "Group"
 msgstr ""
 
 #: templates/students/exams_list.html:54 templates/students/groups_list.html:43
@@ -225,10 +262,6 @@ msgstr ""
 msgid "Next Month"
 msgstr ""
 
-#: templates/students/journal.html:35 templates/students/results_list.html:33
-msgid "Student"
-msgstr ""
-
 #: templates/students/results_confirm_delete.html:7
 #: templates/students/results_confirm_delete.html:9
 msgid "Delete Result"
@@ -255,21 +288,6 @@ msgstr ""
 #: templates/students/student_list.html:12
 #: templates/students/students_list.html:11 views/students.py:100
 msgid "Add Student"
-msgstr ""
-
-#: templates/students/student_list.html:27
-#: templates/students/students_list.html:33
-msgid "Photo"
-msgstr ""
-
-#: templates/students/student_list.html:32
-#: templates/students/students_list.html:38
-msgid "Last Name"
-msgstr ""
-
-#: templates/students/student_list.html:41
-#: templates/students/students_list.html:47
-msgid "First Name"
 msgstr ""
 
 #: templates/students/student_list.html:49
