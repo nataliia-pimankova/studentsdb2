@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-07 09:07+0000\n"
+"POT-Creation-Date: 2017-09-07 09:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,9 +67,21 @@ msgstr ""
 msgid "Leader"
 msgstr ""
 
-#: models/students.py:12 templates/students/journal.html:35
-#: templates/students/results_list.html:33
+#: models/monthjournal.py:9
+msgid "Month Journal"
+msgstr ""
+
+#: models/monthjournal.py:10
+msgid "Month Journals"
+msgstr ""
+
+#: models/monthjournal.py:14 models/students.py:12
+#: templates/students/journal.html:35 templates/students/results_list.html:33
 msgid "Student"
+msgstr ""
+
+#: models/monthjournal.py:20
+msgid "Date"
 msgstr ""
 
 #: models/students.py:13 templates/students/base.html:56
