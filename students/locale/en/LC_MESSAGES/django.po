@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-07 09:03+0000\n"
+"POT-Creation-Date: 2017-09-07 09:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgstr ""
 msgid "Teacher"
 msgstr ""
 
-#: models/Exam.py:34 models/students.py:53
+#: models/Exam.py:34 models/Group.py:11 models/students.py:53
 #: templates/students/exams_list.html:48
 #: templates/students/results_list.html:28
 #: templates/students/student_list.html:57
@@ -48,8 +48,23 @@ msgstr ""
 msgid "Group"
 msgstr ""
 
-#: models/Exam.py:42 models/students.py:61
+#: models/Exam.py:42 models/Group.py:29 models/students.py:61
 msgid "Extra Notes"
+msgstr ""
+
+#: models/Group.py:12 templates/students/base.html:59
+#: templates/students/groups_list.html:6 templates/students/groups_list.html:8
+msgid "Groups"
+msgstr ""
+
+#: models/Group.py:17 templates/students/exams_list.html:23
+#: templates/students/groups_list.html:29
+#: templates/students/results_list.html:23
+msgid "Title"
+msgstr ""
+
+#: models/Group.py:21 templates/students/groups_list.html:37
+msgid "Leader"
 msgstr ""
 
 #: models/students.py:12 templates/students/journal.html:35
@@ -130,11 +145,6 @@ msgstr ""
 msgid "Journal"
 msgstr ""
 
-#: templates/students/base.html:59 templates/students/groups_list.html:6
-#: templates/students/groups_list.html:8
-msgid "Groups"
-msgstr ""
-
 #: templates/students/base.html:61 templates/students/exams_list.html:80
 #: templates/students/students_list.html:102
 msgid "Results"
@@ -180,11 +190,6 @@ msgstr ""
 #: templates/students/journal.html:34 templates/students/results_list.html:19
 #: templates/students/student_list.html:21
 msgid "#"
-msgstr ""
-
-#: templates/students/exams_list.html:23 templates/students/groups_list.html:29
-#: templates/students/results_list.html:23
-msgid "Title"
 msgstr ""
 
 #: templates/students/exams_list.html:54 templates/students/groups_list.html:43
@@ -236,10 +241,6 @@ msgstr ""
 
 #: templates/students/groups_list.html:12 views/groups.py:57
 msgid "Add Group"
-msgstr ""
-
-#: templates/students/groups_list.html:37
-msgid "Leader"
 msgstr ""
 
 #: templates/students/journal.html:6 templates/students/journal.html:8
