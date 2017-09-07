@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-07 09:11+0000\n"
+"POT-Creation-Date: 2017-09-07 09:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: models/Exam.py:12
+#: models/Exam.py:12 models/Result.py:24
 msgid "Exam"
 msgstr "Іспит"
 
@@ -68,6 +68,20 @@ msgstr "Назва"
 #: models/Group.py:21 templates/students/groups_list.html:37
 msgid "Leader"
 msgstr "Староста"
+
+#: models/Result.py:13
+msgid "Result"
+msgstr "Результат"
+
+#: models/Result.py:14 templates/students/base.html:61
+#: templates/students/exams_list.html:80
+#: templates/students/students_list.html:102
+msgid "Results"
+msgstr "Результати"
+
+#: models/Result.py:19 templates/students/results_list.html:38
+msgid "Grade"
+msgstr "Оцінка"
 
 #: models/monthjournal.py:9
 msgid "Month Journal"
@@ -158,11 +172,6 @@ msgstr "Студенти SL"
 #: templates/students/students_list.html:99
 msgid "Journal"
 msgstr "Відвідування"
-
-#: templates/students/base.html:61 templates/students/exams_list.html:80
-#: templates/students/students_list.html:102
-msgid "Results"
-msgstr "Результати"
 
 #: templates/students/base.html:62
 msgid "Contact"
@@ -308,10 +317,6 @@ msgstr "Результати Іспитів"
 #: templates/students/results_list.html:11 views/results.py:54
 msgid "Add Result"
 msgstr "Додати Результат Іспиту"
-
-#: templates/students/results_list.html:38
-msgid "Grade"
-msgstr "Оцінка"
 
 #: templates/students/student_list.html:12
 #: templates/students/students_list.html:11 views/students.py:100

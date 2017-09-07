@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-07 09:11+0000\n"
+"POT-Creation-Date: 2017-09-07 09:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: models/Exam.py:12
+#: models/Exam.py:12 models/Result.py:24
 msgid "Exam"
 msgstr ""
 
@@ -65,6 +65,20 @@ msgstr ""
 
 #: models/Group.py:21 templates/students/groups_list.html:37
 msgid "Leader"
+msgstr ""
+
+#: models/Result.py:13
+msgid "Result"
+msgstr ""
+
+#: models/Result.py:14 templates/students/base.html:61
+#: templates/students/exams_list.html:80
+#: templates/students/students_list.html:102
+msgid "Results"
+msgstr ""
+
+#: models/Result.py:19 templates/students/results_list.html:38
+msgid "Grade"
 msgstr ""
 
 #: models/monthjournal.py:9
@@ -155,11 +169,6 @@ msgstr ""
 #: templates/students/base.html:58 templates/students/student_list.html:93
 #: templates/students/students_list.html:99
 msgid "Journal"
-msgstr ""
-
-#: templates/students/base.html:61 templates/students/exams_list.html:80
-#: templates/students/students_list.html:102
-msgid "Results"
 msgstr ""
 
 #: templates/students/base.html:62
@@ -301,10 +310,6 @@ msgstr ""
 
 #: templates/students/results_list.html:11 views/results.py:54
 msgid "Add Result"
-msgstr ""
-
-#: templates/students/results_list.html:38
-msgid "Grade"
 msgstr ""
 
 #: templates/students/student_list.html:12
