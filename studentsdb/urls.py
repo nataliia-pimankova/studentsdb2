@@ -20,12 +20,13 @@ from .settings import MEDIA_ROOT, DEBUG
 from django.views import static
 from students.views.contact_admin import ContactView
 from students.views.journal import JournalView
-
+from django.views.i18n import JavaScriptCatalog
 from django.views.generic import TemplateView
 from students.forms import MyContactForm
 from students.views.contact import MyContactFormView
 
 urlpatterns = [
+    url(r'^jsi18n/$', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     # Students urls
     url(r'^$', students.students_list, name='home'),
     url(r'^student_list/$', students.StudentList.as_view(), name='student_list'),
