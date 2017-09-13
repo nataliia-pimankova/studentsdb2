@@ -122,7 +122,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-PORTAL_URL = 'http://localhost:8005'
+PORTAL_URL = 'http://0.0.0.0:8080'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
