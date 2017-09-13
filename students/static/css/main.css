@@ -16,7 +16,6 @@ h1,h2,h3,h4,h5,h6{
     /* задаємо внутрішню відстань елемента до верхнього краю */
     padding-top:10px;
 }
-
 /* Groups Selector */
 #group-selector{
     margin-top:30px;
@@ -116,4 +115,9 @@ th.day-header {
 .modal-body form{
     box-sizing: content-box;
     overflow:auto;
+}
+
+/*lang Selector*/
+.lang {
+    width: auto;
 }

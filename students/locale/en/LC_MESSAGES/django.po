@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 09:06+0000\n"
+"POT-Creation-Date: 2017-09-13 19:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgid "Please, correct the following errors."
 msgstr ""
 
 #: templates/students/base.html:8 templates/students/base.html:32
-#: templates/students/base.html:95
+#: templates/students/base.html:111
 msgid "Students Accounting Service"
 msgstr ""
 
@@ -47,42 +47,46 @@ msgstr ""
 msgid "All Students"
 msgstr ""
 
-#: templates/students/base.html:56 templates/students/student_list.html:6
+#: templates/students/base.html:57 templates/students/student_list.html:6
 #: templates/students/student_list.html:8
 #: templates/students/students_list.html:6
 msgid "Students"
 msgstr ""
 
-#: templates/students/base.html:57
+#: templates/students/base.html:58
 msgid "Students SL"
 msgstr ""
 
-#: templates/students/base.html:58 templates/students/student_list.html:93
+#: templates/students/base.html:59 templates/students/student_list.html:93
 #: templates/students/students_list.html:99
 msgid "Journal"
 msgstr ""
 
-#: templates/students/base.html:59 templates/students/groups_list.html:6
+#: templates/students/base.html:60 templates/students/groups_list.html:6
 #: templates/students/groups_list.html:8
 msgid "Groups"
 msgstr ""
 
-#: templates/students/base.html:60 templates/students/exams_list.html:6
+#: templates/students/base.html:61 templates/students/exams_list.html:6
 #: templates/students/exams_list.html:8
 msgid "Exams"
 msgstr ""
 
-#: templates/students/base.html:61 templates/students/exams_list.html:80
+#: templates/students/base.html:62 templates/students/exams_list.html:80
 #: templates/students/students_list.html:102
 msgid "Results"
 msgstr ""
 
-#: templates/students/base.html:62
+#: templates/students/base.html:63
 msgid "Contact"
 msgstr ""
 
-#: templates/students/base.html:63
+#: templates/students/base.html:64
 msgid "Django Contact"
+msgstr ""
+
+#: templates/students/base.html:108
+msgid "Change"
 msgstr ""
 
 #: templates/students/exam_confirm_delete.html:7

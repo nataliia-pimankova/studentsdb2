@@ -26,6 +26,7 @@ from students.forms import MyContactForm
 from students.views.contact import MyContactFormView
 
 urlpatterns = [
+    url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^jsi18n/$', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     # Students urls
     url(r'^$', students.students_list, name='home'),
