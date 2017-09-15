@@ -4,10 +4,30 @@ from django.contrib import admin
 from django.core.urlresolvers import reverse
 from django.forms import ModelForm, ValidationError
 
-from .models import Student, Group, Exam, Result, MonthJournal
+from .models import Group, Exam, Result, MonthJournal
 # from .models.Group import Group
 # from .models.Exam import Exam
 # from .models.Result import Result
+
+from modeltranslation.admin import TranslationAdmin, TabbedTranslationAdmin
+from students.models import Student
+
+
+class StudentAdmin(TranslationAdmin):
+    list_display = ['id', 'last_name', 'first_name', 'ticket', 'student_group']
+    list_display_links = ['last_name', 'first_name']
+    list_editable = ['student_group']
+    ordering = ['last_name']
+    list_filter = ['student_group']
+    list_per_page = 10
+    search_fields = ['last_name', 'first_name', 'middle_name','ticket','notes']
+    # form = StudentFormAdmin
+
+    def view_on_site(self,obj):
+        return reverse('students_edit', kwargs={'pk':obj.id})
+
+
+admin.site.register(Student, StudentAdmin)
 
 
 class StudentFormAdmin(ModelForm):
@@ -51,6 +71,7 @@ class GroupFormAdmin(ModelForm):
 
         return self.cleaned_data['leader']
 
+
 class GroupAdmin(admin.ModelAdmin):
     list_display = ['title', 'leader']
     list_display_links = ['title']
@@ -66,7 +87,7 @@ class GroupAdmin(admin.ModelAdmin):
 
 
 # Register your models here.
-admin.site.register(Student, StudentAdmin)
+# admin.site.register(Student, StudentAdmin)
 admin.site.register(Group, GroupAdmin)
 admin.site.register(Exam)
 admin.site.register(Result)
