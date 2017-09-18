@@ -1,31 +1,14 @@
+# -*- coding: utf-8 -*-
+
 from modeltranslation.translator import translator, TranslationOptions
-from students.models import Student, Group, Exam
+from students.models import Student
 
 
 class StudentTranslationOptions(TranslationOptions):
     """
-    class settings for the internationalization of model fields Student.
+    Класс настроек интернационализации полей модели Page.
     """
 
-    fields = ('first_name', 'last_name', 'middle_name')
+    fields = ('first_name', 'last_name', 'middle_name', 'notes')
 
-
-class GroupTranslationOptions(TranslationOptions):
-    """
-    class settings for the internationalization of model fields Group.
-    """
-
-    fields = ('title', )
-
-
-class ExamTranslationOptions(TranslationOptions):
-    """
-    class settings for the internationalization of model fields Group.
-    """
-
-    fields = ('title', 'teacher', )
-
-
-translator.register(Exam, ExamTranslationOptions)
 translator.register(Student, StudentTranslationOptions)
-translator.register(Group, GroupTranslationOptions)

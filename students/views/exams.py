@@ -50,21 +50,26 @@ class ExamList(ListView):
         return context
 
 
-class ExamCreateForm(ModelForm):
+class ExamForm(ModelForm):
     class Meta:
         model = Exam
-        fields = ['title', 'date', 'teacher', 'group', 'notes']
+        fields = "__all__"
 
     def __init__(self, instance, *args, **kwargs):
         # call original initializator
-        super(ExamCreateForm, self).__init__(*args, **kwargs)
+        super(ExamForm, self).__init__(*args, **kwargs)
 
         self.helper = FormHelper(self)
 
-        # set form tag attributes
-        self.helper.form_action = reverse('exams-add',
-                                          kwargs={})
-        self.headline = _(u'Add Exam')
+        if hasattr(instance, 'id'):
+            self.helper.form_action = reverse('exams-edit',
+                                              kwargs={'pk': instance.id})
+            self.headline = _(u'Edit Exam')
+        else:
+            # set form tag attributes
+            self.helper.form_action = reverse('exams-add',
+                                              kwargs={})
+            self.headline = _(u'Add Exam')
 
         self.helper.form_method = 'POST'
         self.helper.form_class = 'form-horizontal'
@@ -80,18 +85,9 @@ class ExamCreateForm(ModelForm):
         self.helper.add_input(Submit('cancel_button', _(u'Cancel'), css_class='btn btn-link'))
 
 
-class ExamUpdateForm(ExamCreateForm):
-    def __init__(self, *args, **kwargs):
-        super(ExamUpdateForm, self).__init__(*args, **kwargs)
-        self.form_action = reverse('exams-edit',
-                                   kwargs={'pk': kwargs['instance'].id})
-        print(kwargs['instance'].id)
-        self.headline = _(u'Edit exam')
-
-
 class ExamCreateView(CreateView):
     model = Exam
-    form_class = ExamCreateForm
+    form_class = ExamForm
     template_name = 'students/templates_add_edit.html'
 
     def get_success_url(self):
@@ -108,7 +104,7 @@ class ExamCreateView(CreateView):
 
 class ExamUpdateView(UpdateView):
     model = Exam
-    form_class = ExamUpdateForm
+    form_class = ExamForm
     template_name = 'students/templates_add_edit.html'
 
     def get_success_url(self):

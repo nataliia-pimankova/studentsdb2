@@ -1,7 +1,7 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
 
 
 # Create your models here.
@@ -9,29 +9,29 @@ class Exam(models.Model):
     """Exam Model"""
 
     class Meta(object):
-        verbose_name = _(u"Exam")
-        verbose_name_plural = _(u"Exams")
+        verbose_name = u"Іспит"
+        verbose_name_plural = u"Іспити"
 
     title = models.CharField(
         max_length=256,
         blank=False,
-        verbose_name=_(u"Title of Subject")
+        verbose_name=u"Назва предмету"
     )
 
     date = models.DateTimeField(
         blank=False,
-        verbose_name=_(u"Date and Time"),
+        verbose_name=u"Дата і час проведення",
         null=True
     )
 
     teacher = models.CharField(
         max_length=256,
         blank=False,
-        verbose_name=_(u"Teacher")
+        verbose_name=u"Викладач"
     )
 
     group = models.ForeignKey('Group',
-        verbose_name=_(u"Group"),
+        verbose_name=u"Група",
         blank=False,
         null=True,
         on_delete=models.PROTECT
@@ -39,7 +39,7 @@ class Exam(models.Model):
 
     notes = models.TextField(
         blank=True,
-        verbose_name=_(u"Notes")
+        verbose_name=u"Додаткові нотатки"
     )
 
     def __unicode__(self):
