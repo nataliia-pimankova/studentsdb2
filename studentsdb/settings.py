@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 import db
 import email
+from django.utils.translation import ugettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -33,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -108,9 +110,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 # list of available languages
 LANGUAGES = (
-    ('en', 'English'),
-    ('uk', 'Ukrainian'),
+    ('en', _('English')),
+    ('uk', _('Ukrainian')),
 )
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 
 # specify where the translation files are
 LOCALE_PATHS = (
@@ -118,7 +121,7 @@ LOCALE_PATHS = (
     # os.path.join(PROJECT_DIR, 'locale'),
 )
 
-LANGUAGE_CODE = 'uk'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
