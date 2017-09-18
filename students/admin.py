@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from django.contrib import admin
 from django.core.urlresolvers import reverse
 from django.forms import ModelForm, ValidationError
@@ -17,7 +15,7 @@ class StudentAdmin(TranslationAdmin):
     list_filter = ['student_group']
     list_per_page = 10
     search_fields = ['last_name', 'first_name', 'middle_name','ticket','notes']
-    # form = StudentFormAdmin
+    form = StudentFormAdmin
 
     def view_on_site(self,obj):
         return reverse('students_edit', kwargs={'pk':obj.id})
@@ -35,20 +33,6 @@ class StudentFormAdmin(ModelForm):
             raise ValidationError(u'Студент є старостою іншої групи.', code='invalid')
 
         return self.cleaned_data['student_group']
-
-
-class StudentAdmin(admin.ModelAdmin):
-    list_display = ['id', 'last_name', 'first_name', 'ticket', 'student_group']
-    # list_display_links = ['last_name', 'first_name']
-    list_editable = ['last_name', 'first_name', 'student_group']
-    ordering = ['last_name']
-    list_filter = ['student_group']
-    list_per_page = 10
-    search_fields = ['last_name', 'first_name', 'middle_name','ticket','notes']
-    form = StudentFormAdmin
-
-    def view_on_site(self,obj):
-        return reverse('students_edit', kwargs={'pk':obj.id})
 
 
 class GroupFormAdmin(ModelForm):
@@ -87,8 +71,6 @@ class ExamAdmin(TranslationAdmin):
     list_filter = ['title', 'group', 'teacher', 'date']
     list_per_page = 10
     search_fields = ['title', 'group', 'teacher', 'date', 'notes']
-
-    # form = StudentFormAdmin
 
     def view_on_site(self, obj):
         return reverse('exams-edit', kwargs={'pk': obj.id})
