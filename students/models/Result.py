@@ -1,7 +1,7 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
 from smart_selects.db_fields import ChainedForeignKey
 
 
@@ -10,18 +10,18 @@ class Result(models.Model):
     """Result Model"""
 
     class Meta(object):
-        verbose_name = _(u"Result")
-        verbose_name_plural = _(u"Results")
+        verbose_name = u"Результат"
+        verbose_name_plural = u"Результати"
 
     grade = models.FloatField(
         blank=True,
         null=True,
-        verbose_name=_(u"Grade")
+        verbose_name=u"Оцінка"
     )
 
     exam = models.ForeignKey(
         'Exam',
-        verbose_name=_(u"Exam"),
+        verbose_name=u"Іспит",
         blank=False,
         null=True,
         on_delete=models.SET_NULL

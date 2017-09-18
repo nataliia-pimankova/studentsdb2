@@ -39,7 +39,7 @@ class ResultCreateForm(ModelForm):
 
     class Meta:
         model = Result
-        fields = ('exam', 'group', 'student', 'grade')
+        fields = ("exam", 'group', 'student', 'grade')
 
     def __init__(self, *args, **kwargs):
 
