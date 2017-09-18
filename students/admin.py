@@ -81,7 +81,8 @@ class GroupAdmin(TranslationAdmin):
 
 class ExamAdmin(TranslationAdmin):
     list_display = ['id', 'title', 'teacher', 'date', 'group']
-    list_editable = ['title', 'group', 'date', 'teacher']
+    list_display_links = ['title']
+    list_editable = ['group', 'date', ]
     ordering = ['title', 'group', 'teacher', 'date']
     list_filter = ['title', 'group', 'teacher', 'date']
     list_per_page = 10
