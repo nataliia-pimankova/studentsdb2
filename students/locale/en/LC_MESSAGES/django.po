@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-18 09:54+0000\n"
+"POT-Creation-Date: 2017-09-20 09:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: admin.py:20
+msgid "Student is a leader of other group."
+msgstr ""
+
+#: admin.py:48
+msgid "Student belongs to another group."
+msgstr ""
 
 #: models/Exam.py:12 models/Result.py:24
 msgid "Exam"
@@ -206,7 +214,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: templates/students/exams_list.html:11 views/exams.py:72
+#: templates/students/exams_list.html:11 views/exams.py:67
 msgid "Add Exam"
 msgstr ""
 
@@ -372,37 +380,37 @@ msgstr ""
 msgid "Message sent successfully!"
 msgstr ""
 
-#: views/exams.py:67
-msgid "Edit Exam"
-msgstr ""
-
-#: views/exams.py:84 views/groups.py:71 views/results.py:76
+#: views/exams.py:79 views/groups.py:71 views/results.py:76
 #: views/students.py:137
 msgid "Save"
 msgstr ""
 
-#: views/exams.py:85 views/groups.py:72 views/results.py:77
+#: views/exams.py:80 views/groups.py:72 views/results.py:77
 #: views/students.py:138
 msgid "Cancel"
 msgstr ""
 
-#: views/exams.py:94
+#: views/exams.py:89
+msgid "Edit exam"
+msgstr ""
+
+#: views/exams.py:98
 msgid "Exam added successfully!!"
 msgstr ""
 
-#: views/exams.py:99
+#: views/exams.py:103
 msgid "Exam adding canceled!"
 msgstr ""
 
-#: views/exams.py:111
+#: views/exams.py:115
 msgid "Exam updated successfully!"
 msgstr ""
 
-#: views/exams.py:116
+#: views/exams.py:120
 msgid "Exam updating canceled!"
 msgstr ""
 
-#: views/exams.py:127
+#: views/exams.py:131
 msgid "Exam deleted successfully!"
 msgstr ""
 
