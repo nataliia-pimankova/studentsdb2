@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <natalya2487@gmail.com>, 2017.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-20 09:00+0000\n"
+"POT-Creation-Date: 2017-09-21 06:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,39 +16,38 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: admin.py:20
 msgid "Student is a leader of other group."
-msgstr "Студент є старостою іншої групи"
+msgstr "El estudiante es un líder de otro grupo."
 
 #: admin.py:48
 msgid "Student belongs to another group."
-msgstr "Студент належить до іншої групи"
+msgstr "El estudiante pertenece a otro grupo."
 
 #: models/Exam.py:12 models/Result.py:24
 msgid "Exam"
-msgstr "Іспит"
+msgstr "Examen"
 
 #: models/Exam.py:13 templates/students/base.html:61
 #: templates/students/exams_list.html:6 templates/students/exams_list.html:8
 msgid "Exams"
-msgstr "Іспити"
+msgstr "Exámenes"
 
 #: models/Exam.py:18
 msgid "Title of Subject"
-msgstr "Назва предмета"
+msgstr "Título de la asignatura"
 
 #: models/Exam.py:23 templates/students/exams_list.html:32
 #: templates/students/results_list.html:48
 msgid "Date and Time"
-msgstr "Дата і Час"
+msgstr "Fecha y hora"
 
 #: models/Exam.py:30 templates/students/exams_list.html:40
 #: templates/students/results_list.html:43
 msgid "Teacher"
-msgstr "Викладач"
+msgstr "Conferenciante"
 
 #: models/Exam.py:34 models/Group.py:11 models/students.py:52
 #: templates/students/exams_list.html:48
@@ -56,90 +55,90 @@ msgstr "Викладач"
 #: templates/students/student_list.html:57
 #: templates/students/students_list.html:63
 msgid "Group"
-msgstr "Група"
+msgstr "Grupo"
 
 #: models/Exam.py:42 models/Group.py:29 models/students.py:60
 msgid "Notes"
-msgstr "Нотатки"
+msgstr "Notas adicionales"
 
 #: models/Group.py:12 templates/students/base.html:60
 #: templates/students/groups_list.html:6 templates/students/groups_list.html:8
 msgid "Groups"
-msgstr "Групи"
+msgstr "Grupos"
 
 #: models/Group.py:17 templates/students/exams_list.html:23
 #: templates/students/groups_list.html:29
 #: templates/students/results_list.html:23
 msgid "Title"
-msgstr "Назва"
+msgstr "Título"
 
 #: models/Group.py:21 templates/students/groups_list.html:37
 msgid "Leader"
-msgstr "Староста"
+msgstr "Líder"
 
 #: models/Result.py:13
 msgid "Result"
-msgstr "Результат"
+msgstr "Resultado"
 
 #: models/Result.py:14 templates/students/base.html:62
 #: templates/students/exams_list.html:80
 #: templates/students/students_list.html:102
 msgid "Results"
-msgstr "Результати"
+msgstr "Resultados"
 
 #: models/Result.py:19 templates/students/results_list.html:38
 msgid "Grade"
-msgstr "Оцінка"
+msgstr "Grado"
 
 #: models/monthjournal.py:9
 msgid "Monthly Journal"
-msgstr "Місячний журнал"
+msgstr "Revista Mensual"
 
 #: models/monthjournal.py:10
 msgid "Monthly Journals"
-msgstr "Місячні журнали"
+msgstr "Revistas Mensuales"
 
 #: models/monthjournal.py:14 models/students.py:11
 #: templates/students/journal.html:35 templates/students/results_list.html:33
 msgid "Student"
-msgstr "Студент"
+msgstr "Estudiante"
 
 #: models/monthjournal.py:20
 msgid "Date"
-msgstr "Дата"
+msgstr "Fecha"
 
 #: models/students.py:12 templates/students/base.html:57
 #: templates/students/student_list.html:6
 #: templates/students/student_list.html:8
 #: templates/students/students_list.html:6
 msgid "Students"
-msgstr "Студенти"
+msgstr "Estudiantes"
 
 #: models/students.py:17 templates/students/student_list.html:41
 #: templates/students/students_list.html:47
 msgid "First Name"
-msgstr "Ім'я"
+msgstr "Nombre de Pila"
 
 #: models/students.py:23
 msgid "Surname"
-msgstr "Ghspdbot"
+msgstr "Apellido"
 
 #: models/students.py:29
 msgid "Middle Name"
-msgstr "По-батькові"
+msgstr "Segundo Nombre"
 
 #: models/students.py:35
 msgid "Date of Birth"
-msgstr "Дата Народження"
+msgstr "Fecha de nacimiento"
 
 #: models/students.py:41 templates/students/student_list.html:27
 #: templates/students/students_list.html:33
 msgid "Photo"
-msgstr "Фото"
+msgstr "Fotos"
 
 #: models/students.py:48
 msgid "Ticket"
-msgstr "Білет"
+msgstr "Boleto"
 
 #: templates/contact_admin/form.html:7 templates/contact_admin/form.html:9
 #: templates/contact_form/contact_form.html:8
@@ -147,78 +146,78 @@ msgstr "Білет"
 #: templates/contact_form/contact_form_sent.html:6
 #: templates/contact_form/contact_form_sent.html:11
 msgid "Admin Contact Form"
-msgstr "Зв'язок з адміністратором"
+msgstr "Formulario de Contacto"
 
 #: templates/contact_admin/form.html:14
 #: templates/contact_form/contact_form.html:15 views/contact.py:16
 msgid "Please, correct the following errors."
-msgstr "Будь-ласка, виправте наступні помилки"
+msgstr "Por favor corrige los siguientes errores."
 
 #: templates/students/base.html:8 templates/students/base.html:32
 #: templates/students/base.html:113
 msgid "Students Accounting Service"
-msgstr "Сервіс Обліку Студентів"
+msgstr "Servicio de Contabilidad de Estudiantes"
 
 #: templates/students/base.html:10
 msgid "App to manage students database"
-msgstr "Система Обліку Студентів Навчального Закладу"
+msgstr "Aplicación para administrar la base de datos de estudiantes"
 
 #: templates/students/base.html:38
 msgid "Group:"
-msgstr "Група:"
+msgstr "Grupo:"
 
 #: templates/students/base.html:40
 msgid "All Students"
-msgstr "Усі Студенти"
+msgstr "Todos los Estudiantes"
 
 #: templates/students/base.html:58
 msgid "Students SL"
-msgstr "Студенти SL"
+msgstr "Estudiantes SL"
 
 #: templates/students/base.html:59 templates/students/student_list.html:93
 #: templates/students/students_list.html:99
 msgid "Journal"
-msgstr "Відвідування"
+msgstr "Revista"
 
 #: templates/students/base.html:63
 msgid "Contact"
-msgstr "Контакт"
+msgstr "Contacto"
 
 #: templates/students/base.html:64
 msgid "Django Contact"
-msgstr "Django Контакт"
+msgstr "Django Contacto"
 
 #: templates/students/base.html:107
 msgid "Change"
-msgstr "Змінити"
+msgstr "Cambio"
 
 #: templates/students/exam_confirm_delete.html:7
 #: templates/students/exam_confirm_delete.html:9
 msgid "Delete Exam"
-msgstr "Видалити Іспит"
+msgstr "Eliminar Examen"
 
 #: templates/students/exam_confirm_delete.html:16
 #, python-format
 msgid "Do you really want to delete Exam: \"%(object)s\"?"
-msgstr "Ви дійсно хочете видалити іспит \"%(object)s\"?"
+msgstr "¿Realmente desea eliminar el examen: \"%(object)s\"?"
 
 #: templates/students/exam_confirm_delete.html:18
 #: templates/students/groups_confirm_delete.html:18
 #: templates/students/results_confirm_delete.html:18
 #: templates/students/students_confirm_delete.html:17
 msgid "Yes"
-msgstr "Так"
+msgstr "Sí"
 
 #: templates/students/exam_confirm_delete.html:20
 #: templates/students/groups_confirm_delete.html:20
 #: templates/students/results_confirm_delete.html:20
 #: templates/students/students_confirm_delete.html:19
 msgid "No"
-msgstr "Ні"
+msgstr "No"
 
 #: templates/students/exams_list.html:11 views/exams.py:67
 msgid "Add Exam"
-msgstr "Створити Іспит"
+msgstr "Añadir examen"
 
 #: templates/students/exams_list.html:18 templates/students/groups_list.html:21
 #: templates/students/journal.html:34 templates/students/results_list.html:19
@@ -231,7 +230,7 @@ msgstr "№"
 #: templates/students/student_list.html:60
 #: templates/students/students_list.html:66
 msgid "Actions"
-msgstr "Дії"
+msgstr "Acciones"
 
 #: templates/students/exams_list.html:68 templates/students/exams_list.html:83
 #: templates/students/groups_list.html:58
@@ -247,39 +246,39 @@ msgstr "Дії"
 #: templates/students/student_list.html:99
 #: templates/students/students_list.html:105
 msgid "Edit"
-msgstr "Редагувати"
+msgstr "Editar"
 
 #: templates/students/exams_list.html:75 templates/students/groups_list.html:68
 #: templates/students/results_list.html:74
 #: templates/students/student_list.html:88
 #: templates/students/students_list.html:94
 msgid "Action"
-msgstr "Дія"
+msgstr "Acción"
 
 #: templates/students/exams_list.html:86 templates/students/groups_list.html:79
 #: templates/students/results_list.html:82
 #: templates/students/student_list.html:102
 #: templates/students/students_list.html:108
 msgid "Delete"
-msgstr "Видалити"
+msgstr "Eliminar"
 
 #: templates/students/groups_confirm_delete.html:7
 #: templates/students/groups_confirm_delete.html:9
 msgid "Delete Group"
-msgstr "Видалити Групу"
+msgstr "Eliminar Grupo"
 
 #: templates/students/groups_confirm_delete.html:16
 #, python-format
 msgid "Do you really want to delete group: \"%(object)s\"?"
-msgstr "Ви дійсно хочете видалити групу \"%(object)s\"?"
+msgstr "¿Realmente desea eliminar el grupo: \"%(object)s\"?"
 
 #: templates/students/groups_list.html:12 views/groups.py:57
 msgid "Add Group"
-msgstr "Додати Групу"
+msgstr "Añadir grupo"
 
 #: templates/students/journal.html:6 templates/students/journal.html:8
 msgid "Journal of Attending"
-msgstr "Журнал Відвідування"
+msgstr "Registro de Visitantes"
 
 #: templates/students/journal.html:15 templates/students/students_list.html:16
 #, python-format
@@ -287,215 +286,210 @@ msgid ""
 "There is not yet a single student in the database. Please\n"
 "    <a href=\"%(students_add_url)s\" class=\"btn btn-info\">add first</a>."
 msgstr ""
-"Поки немає жодного студента в базі. Будь-ласка,\n"
-"    <a href=\"%(students_add_url)s\" class=\"btn btn-info\">додайте першого</"
-"a>."
+"Todavía no hay un solo estudiante en la base de datos. Por favor\n"
+"    <a href=\"%(students_add_url)s\" class=\"btn btn-info\">agregue primero</a>."
 
 #: templates/students/journal.html:21
 msgid ""
 "Changes to the journal are saved automatically with each click in the cell "
 "of the table."
-msgstr ""
-"Зміни в журнал зберігаються автоматично при кожному кліку в клітинці таблиці."
+msgstr "Los cambios de registro ocurren automáticamente cada vez que se hace clic en una celda de tabla"
 
 #: templates/students/journal.html:22
 msgid "Saving is in progress..."
-msgstr "Йде збереження..."
+msgstr "Ahorro en curso..."
 
 #: templates/students/journal.html:26
 msgid "Previous Month"
-msgstr "Попередній Місяць"
+msgstr "Mes Anterior"
 
 #: templates/students/journal.html:29
 msgid "Next Month"
-msgstr "Наступний Місяць"
+msgstr "Mes Próximo"
 
 #: templates/students/results_confirm_delete.html:7
 #: templates/students/results_confirm_delete.html:9
 msgid "Delete Result"
-msgstr "Видалити Результат Іспиту"
+msgstr "Eliminar Resultado"
 
 #: templates/students/results_confirm_delete.html:16
 #, python-format
 msgid "Do you really want to delete result: \"%(object)s\"?"
-msgstr "Ви дійсно хочете видалити результат іспиту \"%(object)s\"?"
+msgstr "¿Realmente desea eliminar el resultado: \"%(object)s\"?"
 
 #: templates/students/results_list.html:6
 #: templates/students/results_list.html:8
 msgid "Exam Results"
-msgstr "Результати Іспитів"
+msgstr "Resultados de Examen"
 
 #: templates/students/results_list.html:11 views/results.py:54
 msgid "Add Result"
-msgstr "Додати Результат Іспиту"
+msgstr "Añadir Resultado"
 
 #: templates/students/student_list.html:12
 #: templates/students/students_list.html:11 views/students.py:100
 msgid "Add Student"
-msgstr "Додати Студента"
+msgstr "Añadir Estudeiante"
 
 #: templates/students/student_list.html:32
 #: templates/students/students_list.html:38
 msgid "Last Name"
-msgstr "Прізвище"
+msgstr "Apellido"
 
 #: templates/students/student_list.html:49
 #: templates/students/students_list.html:55
 msgid "Ticket #"
-msgstr "№ Білету"
+msgstr "Boleto #"
 
 #: templates/students/student_list.html:96
 msgid "Results of Exams"
-msgstr "Результати іспитів"
+msgstr "Resultado de Examens"
 
 #: templates/students/students_confirm_delete.html:7
 #: templates/students/students_confirm_delete.html:9
 msgid "Delete Student"
-msgstr "Видалити Студента"
+msgstr "Eliminar Estudiante"
 
 #: templates/students/students_confirm_delete.html:15
 #, python-format
 msgid "Do you really want to delete student: \"%(object)s\"?"
-msgstr "Ви дійсно хочете видалити студента \"%(object)s\"?"
+msgstr "¿Realmente desea eliminar el estudiante: \"%(object)s\"?"
 
 #: templates/students/students_list.html:8
 msgid "Students List"
-msgstr "Список Студентів"
+msgstr "Lista de Estudiantes"
 
 #: views/contact_admin.py:39
 msgid "Send"
-msgstr "Надіслати"
+msgstr "Enviar"
 
 #: views/contact_admin.py:42
 msgid "Your Email Address"
-msgstr "Ваша Емейл Адреса"
+msgstr "Tu correo electrónico"
 
 #: views/contact_admin.py:46
 msgid "Email Subject"
-msgstr "Заголовок Листа"
+msgstr "Assunto del email"
 
 #: views/contact_admin.py:50
 msgid "Email Body"
-msgstr "Текст Повідомлення"
+msgstr "Cuerpo del Correo Electrónico"
 
 #: views/contact_admin.py:72 views/contact_admin.py:109
 msgid "An error occured during email transfer. Please, try again later."
-msgstr ""
-"Під час відправки листа виникла непередбачувана помилка. Спробуйте "
-"скористатись даною формою пізніше."
+msgstr "Se ha producido un error durante la transferencia de correo electrónico. "
+"Por favor, inténtelo de nuevo más tarde"
 
 #: views/contact_admin.py:78 views/contact_admin.py:115
 msgid "Message sent successfully!"
-msgstr "Повідомлення успішно надіслане!"
+msgstr "¡Mensaje enviado con éxito!"
 
 #: views/exams.py:79 views/groups.py:71 views/results.py:76
 #: views/students.py:137
 msgid "Save"
-msgstr "Зберегти"
+msgstr "Salvar"
 
 #: views/exams.py:80 views/groups.py:72 views/results.py:77
 #: views/students.py:138
 msgid "Cancel"
-msgstr "Скасувати"
+msgstr "Cancelar"
 
 #: views/exams.py:89
-#, fuzzy
-#| msgid "Edit Exam"
 msgid "Edit exam"
-msgstr "Редагувати Іспит"
+msgstr "Editar Examen"
 
 #: views/exams.py:98
 msgid "Exam added successfully!!"
-msgstr "Іспит успішно додано"
+msgstr "¡Examen añadido con éxito!"
 
 #: views/exams.py:103
 msgid "Exam adding canceled!"
-msgstr "Додавання іспиту відмінено"
+msgstr "¡Anulación del examen cancelada!"
 
 #: views/exams.py:115
 msgid "Exam updated successfully!"
-msgstr "Іспит успішно збережено"
+msgstr "¡Examen actualizado con éxito!"
 
 #: views/exams.py:120
 msgid "Exam updating canceled!"
-msgstr "Редагування іспиту відмінено"
+msgstr "¡Se canceló la actualización del examen!"
 
 #: views/exams.py:131
 msgid "Exam deleted successfully!"
-msgstr "Іспит успішно видалено"
+msgstr "¡Examen eliminado con éxito!"
 
 #: views/groups.py:80
 msgid "Edit Group"
-msgstr "Редагувати Групу"
+msgstr "Editar Grupo"
 
 #: views/groups.py:89
 msgid "Group added successfully!"
-msgstr "Групу успішно додано"
+msgstr "¡Grupo agregado con éxito!"
 
 #: views/groups.py:94
 msgid "Group addition canceled!"
-msgstr "Додавання групи відмінено"
+msgstr "Se canceló la adición de grupo."
 
 #: views/groups.py:106
 msgid "Group saved successfully!"
-msgstr "Групу успішно збережено"
+msgstr "¡Grupo guardado con éxito!"
 
 #: views/groups.py:111
 msgid "Group edition canceled!"
-msgstr "Додавання групи відмінено"
+msgstr "¡Edición de grupo cancelada!"
 
 #: views/groups.py:122
 msgid "Group deleted successfully!"
-msgstr "Групу успішно видалено"
+msgstr "¡Grupo eliminado con éxito!"
 
 #: views/results.py:85
 msgid "Edit result"
-msgstr "Редагувати Результат Іспиту"
+msgstr "Editar Resultado"
 
 #: views/results.py:94
 msgid "Result added successfully!"
-msgstr "Оцінку успішно додано"
+msgstr "¡Resultado agregado con éxito!"
 
 #: views/results.py:99
 msgid "Result adding canceled!"
-msgstr "Додавання результату відмінено"
+msgstr "Se canceló la adición de resultado."
 
 #: views/results.py:111
 msgid "Result updated successfully!"
-msgstr "Оцінку успішно збережено"
+msgstr "¡Resultado guardado con éxito!"
 
 #: views/results.py:116
 msgid "Result updating canceled!"
-msgstr "Редагування результату відмінено"
+msgstr "¡Edición de resultado cancelada!"
 
 #: views/results.py:127
 msgid "Result deleted successfully!"
-msgstr "Оцінку успішно видалено"
+msgstr "¡Resultado eliminado con éxito!"
 
 #: views/students.py:139
 msgid "Reset"
-msgstr "Скинути"
+msgstr "Reiniciar"
 
 #: views/students.py:148
 msgid "Edit Student"
-msgstr "Редагувати Студента"
+msgstr "Editar Estudiante"
 
 #: views/students.py:158
 msgid "Student added successfully!"
-msgstr "Студента успішно додано"
+msgstr "¡Estudiante agregado con éxito!"
 
 #: views/students.py:164
 msgid "Student addition canceled!"
-msgstr "Додавання студента відмінено"
+msgstr "Se canceló la adición de estudiante."
 
 #: views/students.py:177
 msgid "Student updated successfully!"
-msgstr "Студента успішно збережено"
+msgstr "¡Grupo guardado con éxito!"
 
 #: views/students.py:183
 msgid "Student updating canceled!"
-msgstr "Редагування студента відмінено"
+msgstr "¡Edición de estudiante cancelada!"
 
 #: views/students.py:195
 msgid "Student deleted Successfully!"
-msgstr "Студента успішно видалено"
+msgstr "¡Estudiante eliminado con éxito!"

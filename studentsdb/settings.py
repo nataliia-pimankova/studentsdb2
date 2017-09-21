@@ -112,7 +112,6 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGES = (
     ('en', _('English')),
     ('uk', _('Ukrainian')),
-    ('es', _('Spanish')),
 )
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'uk'
 
