@@ -121,7 +121,7 @@ class StudentCreateForm(ModelForm):
             # Div('', css_class='col-sm-12 '),
             Field('middle_name', css_class='form-control-static'),
             # Div('', css_class='col-sm-12 '),
-            Field('birthday', css_class='form-control-static'),
+            Field('birthday', css_class='form-control-static', format='DD-MM-YYYY'),
             # Div('', css_class='col-sm-12 '),
             Field('ticket', css_class='form-control-static'),
             # Div('', css_class='col-sm-12 '),

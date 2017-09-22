@@ -53,7 +53,9 @@ function  initGroupSelector() {
 
 function initDateFields() {
     $('input.dateinput').datetimepicker({
-        'format': 'YYYY-MM-DD'
+        'format': "DD-MM-YYYY",
+        'locale': 'es'
+
     }).on('dp.hide', function (event) {
         $(this).blur();
     });
