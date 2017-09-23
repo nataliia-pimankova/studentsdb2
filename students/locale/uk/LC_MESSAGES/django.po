@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-18 09:54+0000\n"
+"POT-Creation-Date: 2017-09-20 09:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: admin.py:20
+msgid "Student is a leader of other group."
+msgstr "Студент є старостою іншої групи"
+
+#: admin.py:48
+msgid "Student belongs to another group."
+msgstr "Студент належить до іншої групи"
 
 #: models/Exam.py:12 models/Result.py:24
 msgid "Exam"
@@ -114,7 +122,7 @@ msgstr "Ім'я"
 
 #: models/students.py:23
 msgid "Surname"
-msgstr "Ghspdbot"
+msgstr "Прізвище"
 
 #: models/students.py:29
 msgid "Middle Name"
@@ -208,7 +216,7 @@ msgstr "Так"
 msgid "No"
 msgstr "Ні"
 
-#: templates/students/exams_list.html:11 views/exams.py:72
+#: templates/students/exams_list.html:11 views/exams.py:67
 msgid "Add Exam"
 msgstr "Створити Іспит"
 
@@ -380,37 +388,39 @@ msgstr ""
 msgid "Message sent successfully!"
 msgstr "Повідомлення успішно надіслане!"
 
-#: views/exams.py:67
-msgid "Edit Exam"
-msgstr "Редагувати Іспит"
-
-#: views/exams.py:84 views/groups.py:71 views/results.py:76
+#: views/exams.py:79 views/groups.py:71 views/results.py:76
 #: views/students.py:137
 msgid "Save"
 msgstr "Зберегти"
 
-#: views/exams.py:85 views/groups.py:72 views/results.py:77
+#: views/exams.py:80 views/groups.py:72 views/results.py:77
 #: views/students.py:138
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: views/exams.py:94
+#: views/exams.py:89
+#, fuzzy
+#| msgid "Edit Exam"
+msgid "Edit exam"
+msgstr "Редагувати Іспит"
+
+#: views/exams.py:98
 msgid "Exam added successfully!!"
 msgstr "Іспит успішно додано"
 
-#: views/exams.py:99
+#: views/exams.py:103
 msgid "Exam adding canceled!"
 msgstr "Додавання іспиту відмінено"
 
-#: views/exams.py:111
+#: views/exams.py:115
 msgid "Exam updated successfully!"
 msgstr "Іспит успішно збережено"
 
-#: views/exams.py:116
+#: views/exams.py:120
 msgid "Exam updating canceled!"
 msgstr "Редагування іспиту відмінено"
 
-#: views/exams.py:127
+#: views/exams.py:131
 msgid "Exam deleted successfully!"
 msgstr "Іспит успішно видалено"
 

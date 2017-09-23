@@ -1,4 +1,5 @@
 from datetime import date, datetime
+from django.utils import timezone
 from dateutil.relativedelta import relativedelta
 from calendar import monthrange, weekday, day_abbr
 
@@ -19,10 +20,11 @@ class JournalView(TemplateView):
 
         # check if we need to display some specific month
         if self.request.GET.get('month'):
-            month = datetime.strptime(self.request.GET['month'], '%Y-%m-%d').date()
+            # month = datetime.strptime(self.request.GET['month'], '%Y-%m-%d').date()
+            month = timezone.datetime.strptime(self.request.GET['month'], '%Y-%m-%d').date()
         else:
             # otherwise just displaying current month data
-            today = datetime.today()
+            today = timezone.now()
             month = date(today.year, today.month, 1)
 
         # calculate current, previous and next month details;
@@ -42,7 +44,7 @@ class JournalView(TemplateView):
         number_of_days = monthrange(myear, mmonth)[1]
         context['month_header'] = [{
             'day': d,
-            'verbose': day_abbr[weekday(myear, mmonth, d)][:2]}
+            'verbose': day_abbr[weekday(myear, mmonth, d)][:3]}
             for d in range(1, number_of_days + 1)]
 
         # get all students from database, or just one if we need to
@@ -99,7 +101,7 @@ class JournalView(TemplateView):
         data = request.POST
 
         # prepare student, dates and presence data
-        current_date = datetime.strptime(data['date'], '%Y-%m-%d').date()
+        current_date = timezone.datetime.strptime(data['date'], '%Y-%m-%d').date()
         month = date(current_date.year, current_date.month, 1)
         present = data['present'] and True or False
         student = Student.objects.get(pk=data['pk'])
