@@ -1,6 +1,8 @@
 from datetime import date, datetime
 from django.utils import timezone
 from dateutil.relativedelta import relativedelta
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 from calendar import monthrange, weekday, day_abbr
 
 from django.core.urlresolvers import reverse
@@ -115,3 +117,7 @@ class JournalView(TemplateView):
 
         # return  success status
         return JsonResponse({'status': 'success'})
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(JournalView, self).dispatch(*args, **kwargs)

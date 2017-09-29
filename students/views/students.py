@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 from django.forms import ModelForm
 from django.contrib import messages
 from django.views.generic import UpdateView, CreateView, \
@@ -60,6 +62,7 @@ class StudentList(ListView):
     #     return qs.order_by('last_name')
 
 
+# @login_required
 def students_list(request):
     # check if we need to show only one group of students
     current_group = get_current_group(request)
@@ -137,7 +140,7 @@ class StudentCreateForm(ModelForm):
         self.helper.add_input(Submit('save_button', _(u'Save'), css_class='btn btn-primary'))
         self.helper.add_input(Submit('cancel_button', _(u'Cancel'), css_class='btn btn-link'))
         self.helper.add_input(Reset('reset_button', _(u'Reset'), css_class='btn btn-reset'))
-
+        
 
 class StudentUpdateForm(StudentCreateForm):
 
@@ -166,6 +169,10 @@ class StudentCreateView(CreateView):
         else:
             return super(StudentCreateView, self).post(request,*args,**kwargs)
 
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(StudentCreateView, self).dispatch(*args, **kwargs)
+
 
 class StudentUpdateView(UpdateView):
     model = Student
@@ -185,6 +192,10 @@ class StudentUpdateView(UpdateView):
         else:
             return super(StudentUpdateView, self).post(request,*args,**kwargs)
 
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(StudentUpdateView, self).dispatch(*args, **kwargs)
+
 
 class StudentDeleteView(DeleteView):
     model = Student
@@ -194,3 +205,8 @@ class StudentDeleteView(DeleteView):
         list(messages.get_messages(self.request))
         messages.success(self.request, _(u'Student deleted Successfully!'))
         return reverse('home')
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(StudentDeleteView, self).dispatch(*args, **kwargs)
+

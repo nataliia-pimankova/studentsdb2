@@ -65,6 +65,8 @@ ROOT_URLCONF = 'studentsdb.urls'
 # Activate registration of new users
 REGISTRATION_OPEN = True
 TEMPLATE_REGISTRATION = os.path.join(BASE_DIR, 'templates')
+LOGIN_URL = 'users:auth_login'
+LOGOUT_URL = 'users:auth_logout'
 
 TEMPLATES = [
     {

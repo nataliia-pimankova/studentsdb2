@@ -5,6 +5,8 @@ from django.forms import ModelForm, ModelChoiceField, HiddenInput
 from django.views.generic import UpdateView, CreateView, DeleteView
 from django.contrib import messages
 from django.utils.translation import ugettext as _
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Reset, Layout, Field
@@ -14,6 +16,7 @@ from ..util import paginate, get_current_group
 
 
 # Views for Results.
+@login_required
 def results_list (request):
     # check if we need to show only one group of students
     current_group = get_current_group(request)
@@ -101,6 +104,10 @@ class ResultCreateView(CreateView):
         else:
             return super(ResultCreateView, self).post(request,*args,**kwargs)
 
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ResultCreateView, self).dispatch(*args, **kwargs)
+
 
 class ResultUpdateView(UpdateView):
     model = Result
@@ -118,6 +125,10 @@ class ResultUpdateView(UpdateView):
         else:
             return super(ResultUpdateView, self).post(request,*args,**kwargs)
 
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ResultUpdateView, self).dispatch(*args, **kwargs)
+
 
 class ResultDeleteView(DeleteView):
     model = Result
@@ -126,4 +137,8 @@ class ResultDeleteView(DeleteView):
     def get_success_url(self):
         messages.success(self.request, _(u'Result deleted successfully!'))
         return reverse('results')
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ResultDeleteView, self).dispatch(*args, **kwargs)
 

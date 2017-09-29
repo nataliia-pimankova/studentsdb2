@@ -5,6 +5,8 @@ from django.forms import ModelForm
 from django.views.generic import ListView, UpdateView, CreateView, DeleteView
 from django.contrib import messages
 from django.utils.translation import ugettext as _
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
@@ -38,6 +40,10 @@ class GroupList(ListView):
 
         # return context mapping
         return context
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(GroupList, self).dispatch(*args, **kwargs)
 
 
 class GroupCreateForm(ModelForm):
@@ -96,6 +102,10 @@ class GroupCreateView(CreateView):
         else:
             return super(GroupCreateView, self).post(request,*args,**kwargs)
 
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(GroupCreateView, self).dispatch(*args, **kwargs)
+
 
 class GroupUpdateView(UpdateView):
     model = Group
@@ -113,6 +123,10 @@ class GroupUpdateView(UpdateView):
         else:
             return super(GroupUpdateView, self).post(request,*args,**kwargs)
 
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(GroupUpdateView, self).dispatch(*args, **kwargs)
+
 
 class GroupDeleteView(DeleteView):
     model = Group
@@ -121,4 +135,8 @@ class GroupDeleteView(DeleteView):
     def get_success_url(self):
         messages.success(self.request, _(u"Group deleted successfully!"))
         return reverse('groups')
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(GroupDeleteView, self).dispatch(*args, **kwargs)
 

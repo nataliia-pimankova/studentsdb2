@@ -3,6 +3,8 @@ from django.core.urlresolvers import reverse
 from django.forms import ModelForm
 from django.views.generic import UpdateView, CreateView, DeleteView, ListView
 from django.utils.translation import ugettext as _
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from crispy_forms.helper import FormHelper
@@ -48,6 +50,10 @@ class ExamList(ListView):
 
         # return context mapping
         return context
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ExamList, self).dispatch(*args, **kwargs)
 
 
 class ExamCreateForm(ModelForm):
@@ -105,6 +111,10 @@ class ExamCreateView(CreateView):
         else:
             return super(ExamCreateView, self).post(request, *args, **kwargs)
 
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ExamCreateView, self).dispatch(*args, **kwargs)
+
 
 class ExamUpdateView(UpdateView):
     model = Exam
@@ -122,6 +132,10 @@ class ExamUpdateView(UpdateView):
         else:
             return super(ExamUpdateView, self).post(request, *args, **kwargs)
 
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ExamUpdateView, self).dispatch(*args, **kwargs)
+
 
 class ExamDeleteView(DeleteView):
     model = Exam
@@ -130,3 +144,7 @@ class ExamDeleteView(DeleteView):
     def get_success_url(self):
         messages.success(self.request, _(u'Exam deleted successfully!'))
         return reverse('exams')
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ExamDeleteView, self).dispatch(*args, **kwargs)

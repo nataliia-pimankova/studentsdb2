@@ -8,6 +8,8 @@ from django.core.urlresolvers import reverse
 from django.views.generic.edit import FormView
 from django.contrib import messages
 from django.utils.translation import ugettext as _
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
@@ -116,3 +118,7 @@ class ContactView(FormView):
             messages.success(self.request, message)
 
         return super(ContactView, self).form_valid(form)
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ContactView, self).dispatch(*args, **kwargs)
