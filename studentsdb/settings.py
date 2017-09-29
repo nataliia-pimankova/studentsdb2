@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'smart_selects',
     'contact_form',  # it is not required
+    'registration',
     'students',
 ]
 
@@ -61,10 +62,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'studentsdb.urls'
 
+# Activate registration of new users
+REGISTRATION_OPEN = True
+TEMPLATE_REGISTRATION = os.path.join(BASE_DIR, 'templates')
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_REGISTRATION],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

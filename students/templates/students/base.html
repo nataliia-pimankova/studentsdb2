@@ -28,10 +28,11 @@
       <div class="row" id="header">
 
         <!-- Logo -->
-        <div class="col-xs-8">
+        <div class="col-xs-6">
           <h1>{% block logo %}{% trans "Students Accounting Service" %}{%  endblock logo%}</h1>
         </div>
 
+        {% if user.is_authenticated %}
         <!-- Groups Selector -->
         <div class="col-xs-4" id="group-selector">
           {% block groups_selector %}
@@ -46,6 +47,21 @@
           </select>
           {% endblock groups_selector %}
         </div>
+
+          <!-- User's toolbar for authenticated users -->
+        <div class="col-xs-2" id="user-toolbar">
+          <span>{{ user.username }}</span> |
+          <a href="{% url 'users:auth_logout' %}">{% trans "Logout" %}</a>
+        </div>
+
+        {% else %}
+
+          <!-- User's toolbar for anonymous users -->
+        <div class="col-xs-6" id="user-toolbar">
+          <a href="{% url 'users:auth_login' %}">{% trans "Login" %}</a> |
+          <a href="{% url 'users:registration_register' %}">{% trans "Register" %}</a>
+        </div>
+        {% endif %}
 
       </div>
       <!-- End Header -->
