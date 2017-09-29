@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from modeltranslation.translator import translator, TranslationOptions
 from students.models import Student, Group, Exam
 

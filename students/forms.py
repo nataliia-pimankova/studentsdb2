@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+from django.utils.translation import ugettext as _
 from django.core.urlresolvers import reverse
 from django.core.mail import send_mail
 from django.contrib import messages
@@ -9,22 +9,23 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from contact_form.forms import ContactForm
 
+
 class MyContactForm(ContactForm):
     name = forms.CharField(
         max_length=100,
-        label=u"Ваше ім'я"
+        label=_(u"Your Name")
     )
 
     email = forms.EmailField(
-            label=u"Ваша Емейл Адреса"
+            label=_(u"Your Email Address")
         )
 
     user_subject = forms.CharField(
-            label=u"Заголовок листа",
+            label=_(u"Subject"),
             max_length=128
         )
     body = forms.CharField(
-            label=u"Текст повідомлення",
+            label=_(u"Body"),
             max_length=2560,
             widget=forms.Textarea
         )
@@ -45,11 +46,11 @@ class MyContactForm(ContactForm):
         self.helper.label_class = 'col-sm-2 control-label'
         self.helper.field_class = 'col-sm-10'
         # form buttons
-        self.helper.add_input(Submit('send_button', u'Надіслати'))
+        self.helper.add_input(Submit('send_button', _(u'Send')))
 
-    # для відправки листа з html шаблоном
+    # to send with html template
     def message(self):
-        # html шаблон для відправки листів
+        # html template for sending messages
         template_name = 'contact_form/html/contact_form.html'
         return loader.render_to_string(template_name,
                              self.get_context())
@@ -65,9 +66,9 @@ class MyContactForm(ContactForm):
             send_mail(fail_silently=fail_silently, html_message=message_dict['message'], **self.get_message_dict())
         except Exception, e:
             list(messages.get_messages(self.request))
-            messages.warning(self.request, u"Під час відправки листа виникла непередбачувана " \
-                                          u"помилка. Спробуйте скористатись даною формою пізніше.")
+            messages.warning(self.request, _(u"An error occured during email transfer. Please, "
+                            u"try again later."))
         else:
             list(messages.get_messages(self.request))
-            messages.error(self.request, u'Повідомлення успішно надіслане!')
+            messages.error(self.request, _(u'Message sent successfully!'))
 

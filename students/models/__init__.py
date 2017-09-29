@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+
 from .students import Student
 from .Group import Group
 from .Exam import Exam

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-20 09:00+0000\n"
+"POT-Creation-Date: 2017-09-29 19:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,11 +25,43 @@ msgstr ""
 msgid "Student belongs to another group."
 msgstr ""
 
+#: apps.py:9
+msgid "Students Database"
+msgstr ""
+
+#: forms.py:16
+msgid "Your Name"
+msgstr ""
+
+#: forms.py:20 views/contact_admin.py:42
+msgid "Your Email Address"
+msgstr ""
+
+#: forms.py:24
+msgid "Subject"
+msgstr ""
+
+#: forms.py:28
+msgid "Body"
+msgstr ""
+
+#: forms.py:49 views/contact_admin.py:39
+msgid "Send"
+msgstr ""
+
+#: forms.py:69 views/contact_admin.py:72 views/contact_admin.py:109
+msgid "An error occured during email transfer. Please, try again later."
+msgstr ""
+
+#: forms.py:73 views/contact_admin.py:78 views/contact_admin.py:115
+msgid "Message sent successfully!"
+msgstr ""
+
 #: models/Exam.py:12 models/Result.py:24
 msgid "Exam"
 msgstr ""
 
-#: models/Exam.py:13 templates/students/base.html:61
+#: models/Exam.py:13 templates/students/base.html:81
 #: templates/students/exams_list.html:6 templates/students/exams_list.html:8
 msgid "Exams"
 msgstr ""
@@ -60,7 +92,7 @@ msgstr ""
 msgid "Notes"
 msgstr ""
 
-#: models/Group.py:12 templates/students/base.html:60
+#: models/Group.py:12 templates/students/base.html:80
 #: templates/students/groups_list.html:6 templates/students/groups_list.html:8
 msgid "Groups"
 msgstr ""
@@ -79,7 +111,7 @@ msgstr ""
 msgid "Result"
 msgstr ""
 
-#: models/Result.py:14 templates/students/base.html:62
+#: models/Result.py:14 templates/students/base.html:82
 #: templates/students/exams_list.html:80
 #: templates/students/students_list.html:102
 msgid "Results"
@@ -106,7 +138,7 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: models/students.py:12 templates/students/base.html:57
+#: models/students.py:12 templates/students/base.html:77
 #: templates/students/student_list.html:6
 #: templates/students/student_list.html:8
 #: templates/students/students_list.html:6
@@ -152,8 +184,8 @@ msgstr ""
 msgid "Please, correct the following errors."
 msgstr ""
 
-#: templates/students/base.html:8 templates/students/base.html:32
-#: templates/students/base.html:113
+#: templates/students/base.html:8 templates/students/base.html:36
+#: templates/students/base.html:133
 msgid "Students Accounting Service"
 msgstr ""
 
@@ -161,32 +193,44 @@ msgstr ""
 msgid "App to manage students database"
 msgstr ""
 
-#: templates/students/base.html:38
+#: templates/students/base.html:43
 msgid "Group:"
 msgstr ""
 
-#: templates/students/base.html:40
+#: templates/students/base.html:45
 msgid "All Students"
 msgstr ""
 
 #: templates/students/base.html:58
+msgid "Logout"
+msgstr ""
+
+#: templates/students/base.html:65
+msgid "Login"
+msgstr ""
+
+#: templates/students/base.html:66
+msgid "Register"
+msgstr ""
+
+#: templates/students/base.html:78
 msgid "Students SL"
 msgstr ""
 
-#: templates/students/base.html:59 templates/students/student_list.html:93
+#: templates/students/base.html:79 templates/students/student_list.html:93
 #: templates/students/students_list.html:99
 msgid "Journal"
 msgstr ""
 
-#: templates/students/base.html:63
+#: templates/students/base.html:83
 msgid "Contact"
 msgstr ""
 
-#: templates/students/base.html:64
+#: templates/students/base.html:84
 msgid "Django Contact"
 msgstr ""
 
-#: templates/students/base.html:107
+#: templates/students/base.html:127
 msgid "Change"
 msgstr ""
 
@@ -233,7 +277,7 @@ msgstr ""
 
 #: templates/students/exams_list.html:68 templates/students/exams_list.html:83
 #: templates/students/groups_list.html:58
-#: templates/students/groups_list.html:76 templates/students/journal.html:58
+#: templates/students/groups_list.html:76 templates/students/journal.html:57
 #: templates/students/results_list.html:65
 #: templates/students/results_list.html:66
 #: templates/students/results_list.html:67
@@ -356,28 +400,12 @@ msgstr ""
 msgid "Students List"
 msgstr ""
 
-#: views/contact_admin.py:39
-msgid "Send"
-msgstr ""
-
-#: views/contact_admin.py:42
-msgid "Your Email Address"
-msgstr ""
-
 #: views/contact_admin.py:46
 msgid "Email Subject"
 msgstr ""
 
 #: views/contact_admin.py:50
 msgid "Email Body"
-msgstr ""
-
-#: views/contact_admin.py:72 views/contact_admin.py:109
-msgid "An error occured during email transfer. Please, try again later."
-msgstr ""
-
-#: views/contact_admin.py:78 views/contact_admin.py:115
-msgid "Message sent successfully!"
 msgstr ""
 
 #: views/exams.py:79 views/groups.py:71 views/results.py:76

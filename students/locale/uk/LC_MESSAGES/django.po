@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-20 09:00+0000\n"
+"POT-Creation-Date: 2017-09-29 19:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,11 +27,51 @@ msgstr "Студент є старостою іншої групи"
 msgid "Student belongs to another group."
 msgstr "Студент належить до іншої групи"
 
+#: apps.py:9
+#, fuzzy
+#| msgid "Students List"
+msgid "Students Database"
+msgstr "Список Студентів"
+
+#: forms.py:16
+#, fuzzy
+#| msgid "First Name"
+msgid "Your Name"
+msgstr "Ім'я"
+
+#: forms.py:20 views/contact_admin.py:42
+msgid "Your Email Address"
+msgstr "Ваша Емейл Адреса"
+
+#: forms.py:24
+#, fuzzy
+#| msgid "Email Subject"
+msgid "Subject"
+msgstr "Заголовок Листа"
+
+#: forms.py:28
+msgid "Body"
+msgstr ""
+
+#: forms.py:49 views/contact_admin.py:39
+msgid "Send"
+msgstr "Надіслати"
+
+#: forms.py:69 views/contact_admin.py:72 views/contact_admin.py:109
+msgid "An error occured during email transfer. Please, try again later."
+msgstr ""
+"Під час відправки листа виникла непередбачувана помилка. Спробуйте "
+"скористатись даною формою пізніше."
+
+#: forms.py:73 views/contact_admin.py:78 views/contact_admin.py:115
+msgid "Message sent successfully!"
+msgstr "Повідомлення успішно надіслане!"
+
 #: models/Exam.py:12 models/Result.py:24
 msgid "Exam"
 msgstr "Іспит"
 
-#: models/Exam.py:13 templates/students/base.html:61
+#: models/Exam.py:13 templates/students/base.html:81
 #: templates/students/exams_list.html:6 templates/students/exams_list.html:8
 msgid "Exams"
 msgstr "Іспити"
@@ -62,7 +102,7 @@ msgstr "Група"
 msgid "Notes"
 msgstr "Нотатки"
 
-#: models/Group.py:12 templates/students/base.html:60
+#: models/Group.py:12 templates/students/base.html:80
 #: templates/students/groups_list.html:6 templates/students/groups_list.html:8
 msgid "Groups"
 msgstr "Групи"
@@ -81,7 +121,7 @@ msgstr "Староста"
 msgid "Result"
 msgstr "Результат"
 
-#: models/Result.py:14 templates/students/base.html:62
+#: models/Result.py:14 templates/students/base.html:82
 #: templates/students/exams_list.html:80
 #: templates/students/students_list.html:102
 msgid "Results"
@@ -108,7 +148,7 @@ msgstr "Студент"
 msgid "Date"
 msgstr "Дата"
 
-#: models/students.py:12 templates/students/base.html:57
+#: models/students.py:12 templates/students/base.html:77
 #: templates/students/student_list.html:6
 #: templates/students/student_list.html:8
 #: templates/students/students_list.html:6
@@ -154,8 +194,8 @@ msgstr "Зв'язок з адміністратором"
 msgid "Please, correct the following errors."
 msgstr "Будь-ласка, виправте наступні помилки"
 
-#: templates/students/base.html:8 templates/students/base.html:32
-#: templates/students/base.html:113
+#: templates/students/base.html:8 templates/students/base.html:36
+#: templates/students/base.html:133
 msgid "Students Accounting Service"
 msgstr "Сервіс Обліку Студентів"
 
@@ -163,32 +203,44 @@ msgstr "Сервіс Обліку Студентів"
 msgid "App to manage students database"
 msgstr "Система Обліку Студентів Навчального Закладу"
 
-#: templates/students/base.html:38
+#: templates/students/base.html:43
 msgid "Group:"
 msgstr "Група:"
 
-#: templates/students/base.html:40
+#: templates/students/base.html:45
 msgid "All Students"
 msgstr "Усі Студенти"
 
 #: templates/students/base.html:58
+msgid "Logout"
+msgstr ""
+
+#: templates/students/base.html:65
+msgid "Login"
+msgstr ""
+
+#: templates/students/base.html:66
+msgid "Register"
+msgstr ""
+
+#: templates/students/base.html:78
 msgid "Students SL"
 msgstr "Студенти SL"
 
-#: templates/students/base.html:59 templates/students/student_list.html:93
+#: templates/students/base.html:79 templates/students/student_list.html:93
 #: templates/students/students_list.html:99
 msgid "Journal"
 msgstr "Відвідування"
 
-#: templates/students/base.html:63
+#: templates/students/base.html:83
 msgid "Contact"
 msgstr "Контакт"
 
-#: templates/students/base.html:64
+#: templates/students/base.html:84
 msgid "Django Contact"
 msgstr "Django Контакт"
 
-#: templates/students/base.html:107
+#: templates/students/base.html:127
 msgid "Change"
 msgstr "Змінити"
 
@@ -235,7 +287,7 @@ msgstr "Дії"
 
 #: templates/students/exams_list.html:68 templates/students/exams_list.html:83
 #: templates/students/groups_list.html:58
-#: templates/students/groups_list.html:76 templates/students/journal.html:58
+#: templates/students/groups_list.html:76 templates/students/journal.html:57
 #: templates/students/results_list.html:65
 #: templates/students/results_list.html:66
 #: templates/students/results_list.html:67
@@ -362,14 +414,6 @@ msgstr "Ви дійсно хочете видалити студента \"%(obj
 msgid "Students List"
 msgstr "Список Студентів"
 
-#: views/contact_admin.py:39
-msgid "Send"
-msgstr "Надіслати"
-
-#: views/contact_admin.py:42
-msgid "Your Email Address"
-msgstr "Ваша Емейл Адреса"
-
 #: views/contact_admin.py:46
 msgid "Email Subject"
 msgstr "Заголовок Листа"
@@ -377,16 +421,6 @@ msgstr "Заголовок Листа"
 #: views/contact_admin.py:50
 msgid "Email Body"
 msgstr "Текст Повідомлення"
-
-#: views/contact_admin.py:72 views/contact_admin.py:109
-msgid "An error occured during email transfer. Please, try again later."
-msgstr ""
-"Під час відправки листа виникла непередбачувана помилка. Спробуйте "
-"скористатись даною формою пізніше."
-
-#: views/contact_admin.py:78 views/contact_admin.py:115
-msgid "Message sent successfully!"
-msgstr "Повідомлення успішно надіслане!"
 
 #: views/exams.py:79 views/groups.py:71 views/results.py:76
 #: views/students.py:137

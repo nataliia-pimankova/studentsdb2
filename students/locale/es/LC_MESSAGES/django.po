@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-21 06:26+0000\n"
+"POT-Creation-Date: 2017-09-29 19:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,11 +26,51 @@ msgstr "El estudiante es un líder de otro grupo."
 msgid "Student belongs to another group."
 msgstr "El estudiante pertenece a otro grupo."
 
+#: apps.py:9
+#, fuzzy
+#| msgid "Students List"
+msgid "Students Database"
+msgstr "Lista de Estudiantes"
+
+#: forms.py:16
+#, fuzzy
+#| msgid "First Name"
+msgid "Your Name"
+msgstr "Nombre de Pila"
+
+#: forms.py:20 views/contact_admin.py:42
+msgid "Your Email Address"
+msgstr "Tu correo electrónico"
+
+#: forms.py:24
+#, fuzzy
+#| msgid "Email Subject"
+msgid "Subject"
+msgstr "Assunto del email"
+
+#: forms.py:28
+msgid "Body"
+msgstr ""
+
+#: forms.py:49 views/contact_admin.py:39
+msgid "Send"
+msgstr "Enviar"
+
+#: forms.py:69 views/contact_admin.py:72 views/contact_admin.py:109
+msgid "An error occured during email transfer. Please, try again later."
+msgstr ""
+"Se ha producido un error durante la transferencia de correo electrónico. Por "
+"favor, inténtelo de nuevo más tarde"
+
+#: forms.py:73 views/contact_admin.py:78 views/contact_admin.py:115
+msgid "Message sent successfully!"
+msgstr "¡Mensaje enviado con éxito!"
+
 #: models/Exam.py:12 models/Result.py:24
 msgid "Exam"
 msgstr "Examen"
 
-#: models/Exam.py:13 templates/students/base.html:61
+#: models/Exam.py:13 templates/students/base.html:81
 #: templates/students/exams_list.html:6 templates/students/exams_list.html:8
 msgid "Exams"
 msgstr "Exámenes"
@@ -61,7 +101,7 @@ msgstr "Grupo"
 msgid "Notes"
 msgstr "Notas adicionales"
 
-#: models/Group.py:12 templates/students/base.html:60
+#: models/Group.py:12 templates/students/base.html:80
 #: templates/students/groups_list.html:6 templates/students/groups_list.html:8
 msgid "Groups"
 msgstr "Grupos"
@@ -80,7 +120,7 @@ msgstr "Líder"
 msgid "Result"
 msgstr "Resultado"
 
-#: models/Result.py:14 templates/students/base.html:62
+#: models/Result.py:14 templates/students/base.html:82
 #: templates/students/exams_list.html:80
 #: templates/students/students_list.html:102
 msgid "Results"
@@ -107,7 +147,7 @@ msgstr "Estudiante"
 msgid "Date"
 msgstr "Fecha"
 
-#: models/students.py:12 templates/students/base.html:57
+#: models/students.py:12 templates/students/base.html:77
 #: templates/students/student_list.html:6
 #: templates/students/student_list.html:8
 #: templates/students/students_list.html:6
@@ -153,8 +193,8 @@ msgstr "Formulario de Contacto"
 msgid "Please, correct the following errors."
 msgstr "Por favor corrige los siguientes errores."
 
-#: templates/students/base.html:8 templates/students/base.html:32
-#: templates/students/base.html:113
+#: templates/students/base.html:8 templates/students/base.html:36
+#: templates/students/base.html:133
 msgid "Students Accounting Service"
 msgstr "Servicio de Contabilidad de Estudiantes"
 
@@ -162,32 +202,44 @@ msgstr "Servicio de Contabilidad de Estudiantes"
 msgid "App to manage students database"
 msgstr "Aplicación para administrar la base de datos de estudiantes"
 
-#: templates/students/base.html:38
+#: templates/students/base.html:43
 msgid "Group:"
 msgstr "Grupo:"
 
-#: templates/students/base.html:40
+#: templates/students/base.html:45
 msgid "All Students"
 msgstr "Todos los Estudiantes"
 
 #: templates/students/base.html:58
+msgid "Logout"
+msgstr ""
+
+#: templates/students/base.html:65
+msgid "Login"
+msgstr ""
+
+#: templates/students/base.html:66
+msgid "Register"
+msgstr ""
+
+#: templates/students/base.html:78
 msgid "Students SL"
 msgstr "Estudiantes SL"
 
-#: templates/students/base.html:59 templates/students/student_list.html:93
+#: templates/students/base.html:79 templates/students/student_list.html:93
 #: templates/students/students_list.html:99
 msgid "Journal"
 msgstr "Revista"
 
-#: templates/students/base.html:63
+#: templates/students/base.html:83
 msgid "Contact"
 msgstr "Contacto"
 
-#: templates/students/base.html:64
+#: templates/students/base.html:84
 msgid "Django Contact"
 msgstr "Django Contacto"
 
-#: templates/students/base.html:107
+#: templates/students/base.html:127
 msgid "Change"
 msgstr "Cambio"
 
@@ -234,7 +286,7 @@ msgstr "Acciones"
 
 #: templates/students/exams_list.html:68 templates/students/exams_list.html:83
 #: templates/students/groups_list.html:58
-#: templates/students/groups_list.html:76 templates/students/journal.html:58
+#: templates/students/groups_list.html:76 templates/students/journal.html:57
 #: templates/students/results_list.html:65
 #: templates/students/results_list.html:66
 #: templates/students/results_list.html:67
@@ -287,13 +339,16 @@ msgid ""
 "    <a href=\"%(students_add_url)s\" class=\"btn btn-info\">add first</a>."
 msgstr ""
 "Todavía no hay un solo estudiante en la base de datos. Por favor\n"
-"    <a href=\"%(students_add_url)s\" class=\"btn btn-info\">agregue primero</a>."
+"    <a href=\"%(students_add_url)s\" class=\"btn btn-info\">agregue primero</"
+"a>."
 
 #: templates/students/journal.html:21
 msgid ""
 "Changes to the journal are saved automatically with each click in the cell "
 "of the table."
-msgstr "Los cambios de registro ocurren automáticamente cada vez que se hace clic en una celda de tabla"
+msgstr ""
+"Los cambios de registro ocurren automáticamente cada vez que se hace clic en "
+"una celda de tabla"
 
 #: templates/students/journal.html:22
 msgid "Saving is in progress..."
@@ -359,14 +414,6 @@ msgstr "¿Realmente desea eliminar el estudiante: \"%(object)s\"?"
 msgid "Students List"
 msgstr "Lista de Estudiantes"
 
-#: views/contact_admin.py:39
-msgid "Send"
-msgstr "Enviar"
-
-#: views/contact_admin.py:42
-msgid "Your Email Address"
-msgstr "Tu correo electrónico"
-
 #: views/contact_admin.py:46
 msgid "Email Subject"
 msgstr "Assunto del email"
@@ -374,15 +421,6 @@ msgstr "Assunto del email"
 #: views/contact_admin.py:50
 msgid "Email Body"
 msgstr "Cuerpo del Correo Electrónico"
-
-#: views/contact_admin.py:72 views/contact_admin.py:109
-msgid "An error occured during email transfer. Please, try again later."
-msgstr "Se ha producido un error durante la transferencia de correo electrónico. "
-"Por favor, inténtelo de nuevo más tarde"
-
-#: views/contact_admin.py:78 views/contact_admin.py:115
-msgid "Message sent successfully!"
-msgstr "¡Mensaje enviado con éxito!"
 
 #: views/exams.py:79 views/groups.py:71 views/results.py:76
 #: views/students.py:137
