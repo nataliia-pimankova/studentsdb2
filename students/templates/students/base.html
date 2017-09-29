@@ -10,7 +10,11 @@
     <meta name="description" value="{% trans "App to manage students database" %}">
 
     <!-- Include Styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <!--<link rel="stylesheet" href="{{ PORTAL_URL }}{% static 'css/bootstrap3.3.7.min.css' %}">-->
 
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.0.0/css/bootstrap-datetimepicker.min.css">
@@ -34,7 +38,7 @@
 
         {% if user.is_authenticated %}
         <!-- Groups Selector -->
-        <div class="col-xs-4" id="group-selector">
+        <div class="col-xs-4 " id="group-selector">
           {% block groups_selector %}
           <strong>{% trans "Group:" %}</strong>
           <select class="form-control">
@@ -50,7 +54,7 @@
 
           <!-- User's toolbar for authenticated users -->
         <div class="col-xs-2" id="user-toolbar">
-          <span>{{ user.username }}</span> |
+          <span>{% if user.first_name or user.last_name%}{{ user.first_name }} {{ user.last_name }}<br />{% else %}{{ user.username }}{% endif %}</span> |
           <a href="{% url 'users:auth_logout' %}">{% trans "Logout" %}</a>
         </div>
 
@@ -158,7 +162,8 @@
 {#    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>#}
     <script src="{% static 'js/moment-with-locales.min.js' %}"></script>
     <script src="{% static 'js/jquery.cookie.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!--<script src="{% static 'js/bootstrap3.3.7.min.js' %}"></script>-->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.0.0/js/bootstrap-datetimepicker.min.js"></script>
     <!--<script src="{% static 'js/bootstrap-datetimepicker4.17.47.min.js' %}"></script>-->

@@ -6,6 +6,15 @@
 
 {% block title %}{% trans "Login Form" %}{% endblock title %}
 
+{% block status_messages %}
+  {% if form.errors %}
+    <div class="alert alert-warning" role="alert">
+    {% trans "Please, correct the following errors." %}
+    {{ form.non_field_erros }}
+    </div>
+  {% endif %}
+{% endblock status_messages %}
+
 {% block content %}
   <form action="{% url 'users:auth_login' %}" method="post">
     {% csrf_token %}
@@ -14,11 +23,13 @@
     <div class="form_group">
       <label for="login">{% trans "Your Username" %}</label>
       <input type="text" class="form-control" id="login" value="" name="username" />
+      <span class="help-block">{{ form.errors.username.as_text }}</span>
     </div>
 
     <div class="form_group">
       <label for="password">{% trans "Your Password" %}</label>
       <input type="password" class="form-control" id="password" value="" name="password" />
+      <span class="help-block">{{ form.errors.password.as_text }}</span>
     </div>
 
     <button type="submit" class="btn btn-primary">{% trans "Login" %}</button>
