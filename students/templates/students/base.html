@@ -76,12 +76,19 @@
           <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" {% if request.path == '/' %}class="active"{% elif '/students' in request.path %}class="active"{% endif %}><a href="{% url 'home' %}">{% trans "Students" %}</a></li>
             <!--<li role="presentation" {% if '/student_list/' in request.path %}class="active"{% endif %}><a href="{% url 'student_list' %}">{% trans "Students SL" %}</a></li>-->
+          {% if user.is_authenticated %}
             <li role="presentation" {% if '/journal' in request.path %}class="active"{% endif %}><a href="{% url 'journal' %}">{% trans "Journal" %}</a></li>
             <li role="presentation" {% if '/groups' in request.path %}class="active"{% endif %}><a href="{% url 'groups' %}">{% trans "Groups" %}</a></li>
             <li role="presentation" {% if '/exams' in request.path %}class="active"{% endif %}><a href="{% url 'exams' %}">{% trans "Exams" %}</a></li>
             <li role="presentation" {% if '/results' in request.path %}class="active"{% endif %}><a href="{% url 'results' %}">{% trans "Results" %}</a></li>
+          {% endif %}
+
+          {% if perms.auth.add_user %}
             <li role="presentation" {% if '/contact_admin' in request.path %}class="active"{% endif %}><a href="{% url 'contact_admin' %}">{% trans "Contact" %}</a></li>
+          {% endif %}
+          {% if user.is_authenticated %}
             <li role="presentation" {% if '/contact/' in request.path %}class="active"{% endif %}><a href="{% url 'contact_form' %}">{% trans "Django Contact" %}</a></li>
+          {% endif %}
           </ul>
         </div>
       </div>

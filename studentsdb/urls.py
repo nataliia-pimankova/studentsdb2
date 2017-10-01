@@ -16,10 +16,11 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
+from django.contrib.auth.decorators import login_required
 from students.views import students, groups, exams, results, contact_admin
 from .settings import MEDIA_ROOT, DEBUG
 from django.views import static
-from students.views.contact_admin import ContactView
+from students.views.contact_admin import ContactView, contact_admin
 from students.views.journal import JournalView
 from django.views.i18n import JavaScriptCatalog
 from django.views.generic import TemplateView, RedirectView
@@ -53,13 +54,14 @@ urlpatterns = [
     url(r'^exams/(?P<pk>\d+)/delete/$', exams.ExamDeleteView.as_view(), name='exams-delete'),
 
     # Results Urls
-    url(r'^results/$', results.results_list, name='results'),
+    url(r'^results/$', login_required(results.results_list), name='results'),
     url(r'^results/add/$', results.ResultCreateView.as_view(), name='results_add'),
     url(r'^results/(?P<pk>\d+)/edit/$', results.ResultUpdateView.as_view(), name='results_edit'),
     url(r'^results/(?P<pk>\d+)/delete/$', results.ResultDeleteView.as_view(), name='results_delete'),
 
     # Contact Admin Form
-    url(r'^contact_admin/$', ContactView.as_view(), name='contact_admin'),
+    # url(r'^contact_admin/$', ContactView.as_view(), name='contact_admin'),
+    url(r'^contact_admin/$', contact_admin, name='contact_admin'),
     url(r'^contact/$', MyContactFormView.as_view(form_class=MyContactForm),name='contact_form'),
     url(r'^contact/sent/$', TemplateView.as_view(template_name='contact_form/contact_form_sent.html'), name='contact_form_sent'),
 

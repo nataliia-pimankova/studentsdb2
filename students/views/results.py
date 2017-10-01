@@ -16,7 +16,7 @@ from ..util import paginate, get_current_group
 
 
 # Views for Results.
-@login_required
+# @login_required
 def results_list (request):
     # check if we need to show only one group of students
     current_group = get_current_group(request)
