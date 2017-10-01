@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'contact_form',  # it is not required
     'registration',
     'students',
+    'studentsdb',
 ]
 
 MIDDLEWARE = [
